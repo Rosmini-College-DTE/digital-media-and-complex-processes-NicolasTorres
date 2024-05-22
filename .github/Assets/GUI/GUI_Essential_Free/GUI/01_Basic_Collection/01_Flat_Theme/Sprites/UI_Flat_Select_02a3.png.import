@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbrwxl8ikmdtn"
-path="res://.godot/imported/UI_Flat_Select_02a3.png-1796decd76ac6b8c71a56fb5ae09e4d9.ctex"
+path="res://.godot/imported/UI_Flat_Select_02a3.png-44fc0be712bdaf8874966d36a0f93198.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/GUI_Essential_Free/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Select_02a3.png"
-dest_files=["res://.godot/imported/UI_Flat_Select_02a3.png-1796decd76ac6b8c71a56fb5ae09e4d9.ctex"]
+source_file="res://Assets/GUI/GUI_Essential_Free/GUI/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Select_02a3.png"
+dest_files=["res://.godot/imported/UI_Flat_Select_02a3.png-44fc0be712bdaf8874966d36a0f93198.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmvfetd68r7oh"
-path="res://.godot/imported/UI_Flat_Scrollbar_01.png-ec5bc82a2feeebb1dd726f86076c7ad2.ctex"
+path="res://.godot/imported/UI_Flat_Scrollbar_01.png-87fcf24c92bf7150240934c2fb5b2a9d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/GUI_Essential_Free/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Scrollbar_01.png"
-dest_files=["res://.godot/imported/UI_Flat_Scrollbar_01.png-ec5bc82a2feeebb1dd726f86076c7ad2.ctex"]
+source_file="res://Assets/GUI/GUI_Essential_Free/GUI/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Scrollbar_01.png"
+dest_files=["res://.godot/imported/UI_Flat_Scrollbar_01.png-87fcf24c92bf7150240934c2fb5b2a9d.ctex"]
 
 [params]
 

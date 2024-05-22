@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3ee4q5vjij1j"
-path="res://.godot/imported/UI_Flat_Button_Small_Release_02a2.png-a0919a14ea84f4a2a5b9f73259caf2d5.ctex"
+uid="uid://y38qj4meu7av"
+path="res://.godot/imported/Brick wall.jpeg-b541632d02a721ab29e65af642045955.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/GUI_Essential_Free/GUI/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Button_Small_Release_02a2.png"
-dest_files=["res://.godot/imported/UI_Flat_Button_Small_Release_02a2.png-a0919a14ea84f4a2a5b9f73259caf2d5.ctex"]
+source_file="res://Assets/Sprites/Brick wall.jpeg"
+dest_files=["res://.godot/imported/Brick wall.jpeg-b541632d02a721ab29e65af642045955.ctex"]
 
 [params]
 

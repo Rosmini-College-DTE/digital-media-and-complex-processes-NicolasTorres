@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5dah58uv77od"
-path="res://.godot/imported/UI_Flat_Checkmark_Large.png-3f3951e3444f64fa7c2a0440a61feb2c.ctex"
+path="res://.godot/imported/UI_Flat_Checkmark_Large.png-abf2b77b4991d65f95e70704f457e151.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/GUI/GUI_Essential_Free/Complete_GUI_Essential_Pack_Free_Version/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Checkmark_Large.png"
-dest_files=["res://.godot/imported/UI_Flat_Checkmark_Large.png-3f3951e3444f64fa7c2a0440a61feb2c.ctex"]
+source_file="res://Assets/GUI/GUI_Essential_Free/GUI/01_Basic_Collection/01_Flat_Theme/Sprites/UI_Flat_Checkmark_Large.png"
+dest_files=["res://.godot/imported/UI_Flat_Checkmark_Large.png-abf2b77b4991d65f95e70704f457e151.ctex"]
 
 [params]
 
