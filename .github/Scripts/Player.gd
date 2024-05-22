@@ -1,12 +1,15 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
+const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 
 #the jump count
 var jump_count = 0
 var max_jumps = 2
+
+#Sprite animation
+@onready var AS = $AnimatedSprite2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -19,19 +22,42 @@ func _physics_process(delta):
 		
 	if is_on_floor():
 		jump_count = 0
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and jump_count < max_jumps:
+	
+	# Change from idle to running animation
+	
+	# Jump + double jump
+	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
 		
+	# Change into jumping animation
 	
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	# Keybinds
+	var horizontal_direction = Input.get_axis("move_left", "move_right")
+	if horizontal_direction:
+		velocity.x = horizontal_direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
+	# Flipping directions
+	if horizontal_direction != 0:
+		AS.flip_h = (horizontal_direction == -1)
+		
 	move_and_slide()
+	
+	update_animations(horizontal_direction)
+
+# Animation changing
+func update_animations(horizontal_direction):
+	if is_on_floor():
+		if horizontal_direction == 0:
+			AS.play("idle")
+		else:
+			AS.play("run")
+	else:
+		if velocity.y < 0:
+			AS.play("jumping")
+		elif velocity.y > 0:
+			AS.play("falling")
+
+
