@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://yu7fjacs3a1j"]
+[gd_scene load_steps=8 format=3 uid="uid://yu7fjacs3a1j"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_ehpve"]
+[ext_resource type="Texture2D" uid="uid://y7fhw6l15iva" path="res://Assets/Sprites/forest-bailey-underwater.jpg" id="2_fhksy"]
+[ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="2_gnfks"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fjc6j"]
+font = ExtResource("2_gnfks")
+font_size = 50
+font_color = Color(0.054902, 0.231373, 0.352941, 1)
+outline_size = 10
+shadow_size = 10
+shadow_color = Color(0.0470588, 0.376471, 0.415686, 1)
+shadow_offset = Vector2(5, 3)
+
+[sub_resource type="Theme" id="Theme_j8xp2"]
+default_font = ExtResource("2_gnfks")
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_6f5sx"]
+default_font = ExtResource("2_gnfks")
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_x2pas"]
+default_font = ExtResource("2_gnfks")
+default_font_size = 20
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -11,23 +34,53 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ehpve")
 
+[node name="Forest-bailey-underwater" type="Sprite2D" parent="."]
+position = Vector2(722, 195)
+texture = ExtResource("2_fhksy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 36.0
+offset_top = 12.0
+offset_right = 452.0
+offset_bottom = 81.0
+text = "Forgotten Depths"
+label_settings = SubResource("LabelSettings_fjc6j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 529.0
-offset_right = 136.0
-offset_bottom = 631.0
+offset_left = 28.0
+offset_top = 423.0
+offset_right = 144.0
+offset_bottom = 623.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Start "
+focus_neighbor_top = NodePath("../Quit")
+theme = SubResource("Theme_j8xp2")
+text = "Start"
+flat = true
+vertical_icon_alignment = 2
 
 [node name="Controls" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_6f5sx")
 text = "Controls
 "
+flat = true
+vertical_icon_alignment = 2
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Start")
+theme = SubResource("Theme_x2pas")
 text = "Quit
 "
+flat = true
+vertical_icon_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
