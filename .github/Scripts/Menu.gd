@@ -2,8 +2,7 @@ extends Control
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	$VBoxContainer/Start.grab_focus()
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,7 +14,8 @@ func _on_start_pressed():
 
 
 func _on_controls_pressed():
-	pass # Replace with function body.
+	var options = load("res://Scenes/controls.tscn").instantiate()
+	get_tree().current_scene.add_child(options)
 
 
 func _on_quit_pressed():

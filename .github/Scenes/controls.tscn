@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6xen0bkvm82y"]
+
+[ext_resource type="Script" path="res://Scripts/controls.gd" id="1_7338f"]
+[ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="1_yx8sd"]
+
+[sub_resource type="Gradient" id="Gradient_igkeq"]
+colors = PackedColorArray(0.0084143, 0.0748141, 0.130002, 1, 0.101478, 0.347805, 0.518031, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yvmxj"]
+gradient = SubResource("Gradient_igkeq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kib60"]
+font = ExtResource("1_yx8sd")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_bwc71"]
+font = ExtResource("1_yx8sd")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_wog5w"]
+font = ExtResource("1_yx8sd")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_crcdw"]
+font = ExtResource("1_yx8sd")
+font_size = 17
+
+[sub_resource type="Theme" id="Theme_5bw8i"]
+default_font = ExtResource("1_yx8sd")
+default_font_size = 40
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7338f")
+
+[node name="Forest-bailey-underwater" type="Sprite2D" parent="."]
+position = Vector2(574.782, 318.34)
+rotation = -1.5708
+scale = Vector2(2.78635, 1184.67)
+texture = SubResource("GradientTexture1D_yvmxj")
+
+[node name="Keybinds" type="Label" parent="."]
+offset_left = 221.0
+offset_top = 105.0
+offset_right = 390.0
+offset_bottom = 160.0
+text = "KEYBINDS
+--------
+Left: A
+Right: D
+Jump: Space
+Down: S
+Attack: M1
+"
+label_settings = SubResource("LabelSettings_kib60")
+
+[node name="Controls_text" type="Label" parent="."]
+offset_left = 444.0
+offset_top = 42.0
+offset_right = 656.0
+offset_bottom = 111.0
+text = "CONTROLS"
+label_settings = SubResource("LabelSettings_bwc71")
+horizontal_alignment = 1
+
+[node name="Instructions" type="Label" parent="."]
+layout_mode = 0
+offset_left = 699.0
+offset_top = 104.0
+offset_right = 944.0
+offset_bottom = 275.0
+text = "HOW TO PLAY
+-----------"
+label_settings = SubResource("LabelSettings_wog5w")
+
+[node name="extras2" type="Label" parent="."]
+offset_left = 608.0
+offset_top = 229.0
+offset_right = 1090.0
+offset_bottom = 307.0
+text = "Follow the quest given at the end of the starting 
+area. Descend the depths while killing the enemies 
+that may attack you. Retrieve the lost soul fragment
+by beating the end Boss guarding it."
+label_settings = SubResource("LabelSettings_crcdw")
+
+[node name="extras" type="Label" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 606.0
+offset_right = 259.0
+offset_bottom = 629.0
+text = "*m1 is the left mouse button"
+label_settings = SubResource("LabelSettings_crcdw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 2
+layout_mode = 0
+offset_left = 9.0
+offset_right = 149.0
+offset_bottom = 63.0
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_5bw8i")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(3.17663e-06, 0.593917, 0.728259, 1)
+text = "< Back"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="VBoxContainer/Back" method="_on_pressed"]
