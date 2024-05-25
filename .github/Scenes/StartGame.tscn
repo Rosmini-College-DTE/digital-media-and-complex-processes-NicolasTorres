@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://j51ue6ibd2lc"]
+[gd_scene load_steps=6 format=3 uid="uid://j51ue6ibd2lc"]
 
 [ext_resource type="Texture2D" uid="uid://cva4iv66oms33" path="res://Assets/Sprites/Finish.png" id="1_y10gr"]
 [ext_resource type="PackedScene" uid="uid://bup13d5q5odrf" path="res://Scenes/Player.tscn" id="2_ex8t0"]
+[ext_resource type="AudioStream" uid="uid://crl187epgtx5n" path="res://Assets/Music/Castle Theme.mp3" id="3_lk2lv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n3ub1"]
 texture = ExtResource("1_y10gr")
@@ -972,3 +973,8 @@ position = Vector2(28, -3)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(57, -76)
 zoom = Vector2(2, 2)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lk2lv")
+volume_db = -27.82
+autoplay = true
