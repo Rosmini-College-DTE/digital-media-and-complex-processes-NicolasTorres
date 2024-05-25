@@ -45,6 +45,7 @@ scale = Vector2(2.78635, 1184.67)
 texture = SubResource("GradientTexture1D_yvmxj")
 
 [node name="Keybinds" type="Label" parent="."]
+layout_mode = 0
 offset_left = 221.0
 offset_top = 105.0
 offset_right = 390.0
@@ -60,6 +61,7 @@ Attack: M1
 label_settings = SubResource("LabelSettings_kib60")
 
 [node name="Controls_text" type="Label" parent="."]
+layout_mode = 0
 offset_left = 444.0
 offset_top = 42.0
 offset_right = 656.0
@@ -79,6 +81,7 @@ text = "HOW TO PLAY
 label_settings = SubResource("LabelSettings_wog5w")
 
 [node name="extras2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 608.0
 offset_top = 229.0
 offset_right = 1090.0
@@ -86,7 +89,7 @@ offset_bottom = 307.0
 text = "Follow the quest given at the end of the starting 
 area. Descend the depths while killing the enemies 
 that may attack you. Retrieve the lost soul fragment
-by beating the end Boss guarding it."
+by defeating the entity guarding it."
 label_settings = SubResource("LabelSettings_crcdw")
 
 [node name="extras" type="Label" parent="."]

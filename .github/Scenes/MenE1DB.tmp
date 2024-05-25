@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://yu7fjacs3a1j"]
+[gd_scene load_steps=12 format=3 uid="uid://yu7fjacs3a1j"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_ehpve"]
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="2_gnfks"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bewrfltb1fvy2" path="res://Assets/Sprites/foregound-merged.png" id="4_8vq4h"]
 [ext_resource type="Script" path="res://Scripts/Mid_Menu.gd" id="4_r6rgx"]
 [ext_resource type="Script" path="res://Scripts/Foreground_Menu.gd" id="6_k82qv"]
-[ext_resource type="AudioStream" uid="uid://by83ek3bay4qf" path="res://Assets/Music/Where We're Going.mp3" id="8_eaq30"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fjc6j"]
 font = ExtResource("2_gnfks")
@@ -114,9 +113,6 @@ flat = true
 vertical_icon_alignment = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_eaq30")
-volume_db = -36.4
-autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]

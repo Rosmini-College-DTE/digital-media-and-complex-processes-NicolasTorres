@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://yu7fjacs3a1j"]
+[gd_scene load_steps=12 format=3 uid="uid://yu7fjacs3a1j"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_ehpve"]
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="2_gnfks"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bewrfltb1fvy2" path="res://Assets/Sprites/foregound-merged.png" id="4_8vq4h"]
 [ext_resource type="Script" path="res://Scripts/Mid_Menu.gd" id="4_r6rgx"]
 [ext_resource type="Script" path="res://Scripts/Foreground_Menu.gd" id="6_k82qv"]
-[ext_resource type="AudioStream" uid="uid://by83ek3bay4qf" path="res://Assets/Music/Where We're Going.mp3" id="8_eaq30"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fjc6j"]
 font = ExtResource("2_gnfks")
@@ -20,15 +19,15 @@ shadow_offset = Vector2(5, 3)
 
 [sub_resource type="Theme" id="Theme_j8xp2"]
 default_font = ExtResource("2_gnfks")
-default_font_size = 30
+default_font_size = 20
 
 [sub_resource type="Theme" id="Theme_6f5sx"]
 default_font = ExtResource("2_gnfks")
-default_font_size = 30
+default_font_size = 20
 
 [sub_resource type="Theme" id="Theme_x2pas"]
 default_font = ExtResource("2_gnfks")
-default_font_size = 30
+default_font_size = 20
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -40,31 +39,24 @@ grow_vertical = 2
 script = ExtResource("1_ehpve")
 
 [node name="Menu background" type="Node2D" parent="."]
-position = Vector2(0, -2)
-scale = Vector2(1.125, 1.125)
+position = Vector2(-31.13, -20.535)
+scale = Vector2(1.05, 1.05)
 
 [node name="Background" type="Sprite2D" parent="Menu background"]
-texture_filter = 1
-position = Vector2(512.833, 290.222)
-scale = Vector2(4.01432, 3.02315)
+position = Vector2(574, 323)
+scale = Vector2(4.49219, 3.36458)
 texture = ExtResource("2_mrr4t")
 
 [node name="Mid" type="Sprite2D" parent="Menu background"]
-texture_filter = 1
-position = Vector2(0, -5.33331)
+position = Vector2(574.5, 324)
 scale = Vector2(4.48828, 3.375)
 texture = ExtResource("3_djfby")
-centered = false
-offset = Vector2(-17.41, 0)
 script = ExtResource("4_r6rgx")
 
 [node name="Foreground" type="Sprite2D" parent="Menu background"]
-texture_filter = 1
-position = Vector2(-4.44446, 41.7778)
-scale = Vector2(3.27383, 2.92303)
+position = Vector2(517, 360.5)
+scale = Vector2(3.32031, 3.01563)
 texture = ExtResource("4_8vq4h")
-centered = false
-offset = Vector2(-65.42, 11.35)
 script = ExtResource("6_k82qv")
 
 [node name="Label" type="Label" parent="."]
@@ -80,16 +72,15 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 19.285
-offset_top = 370.5
-offset_right = 146.285
-offset_bottom = 648.501
+offset_left = 28.0
+offset_top = 423.0
+offset_right = 144.0
+offset_bottom = 623.0
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
 theme = SubResource("Theme_j8xp2")
-theme_override_colors/font_color = Color(0.568627, 0.384314, 1, 1)
 text = "Start"
 flat = true
 vertical_icon_alignment = 2
@@ -97,7 +88,6 @@ vertical_icon_alignment = 2
 [node name="Controls" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_6f5sx")
-theme_override_colors/font_color = Color(0.568627, 0.384314, 1, 1)
 text = "Controls
 "
 flat = true
@@ -107,16 +97,10 @@ vertical_icon_alignment = 2
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Start")
 theme = SubResource("Theme_x2pas")
-theme_override_colors/font_color = Color(0.568627, 0.384314, 1, 1)
 text = "Quit
 "
 flat = true
 vertical_icon_alignment = 2
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_eaq30")
-volume_db = -36.4
-autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
