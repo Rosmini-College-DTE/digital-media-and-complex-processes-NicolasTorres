@@ -46,16 +46,18 @@ texture = SubResource("GradientTexture1D_yvmxj")
 
 [node name="Keybinds" type="Label" parent="."]
 layout_mode = 0
-offset_left = 221.0
+offset_left = 200.0
 offset_top = 105.0
-offset_right = 390.0
-offset_bottom = 160.0
+offset_right = 600.0
+offset_bottom = 566.0
 text = "KEYBINDS
 --------
 Left: A
 Right: D
 Jump: Space
 Attack: M1
+Interact: M2
+Next (dialogue): M1
 "
 label_settings = SubResource("LabelSettings_kib60")
 
@@ -94,10 +96,11 @@ label_settings = SubResource("LabelSettings_crcdw")
 [node name="extras" type="Label" parent="."]
 layout_mode = 0
 offset_left = 21.0
-offset_top = 606.0
-offset_right = 259.0
-offset_bottom = 629.0
-text = "*m1 is the left mouse button"
+offset_top = 585.0
+offset_right = 273.0
+offset_bottom = 636.0
+text = "*m1 is the left mouse button
+*m2 is the right mouse button"
 label_settings = SubResource("LabelSettings_crcdw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

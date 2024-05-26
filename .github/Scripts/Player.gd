@@ -10,6 +10,7 @@ var max_jumps = 2
 
 #Sprite animation
 @onready var AS = $AnimatedSprite2D
+@onready var AF : Area2D = $Direction/ActionableFinder
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -39,6 +40,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
+	
 	# Flipping directions
 	if horizontal_direction != 0:
 		AS.flip_h = (horizontal_direction == -1)
@@ -46,6 +48,14 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	update_animations(horizontal_direction)
+
+#Dialogue
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("dialoge_acc"):
+		var actionables = AF.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
 
 # Animation changing
 func update_animations(horizontal_direction):
