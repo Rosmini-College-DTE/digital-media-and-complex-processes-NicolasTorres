@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://7w4swy1agpjv" path="res://Assets/Sprites/EasterEgg/tuff dog.mp3" id="5_ef3tc"]
 [ext_resource type="PackedScene" uid="uid://d0ih2b5sw84gb" path="res://Scenes/WizardNPC.tscn" id="7_bm350"]
 [ext_resource type="PackedScene" uid="uid://cdgrb4lbo4r1v" path="res://Scenes/actionable.tscn" id="8_cstbb"]
-[ext_resource type="Resource" uid="uid://qxc5t5jt3agc" path="res://Dialogue/Wizard.dialogue" id="9_4hflx"]
+[ext_resource type="Resource" uid="uid://m8fm44edm7rl" path="res://Dialogue/Wizard.dialogue" id="9_4hflx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n3ub1"]
 texture = ExtResource("1_y10gr")
@@ -1359,7 +1359,7 @@ layer_0/tile_data = PackedInt32Array(-196639, 524288, 7, -196638, 524288, 7, -19
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_lk2lv")
-volume_db = -18.07
+volume_db = 1.43
 autoplay = true
 
 [node name="credits" type="Label" parent="."]
@@ -1371,6 +1371,7 @@ offset_bottom = -28.0
 text = "Credits to me 
 for making the game"
 label_settings = SubResource("LabelSettings_vudut")
+metadata/_edit_use_anchors_ = true
 
 [node name="statement" type="Label" parent="."]
 offset_left = -623.0
@@ -1381,6 +1382,7 @@ text = "*this is an easteregg,
  not a bug btw
 "
 label_settings = SubResource("LabelSettings_u43p3")
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_ex8t0")]
 position = Vector2(27, -1)
@@ -1397,7 +1399,7 @@ texture = ExtResource("4_lbxdx")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D"]
 stream = ExtResource("5_ef3tc")
-volume_db = -24.7
+volume_db = -1.95
 autoplay = true
 max_distance = 470.0
 
