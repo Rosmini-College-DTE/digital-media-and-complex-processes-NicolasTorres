@@ -2,13 +2,13 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://ykc8nlh88ayl"
-path="res://.godot/imported/tuff dog.mp3-c6227f1b930438c26d222f584fb42de6.mp3str"
+uid="uid://7w4swy1agpjv"
+path="res://.godot/imported/tuff dog.mp3-215ff0a3d5401af03a9ad8058c947118.mp3str"
 
 [deps]
 
-source_file="res://Assets/Sprites/easteregg/tuff dog.mp3"
-dest_files=["res://.godot/imported/tuff dog.mp3-c6227f1b930438c26d222f584fb42de6.mp3str"]
+source_file="res://Assets/Sprites/EasterEgg/tuff dog.mp3"
+dest_files=["res://.godot/imported/tuff dog.mp3-215ff0a3d5401af03a9ad8058c947118.mp3str"]
 
 [params]
 

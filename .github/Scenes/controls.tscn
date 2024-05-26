@@ -55,7 +55,6 @@ text = "KEYBINDS
 Left: A
 Right: D
 Jump: Space
-Down: S
 Attack: M1
 "
 label_settings = SubResource("LabelSettings_kib60")

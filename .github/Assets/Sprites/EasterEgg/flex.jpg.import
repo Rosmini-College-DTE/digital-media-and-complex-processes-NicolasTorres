@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jyd71fdvnhm5"
-path="res://.godot/imported/2118d23120b1e665eea4523627712f9f--tweety-smiley-faces.jpg-515ede1f23f33977f2763b5da6001414.ctex"
+uid="uid://jtjbihotulmf"
+path="res://.godot/imported/flex.jpg-5d80f2931f190f008a9470bb1983a51d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/easteregg/2118d23120b1e665eea4523627712f9f--tweety-smiley-faces.jpg"
-dest_files=["res://.godot/imported/2118d23120b1e665eea4523627712f9f--tweety-smiley-faces.jpg-515ede1f23f33977f2763b5da6001414.ctex"]
+source_file="res://Assets/Sprites/EasterEgg/flex.jpg"
+dest_files=["res://.godot/imported/flex.jpg-5d80f2931f190f008a9470bb1983a51d.ctex"]
 
 [params]
 
