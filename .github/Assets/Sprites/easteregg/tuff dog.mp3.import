@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/tuff dog.mp3-c6227f1b930438c26d222f584fb42de6
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
