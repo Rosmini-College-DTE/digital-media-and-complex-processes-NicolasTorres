@@ -83,7 +83,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_1a1nh")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"idle",
 "speed": 8.0
 }]
 
@@ -95,10 +95,8 @@ script = SubResource("GDScript_adafe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4pwg4")
-animation = &"Idle"
-autoplay = "Idle"
-frame = 7
-frame_progress = 0.949735
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 19)

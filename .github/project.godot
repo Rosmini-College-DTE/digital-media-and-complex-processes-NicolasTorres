@@ -13,7 +13,7 @@ config_version=5
 config/name="Bullet hell type of platformer"
 run/main_scene="res://Scenes/StartGame.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
 
 [autoload]
 

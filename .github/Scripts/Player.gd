@@ -50,7 +50,7 @@ func _physics_process(delta):
 	update_animations(horizontal_direction)
 
 #Dialogue
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("dialoge_acc"):
 		var actionables = AF.get_overlapping_areas()
 		if actionables.size() > 0:
