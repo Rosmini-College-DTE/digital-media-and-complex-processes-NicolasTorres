@@ -15,9 +15,19 @@ var max_jumps = 2
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+#Dialogue
+func _unhandled_input(_event: InputEvent) -> void:
+	
+	if Input.is_action_just_pressed("dialoge_acc"):
+		var actionables = AF.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
 
 func _physics_process(delta):
-	# Add the gravity.
+	
+	
+	# Gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		
@@ -48,14 +58,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	update_animations(horizontal_direction)
-
-#Dialogue
-func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("dialoge_acc"):
-		var actionables = AF.get_overlapping_areas()
-		if actionables.size() > 0:
-			actionables[0].action()
-			return
 
 # Animation changing
 func update_animations(horizontal_direction):

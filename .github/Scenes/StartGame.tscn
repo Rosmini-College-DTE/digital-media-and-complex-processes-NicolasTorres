@@ -1404,7 +1404,7 @@ autoplay = true
 max_distance = 470.0
 
 [node name="Wizard" parent="." instance=ExtResource("7_bm350")]
-position = Vector2(-188, 646)
+position = Vector2(101, -45)
 
 [node name="Actionable" parent="Wizard" instance=ExtResource("8_cstbb")]
 dialogue_resource = ExtResource("9_4hflx")

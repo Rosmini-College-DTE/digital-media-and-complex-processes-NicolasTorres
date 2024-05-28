@@ -19,6 +19,7 @@ boot_splash/show_image=false
 
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+state="*res://Scripts/state_dialogue.gd"
 
 [display]
 
