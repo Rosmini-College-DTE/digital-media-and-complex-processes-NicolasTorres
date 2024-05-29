@@ -8,7 +8,7 @@ if state.talk_status == "didnot"
 		Shadow Wizard: If you say so...
 		 set state.talk_status = "gone"
 	- I'll come back later
-		Shadow Wizard: KYS!!!!
+		Shadow Wizard: Make your decision carefully.
 elif state.talk_status == "did"
 	Shadow Wizard: Ready to go down now?
 	- Yes I'm ready
