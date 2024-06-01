@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6xen0bkvm82y"]
+[gd_scene load_steps=11 format=3 uid="uid://c6xen0bkvm82y"]
 
 [ext_resource type="Script" path="res://Scripts/controls.gd" id="1_7338f"]
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="1_yx8sd"]
+[ext_resource type="Texture2D" uid="uid://ssi84d1p8leu" path="res://Assets/Sprites/rounded-rectangle-16.png" id="2_e63dx"]
 
 [sub_resource type="Gradient" id="Gradient_igkeq"]
 colors = PackedColorArray(0.0084143, 0.0748141, 0.130002, 1, 0.101478, 0.347805, 0.518031, 1)
@@ -43,6 +44,11 @@ position = Vector2(574.782, 318.34)
 rotation = -1.5708
 scale = Vector2(2.78635, 1184.67)
 texture = SubResource("GradientTexture1D_yvmxj")
+
+[node name="Rectangle3" type="Sprite2D" parent="."]
+position = Vector2(85, 33)
+scale = Vector2(9.81641, 4.21714)
+texture = ExtResource("2_e63dx")
 
 [node name="Keybinds" type="Label" parent="."]
 layout_mode = 0
@@ -115,6 +121,7 @@ layout_mode = 2
 theme = SubResource("Theme_5bw8i")
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(3.17663e-06, 0.593917, 0.728259, 1)
+theme_override_colors/font_hover_color = Color(0.00784314, 0.0745098, 0.133333, 1)
 text = "< Back"
 flat = true
 
