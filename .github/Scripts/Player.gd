@@ -72,6 +72,7 @@ func update_animations(horizontal_direction):
 			AS.play("jumping")
 		elif velocity.y > 0:
 			AS.play("falling")
-	
+			
+
 
 
