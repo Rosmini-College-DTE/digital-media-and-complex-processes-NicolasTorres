@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://j51ue6ibd2lc"]
+[gd_scene load_steps=19 format=3 uid="uid://j51ue6ibd2lc"]
 
 [ext_resource type="Texture2D" uid="uid://cva4iv66oms33" path="res://Assets/Sprites/Finish.png" id="1_y10gr"]
 [ext_resource type="PackedScene" uid="uid://bup13d5q5odrf" path="res://Scenes/Player.tscn" id="2_ex8t0"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="4_3cgoj"]
 [ext_resource type="Texture2D" uid="uid://jtjbihotulmf" path="res://Assets/Sprites/EasterEgg/flex.jpg" id="4_lbxdx"]
 [ext_resource type="AudioStream" uid="uid://7w4swy1agpjv" path="res://Assets/Sprites/EasterEgg/tuff dog.mp3" id="5_ef3tc"]
+[ext_resource type="PackedScene" uid="uid://djpauuvjpd6a1" path="res://Scenes/healthbar.tscn" id="5_h17op"]
 [ext_resource type="PackedScene" uid="uid://d0ih2b5sw84gb" path="res://Scenes/WizardNPC.tscn" id="7_bm350"]
 [ext_resource type="PackedScene" uid="uid://cdgrb4lbo4r1v" path="res://Scenes/actionable.tscn" id="8_cstbb"]
 [ext_resource type="Resource" uid="uid://m8fm44edm7rl" path="res://Dialogue/Wizard.dialogue" id="9_4hflx"]
@@ -1337,6 +1338,9 @@ font_size = 10
 font = ExtResource("4_3cgoj")
 font_size = 8
 
+[sub_resource type="LabelSettings" id="LabelSettings_wh61b"]
+font = ExtResource("4_3cgoj")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcera"]
 radius = 17.0
 
@@ -1391,6 +1395,20 @@ scale = Vector2(0.999999, 0.999999)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(57, -76)
 zoom = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="Player"]
+offset_left = -215.0
+offset_top = -239.0
+offset_right = -175.0
+offset_bottom = -217.0
+text = "HP "
+label_settings = SubResource("LabelSettings_wh61b")
+
+[node name="Healthbar" parent="Player" instance=ExtResource("5_h17op")]
+offset_left = -215.0
+offset_top = -219.0
+offset_right = -81.0002
+offset_bottom = -209.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-654.525, -32.25)
