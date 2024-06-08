@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://j51ue6ibd2lc"]
+[gd_scene load_steps=20 format=3 uid="uid://j51ue6ibd2lc"]
 
 [ext_resource type="Texture2D" uid="uid://cva4iv66oms33" path="res://Assets/Sprites/Finish.png" id="1_y10gr"]
 [ext_resource type="PackedScene" uid="uid://bup13d5q5odrf" path="res://Scenes/Player.tscn" id="2_ex8t0"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0ih2b5sw84gb" path="res://Scenes/WizardNPC.tscn" id="7_bm350"]
 [ext_resource type="PackedScene" uid="uid://cdgrb4lbo4r1v" path="res://Scenes/actionable.tscn" id="8_cstbb"]
 [ext_resource type="Resource" uid="uid://m8fm44edm7rl" path="res://Dialogue/Wizard.dialogue" id="9_4hflx"]
+[ext_resource type="PackedScene" uid="uid://cujq4mwj77qx5" path="res://Scenes/pausemenu.tscn" id="11_2us00"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n3ub1"]
 texture = ExtResource("1_y10gr")
@@ -1392,9 +1393,11 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(27, -1)
 scale = Vector2(0.999999, 0.999999)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(57, -76)
-zoom = Vector2(2, 2)
+[node name="Healthbar" parent="Player" instance=ExtResource("5_h17op")]
+offset_left = -215.0
+offset_top = -219.0
+offset_right = -31.0
+offset_bottom = -209.0
 
 [node name="Label" type="Label" parent="Player"]
 offset_left = -215.0
@@ -1404,11 +1407,19 @@ offset_bottom = -217.0
 text = "HP "
 label_settings = SubResource("LabelSettings_wh61b")
 
-[node name="Healthbar" parent="Player" instance=ExtResource("5_h17op")]
-offset_left = -215.0
-offset_top = -219.0
-offset_right = -81.0002
-offset_bottom = -209.0
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(57, -76)
+scale = Vector2(1, 1)
+zoom = Vector2(2, 2)
+
+[node name="PauseMenu" parent="Player" instance=ExtResource("11_2us00")]
+visible = false
+offset_left = -222.0
+offset_top = -180.0
+offset_right = 1101.0
+offset_bottom = 431.0
+scale = Vector2(0.44, 0.44)
+pivot_offset = Vector2(-0.78, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-654.525, -32.25)

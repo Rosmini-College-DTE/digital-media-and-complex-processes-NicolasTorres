@@ -31,9 +31,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 142.0
-offset_bottom = -111.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fqmkq")
@@ -42,22 +39,16 @@ script = ExtResource("1_fqmkq")
 position = Vector2(306, 121)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-position = Vector2(15.7732, 43.4996)
+position = Vector2(36, 205.363)
 rotation = -3.14159
-scale = Vector2(0.639419, 0.955852)
+scale = Vector2(0.585626, 0.569399)
 texture = ExtResource("1_qrdla")
 
 [node name="menubuttons" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.059
-anchor_top = -0.383
-anchor_right = -0.059
-anchor_bottom = -0.383
-offset_left = 82.614
-offset_top = 374.71
-offset_right = 231.983
-offset_bottom = 652.71
+offset_left = 19.285
+offset_top = 370.5
+offset_right = 146.285
+offset_bottom = 648.501
 
 [node name="Continue" type="Button" parent="menubuttons"]
 layout_mode = 2
@@ -93,10 +84,10 @@ vertical_icon_alignment = 2
 
 [node name="Keybinds" type="Label" parent="."]
 visible = false
-offset_left = 14.0
-offset_top = -5.0
-offset_right = 414.0
-offset_bottom = 479.0
+offset_left = 24.0
+offset_top = 128.0
+offset_right = 424.0
+offset_bottom = 612.0
 text = "KEYBINDS
 --------
 Left: A
@@ -111,10 +102,8 @@ label_settings = SubResource("LabelSettings_ukf21")
 [node name="backbutton" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 15.07
-offset_top = -118.31
-offset_right = 103.07
-offset_bottom = -69.31
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Back" type="Button" parent="backbutton"]
 layout_mode = 2
@@ -126,4 +115,3 @@ text = "<Back"
 [connection signal="pressed" from="menubuttons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="menubuttons/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="menubuttons/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="backbutton/Back" to="." method="_on_back_pressed"]

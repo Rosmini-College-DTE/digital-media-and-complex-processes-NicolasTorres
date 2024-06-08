@@ -8,9 +8,13 @@ const JUMP_VELOCITY = -300.0
 var jump_count = 0
 var max_jumps = 2
 
-#Sprite animation
+
 @onready var AS = $AnimatedSprite2D
 @onready var AF : Area2D = $Direction/ActionableFinder
+@onready var PM = $PauseMenu
+@onready var HP = $Healthbar
+
+var paused = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -30,21 +34,33 @@ func _physics_process(delta):
 	# Gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		
+	
 	if is_on_floor():
 		jump_count = 0
-		
+	
 	# Jump + double jump
 	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
-		
-		
-			
+	
+	if Input.is_action_just_pressed("pause"):
+		pausemenu()
+	
+
 	update_animations(horizontal_direction)
 	move_and_slide()
 
-
+func pausemenu():
+	if paused:
+		PM.show()
+		HP.hide()
+		Engine.time_scale = 0
+	else:
+		PM.hide()
+		HP.show()
+		Engine.time_scale = 1
+		
+	paused = !paused
 
 #Dialogue
 func _unhandled_input(_event: InputEvent) -> void:
