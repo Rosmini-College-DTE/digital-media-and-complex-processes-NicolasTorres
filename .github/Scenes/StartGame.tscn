@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://j51ue6ibd2lc"]
+[gd_scene load_steps=21 format=3 uid="uid://j51ue6ibd2lc"]
 
 [ext_resource type="Texture2D" uid="uid://cva4iv66oms33" path="res://Assets/Sprites/Finish.png" id="1_y10gr"]
 [ext_resource type="PackedScene" uid="uid://bup13d5q5odrf" path="res://Scenes/Player.tscn" id="2_ex8t0"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cdgrb4lbo4r1v" path="res://Scenes/actionable.tscn" id="8_cstbb"]
 [ext_resource type="Resource" uid="uid://m8fm44edm7rl" path="res://Dialogue/Wizard.dialogue" id="9_4hflx"]
 [ext_resource type="PackedScene" uid="uid://cujq4mwj77qx5" path="res://Scenes/pausemenu.tscn" id="11_2us00"]
+[ext_resource type="PackedScene" uid="uid://c3mf28634ke0n" path="res://Scenes/shadowenemy.tscn" id="12_0fls7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n3ub1"]
 texture = ExtResource("1_y10gr")
@@ -1409,7 +1410,6 @@ label_settings = SubResource("LabelSettings_wh61b")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(57, -76)
-scale = Vector2(1, 1)
 zoom = Vector2(2, 2)
 
 [node name="PauseMenu" parent="Player" instance=ExtResource("11_2us00")]
@@ -1441,3 +1441,6 @@ dialogue_resource = ExtResource("9_4hflx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wizard/Actionable"]
 position = Vector2(10, 21)
 shape = SubResource("CircleShape2D_dcera")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("12_0fls7")]
+position = Vector2(346, -2)

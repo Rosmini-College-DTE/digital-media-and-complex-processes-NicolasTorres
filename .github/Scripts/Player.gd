@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -300.0
 var jump_count = 0
 var max_jumps = 2
 
+var attacking = false
 
 @onready var AS = $AnimatedSprite2D
 @onready var AF : Area2D = $Direction/ActionableFinder
@@ -71,6 +72,10 @@ func _unhandled_input(_event: InputEvent) -> void:
 			SPEED = 0
 	elif DialogueManager.dialogue_ended:
 		SPEED = 150.0
+	
+	
+	if Input.is_action_just_pressed("hit"):
+			AS.play("attack")
 
 
 
@@ -78,17 +83,26 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 # Animation changing
 func update_animations(horizontal_direction):
-	if is_on_floor():
-		if horizontal_direction == 0:
-			AS.play("idle")
-		else:
-			AS.play("run")
+	if Input.is_action_pressed("hit"):
+			attacking = true
 	else:
-		if velocity.y < 0:
-			AS.play("jumping")
-		elif velocity.y > 0:
-			AS.play("falling")
-			
+		attacking = false
+		
+	if !attacking:
+		if is_on_floor():
+			if horizontal_direction == 0:
+				AS.play("idle")
+			else:
+				AS.play("run")
+		else:
+			if velocity.y < 0:
+				AS.play("jumping")
+			elif velocity.y > 0:
+				AS.play("falling")
+	else:
+		AS.play("attack")
+		
+		
 
 
 

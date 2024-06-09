@@ -93,6 +93,7 @@ vertical_icon_alignment = 2
 
 [node name="Keybinds" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 14.0
 offset_top = -5.0
 offset_right = 414.0

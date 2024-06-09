@@ -91,6 +91,7 @@ animations = [{
 size = Vector2(20, 44)
 
 [node name="Wizard" type="CharacterBody2D"]
+position = Vector2(2, -42)
 script = SubResource("GDScript_adafe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
