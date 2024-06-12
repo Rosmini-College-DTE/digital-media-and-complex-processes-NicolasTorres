@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cujq4mwj77qx5"]
+[gd_scene load_steps=9 format=3 uid="uid://dcnspdwxxbt8j"]
 
 [ext_resource type="Script" path="res://Scripts/pausemenu.gd" id="1_fqmkq"]
 [ext_resource type="Texture2D" uid="uid://csh0l1f8u327t" path="res://Assets/Sprites/grdaiente.png" id="1_qrdla"]
