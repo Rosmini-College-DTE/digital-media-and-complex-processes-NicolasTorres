@@ -54,11 +54,11 @@ func _physics_process(delta):
 func pausemenu():
 	if paused:
 		PM.show()
-		HP.hide()
+		
 		Engine.time_scale = 0
 	else:
 		PM.hide()
-		HP.show()
+		
 		Engine.time_scale = 1
 		
 	paused = !paused

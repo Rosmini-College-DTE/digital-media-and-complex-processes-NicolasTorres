@@ -1340,11 +1340,11 @@ font_size = 10
 font = ExtResource("4_3cgoj")
 font_size = 8
 
-[sub_resource type="LabelSettings" id="LabelSettings_wh61b"]
-font = ExtResource("4_3cgoj")
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcera"]
 radius = 17.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wh61b"]
+font = ExtResource("4_3cgoj")
 
 [node name="Game_starter" type="Node2D"]
 
@@ -1390,47 +1390,8 @@ text = "*this is an easteregg,
 label_settings = SubResource("LabelSettings_u43p3")
 metadata/_edit_use_anchors_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_ex8t0")]
-position = Vector2(27, -1)
-scale = Vector2(0.999999, 0.999999)
-
-[node name="Healthbar" parent="Player" instance=ExtResource("5_h17op")]
-offset_left = -215.0
-offset_top = -219.0
-offset_right = -31.0
-offset_bottom = -209.0
-
-[node name="Label" type="Label" parent="Player"]
-offset_left = -215.0
-offset_top = -239.0
-offset_right = -175.0
-offset_bottom = -217.0
-text = "HP "
-label_settings = SubResource("LabelSettings_wh61b")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(57, -76)
-zoom = Vector2(2, 2)
-
-[node name="PauseMenu" parent="Player" instance=ExtResource("11_2us00")]
-visible = false
-offset_left = -222.0
-offset_top = -180.0
-offset_right = 1101.0
-offset_bottom = 431.0
-scale = Vector2(0.44, 0.44)
-pivot_offset = Vector2(-0.78, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-654.525, -32.25)
-scale = Vector2(0.0775144, 0.0822011)
-texture = ExtResource("4_lbxdx")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D"]
-stream = ExtResource("5_ef3tc")
-volume_db = -1.95
-autoplay = true
-max_distance = 470.0
+[node name="CharacterBody2D" parent="." instance=ExtResource("12_0fls7")]
+position = Vector2(346, 2)
 
 [node name="Wizard" parent="." instance=ExtResource("7_bm350")]
 position = Vector2(-186, 646)
@@ -1442,5 +1403,44 @@ dialogue_resource = ExtResource("9_4hflx")
 position = Vector2(10, 21)
 shape = SubResource("CircleShape2D_dcera")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("12_0fls7")]
-position = Vector2(346, 2)
+[node name="Player" parent="." instance=ExtResource("2_ex8t0")]
+position = Vector2(27, -1)
+scale = Vector2(0.999999, 0.999999)
+
+[node name="PauseMenu" parent="Player" instance=ExtResource("11_2us00")]
+visible = false
+offset_left = -222.437
+offset_top = -180.0
+offset_right = 1100.56
+offset_bottom = 431.0
+scale = Vector2(0.44, 0.44)
+pivot_offset = Vector2(-0.78, 0)
+
+[node name="Healthbar" parent="Player" instance=ExtResource("5_h17op")]
+offset_left = 150.0
+offset_top = -219.0
+offset_right = 334.0
+offset_bottom = -209.0
+
+[node name="Label" type="Label" parent="Player"]
+offset_left = 152.0
+offset_top = -239.0
+offset_right = 192.0
+offset_bottom = -217.0
+text = "HP "
+label_settings = SubResource("LabelSettings_wh61b")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(57, -76)
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-654.525, -32.25)
+scale = Vector2(0.0775144, 0.0822011)
+texture = ExtResource("4_lbxdx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D"]
+stream = ExtResource("5_ef3tc")
+volume_db = -1.95
+autoplay = true
+max_distance = 470.0

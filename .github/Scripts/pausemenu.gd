@@ -14,6 +14,7 @@ func _on_continue_pressed():
 	PM.hide()
 	paused = true
 	Engine.time_scale = 1
+	
 
 func _on_controls_pressed():
 	controlopener()
@@ -35,6 +36,3 @@ func controlopener():
 	controlbutton.hide()
 	quitbutton.hide()
 	
-
-
-
