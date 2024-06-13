@@ -7,13 +7,19 @@ extends Control
 @onready var quitbutton = $menubuttons/Quit
 @onready var PM = $"."
 
-var paused = false
 
 
 func _on_continue_pressed():
-	PM.hide()
-	paused = true
-	Engine.time_scale = 1
+	if global.paused:
+		PM.show()
+		
+		Engine.time_scale = 0
+	else:
+		PM.hide()
+		
+		Engine.time_scale = 1
+		
+	global.paused = !global.paused
 	
 
 func _on_controls_pressed():

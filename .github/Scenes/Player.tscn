@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bup13d5q5odrf"]
+[gd_scene load_steps=41 format=3 uid="uid://bup13d5q5odrf"]
 
 [ext_resource type="Texture2D" uid="uid://c6bbi0vfn31og" path="res://Assets/Characters II Enemies/DarkSamuraiAssets/DarkSamurai (64x64).png" id="1_5a3lu"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_dvwju"]
@@ -272,6 +272,12 @@ size = Vector2(11, 24)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ioqbh"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vcfu"]
+size = Vector2(8.5, 19.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4sql"]
+size = Vector2(14, 16)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dvwju")
 
@@ -280,8 +286,8 @@ position = Vector2(12, -16)
 sprite_frames = SubResource("SpriteFrames_3ywku")
 animation = &"attack"
 autoplay = "idle"
-frame = 5
-frame_progress = 0.936519
+frame = 4
+frame_progress = 0.0965526
 
 [node name="Body Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(12.5, -13)
@@ -293,10 +299,27 @@ shape = SubResource("RectangleShape2D_b0a4n")
 collision_layer = 0
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
+[node name="Dialogue2" type="CollisionShape2D" parent="Direction/ActionableFinder"]
+position = Vector2(25, -13)
+shape = SubResource("CircleShape2D_ioqbh")
+debug_color = Color(0.517271, 0.531961, 0.603165, 0.42)
+
+[node name="Dialogue" type="CollisionShape2D" parent="Direction/ActionableFinder"]
 position = Vector2(-1, -13)
 shape = SubResource("CircleShape2D_ioqbh")
+debug_color = Color(0.517271, 0.531961, 0.603165, 0.42)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder/CollisionShape2D"]
-position = Vector2(26, 0)
-shape = SubResource("CircleShape2D_ioqbh")
+[node name="DmgReciever" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="Hitbox" type="CollisionShape2D" parent="DmgReciever"]
+position = Vector2(12.25, -10.75)
+shape = SubResource("RectangleShape2D_3vcfu")
+debug_color = Color(0.9559, 0, 0.540783, 0.42)
+
+[node name="DmgDealer" type="Area2D" parent="."]
+
+[node name="DmgBox" type="CollisionShape2D" parent="DmgDealer"]
+position = Vector2(31, -11)
+shape = SubResource("RectangleShape2D_q4sql")
+debug_color = Color(0.90869, 0.299459, 0, 0.42)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bullet hell type of platformer"
-run/main_scene="res://Scenes/StartGame.tscn"
+run/main_scene="res://Scenes/Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/show_image=false
 
@@ -20,6 +20,7 @@ boot_splash/show_image=false
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 state="*res://Scripts/state_dialogue.gd"
+global="*res://Scripts/global.gd"
 
 [display]
 

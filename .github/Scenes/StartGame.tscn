@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://j51ue6ibd2lc"]
+[gd_scene load_steps=22 format=3 uid="uid://j51ue6ibd2lc"]
 
 [ext_resource type="Texture2D" uid="uid://cva4iv66oms33" path="res://Assets/Sprites/Finish.png" id="1_y10gr"]
 [ext_resource type="PackedScene" uid="uid://bup13d5q5odrf" path="res://Scenes/Player.tscn" id="2_ex8t0"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0ih2b5sw84gb" path="res://Scenes/WizardNPC.tscn" id="7_bm350"]
 [ext_resource type="PackedScene" uid="uid://cdgrb4lbo4r1v" path="res://Scenes/actionable.tscn" id="8_cstbb"]
 [ext_resource type="Resource" uid="uid://m8fm44edm7rl" path="res://Dialogue/Wizard.dialogue" id="9_4hflx"]
-[ext_resource type="PackedScene" uid="uid://cujq4mwj77qx5" path="res://Scenes/pausemenu.tscn" id="11_2us00"]
+[ext_resource type="PackedScene" uid="uid://dcnspdwxxbt8j" path="res://Scenes/pausemenu.tscn" id="11_2us00"]
 [ext_resource type="PackedScene" uid="uid://c3mf28634ke0n" path="res://Scenes/shadowenemy.tscn" id="12_0fls7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n3ub1"]
@@ -1340,6 +1340,9 @@ font_size = 10
 font = ExtResource("4_3cgoj")
 font_size = 8
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmdqs"]
+size = Vector2(96, 10)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcera"]
 radius = 17.0
 
@@ -1393,6 +1396,11 @@ metadata/_edit_use_anchors_ = true
 [node name="CharacterBody2D" parent="." instance=ExtResource("12_0fls7")]
 position = Vector2(346, 2)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(244, -7)
+shape = SubResource("RectangleShape2D_gmdqs")
+debug_color = Color(0.98876, 0, 0.298325, 0.42)
+
 [node name="Wizard" parent="." instance=ExtResource("7_bm350")]
 position = Vector2(-186, 646)
 
@@ -1406,15 +1414,6 @@ shape = SubResource("CircleShape2D_dcera")
 [node name="Player" parent="." instance=ExtResource("2_ex8t0")]
 position = Vector2(27, -1)
 scale = Vector2(0.999999, 0.999999)
-
-[node name="PauseMenu" parent="Player" instance=ExtResource("11_2us00")]
-visible = false
-offset_left = -222.437
-offset_top = -180.0
-offset_right = 1100.56
-offset_bottom = 431.0
-scale = Vector2(0.44, 0.44)
-pivot_offset = Vector2(-0.78, 0)
 
 [node name="Healthbar" parent="Player" instance=ExtResource("5_h17op")]
 offset_left = 150.0
@@ -1433,6 +1432,15 @@ label_settings = SubResource("LabelSettings_wh61b")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(57, -76)
 zoom = Vector2(2, 2)
+
+[node name="PauseMenu" parent="Player" instance=ExtResource("11_2us00")]
+visible = false
+offset_left = -223.311
+offset_top = -180.0
+offset_right = 1099.69
+offset_bottom = 431.0
+scale = Vector2(0.44, 0.44)
+pivot_offset = Vector2(-0.78, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-654.525, -32.25)

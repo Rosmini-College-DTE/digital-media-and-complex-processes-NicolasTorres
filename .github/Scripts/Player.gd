@@ -15,7 +15,7 @@ var attacking = false
 @onready var PM = $PauseMenu
 @onready var HP = $Healthbar
 
-var paused = false
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -47,12 +47,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pausemenu()
 	
+		
 
 	update_animations(horizontal_direction)
 	move_and_slide()
 
 func pausemenu():
-	if paused:
+	if global.paused:
 		PM.show()
 		
 		Engine.time_scale = 0
@@ -61,7 +62,7 @@ func pausemenu():
 		
 		Engine.time_scale = 1
 		
-	paused = !paused
+	global.paused = !global.paused
 
 #Dialogue
 func _unhandled_input(_event: InputEvent) -> void:
@@ -99,6 +100,7 @@ func update_animations(horizontal_direction):
 				AS.play("jumping")
 			elif velocity.y > 0:
 				AS.play("falling")
+			
 	else:
 		AS.play("attack")
 		
