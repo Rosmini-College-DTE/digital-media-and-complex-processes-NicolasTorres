@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://j51ue6ibd2lc"]
+[gd_scene load_steps=21 format=3 uid="uid://j51ue6ibd2lc"]
 
 [ext_resource type="Texture2D" uid="uid://cva4iv66oms33" path="res://Assets/Sprites/Finish.png" id="1_y10gr"]
 [ext_resource type="PackedScene" uid="uid://bup13d5q5odrf" path="res://Scenes/Player.tscn" id="2_ex8t0"]
@@ -1340,9 +1340,6 @@ font_size = 10
 font = ExtResource("4_3cgoj")
 font_size = 8
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmdqs"]
-size = Vector2(96, 10)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcera"]
 radius = 17.0
 
@@ -1393,26 +1390,22 @@ text = "*this is an easteregg,
 label_settings = SubResource("LabelSettings_u43p3")
 metadata/_edit_use_anchors_ = true
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("12_0fls7")]
-position = Vector2(346, 2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(244, -7)
-shape = SubResource("RectangleShape2D_gmdqs")
-debug_color = Color(0.98876, 0, 0.298325, 0.42)
-
 [node name="Wizard" parent="." instance=ExtResource("7_bm350")]
 position = Vector2(-186, 646)
 
 [node name="Actionable" parent="Wizard" instance=ExtResource("8_cstbb")]
+position = Vector2(11, 21)
 dialogue_resource = ExtResource("9_4hflx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wizard/Actionable"]
-position = Vector2(10, 21)
+[node name="Dialogue" type="CollisionShape2D" parent="Wizard/Actionable"]
+position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_dcera")
 
+[node name="ShadowEnemy" parent="." instance=ExtResource("12_0fls7")]
+position = Vector2(216, -35)
+
 [node name="Player" parent="." instance=ExtResource("2_ex8t0")]
-position = Vector2(27, -1)
+position = Vector2(7, -1)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="Healthbar" parent="Player" instance=ExtResource("5_h17op")]
