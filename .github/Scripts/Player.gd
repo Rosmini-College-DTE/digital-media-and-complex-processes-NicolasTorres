@@ -10,7 +10,7 @@ var max_jumps = 2
 
 var attacking = false
 
-@onready var AS = $AnimatedSprite2D
+@onready var anim_sprite = $AnimatedSprite2D
 @onready var AF : Area2D = $Direction/ActionableFinder
 @onready var PM = $PauseMenu
 @onready var HP = $Healthbar
@@ -19,8 +19,8 @@ var attacking = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func ready():
-	global.playerBody = $"."
+func _ready():
+	global.playerBody = self
 
 func _physics_process(delta):
 	
@@ -31,7 +31,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if horizontal_direction != 0:
-			AS.flip_h = (horizontal_direction == -1)
+			anim_sprite.flip_h = (horizontal_direction == -1)
 	
 	# Gravity.
 	if not is_on_floor():
@@ -77,7 +77,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	
 	
 	if Input.is_action_just_pressed("hit"):
-			AS.play("attack")
+			anim_sprite.play("attack")
 
 
 
@@ -93,17 +93,17 @@ func update_animations(horizontal_direction):
 	if !attacking:
 		if is_on_floor():
 			if horizontal_direction == 0:
-				AS.play("idle")
+				anim_sprite.play("idle")
 			else:
-				AS.play("run")
+				anim_sprite.play("run")
 		else:
 			if velocity.y < 0:
-				AS.play("jumping")
+				anim_sprite.play("jumping")
 			elif velocity.y > 0:
-				AS.play("falling")
+				anim_sprite.play("falling")
 			
 	else:
-		AS.play("attack")
+		anim_sprite.play("attack")
 		
 		
 
