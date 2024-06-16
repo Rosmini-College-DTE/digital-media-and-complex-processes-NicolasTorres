@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name ShadowEnemy
 
 var speed = 20
-var is_shadow_chase: bool = true
+var is_shadow_chase: bool
 
 var health = 100
 var health_max = 100
@@ -11,25 +11,28 @@ var health_min = 0
 
 var dead: bool = false
 var taking_damage: bool = false
-var damage_dealing = 20
+var damage_to_deal = 20
 var is_dealing_damage: bool = false
 
 var dir: Vector2
 const gravity = 900
-var knockback_force = 200
+var knockback_force = -20
 
-var is_roaming: bool = true
+var is_roaming: bool
 
 var player: CharacterBody2D
 var player_in_area = false
 
-#func _ready():
-	#is_shadow_chase = false
+func _ready():
+	is_shadow_chase = false
 
 func _process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		velocity.x = 0
+	
+	global.shadowDamageAmount = damage_to_deal
+	global.shadowDamageZone = $ShadowDamageArea
 	
 	player = global.playerBody
 	
@@ -46,12 +49,12 @@ func move(delta):
 			var dir_to_player = position.direction_to(player.position) * speed
 			velocity.x = dir_to_player.x
 			dir.x = abs(velocity.x) / velocity.x
+		elif taking_damage:
+			var knockback_dir = position.direction_to(player.position) * knockback_force
+			velocity.x = knockback_dir.x
 		is_roaming = true
 	elif dead:
 		velocity.x = 0
-#		if is_shadow_chase:
-#			player = global.playerBody
-#			velocity = position.direction_to(player.position) * speed
 
 func handle_animation():
 	var anim_sprite = $animation
@@ -68,8 +71,12 @@ func handle_animation():
 	elif dead and is_roaming:
 		is_roaming = false
 		anim_sprite.play("death")
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.1).timeout
+		anim_sprite.play("smoke")
+		await get_tree().create_timer(.667).timeout
 		handle_death()
+	elif !dead and is_dealing_damage:
+		anim_sprite.play("attack")
 
 func handle_death():
 	self.queue_free()
@@ -80,7 +87,28 @@ func _on_timer_timeout():
 		dir = choose([Vector2.RIGHT, Vector2.LEFT])
 		velocity.x = 0
 
-
 func choose(array):
 	array.shuffle()
 	return array.front()
+
+func _on_hitbox_area_entered(area):
+	var damage = global.playerDamageAmount
+	if area == global.playerDamageZone:
+		take_damage(damage)
+func take_damage(damage):
+	health -= damage
+	taking_damage = true
+	if health <= health_min:
+		health = health_min
+		dead = true
+
+func _on_shadow_damage_area_area_entered(area):
+	if area == global.playerHitbox:
+		is_dealing_damage = true
+		await get_tree().create_timer(1.0).timeout
+		is_dealing_damage = false
+
+func _on_detection_area_area_entered(area):
+	is_shadow_chase = true
+func _on_detection_area_area_exited(area):
+	is_shadow_chase = false

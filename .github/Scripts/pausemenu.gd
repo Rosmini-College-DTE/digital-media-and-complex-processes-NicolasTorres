@@ -5,18 +5,16 @@ extends Control
 @onready var continuebutton = $menubuttons/Continue
 @onready var controlbutton = $menubuttons/Controls
 @onready var quitbutton = $menubuttons/Quit
-@onready var PM = $"."
+@onready var pause_menu = $"."
 
 
 
 func _on_continue_pressed():
 	if global.paused:
-		PM.show()
-		
+		pause_menu.show()
 		Engine.time_scale = 0
 	else:
-		PM.hide()
-		
+		pause_menu.hide()
 		Engine.time_scale = 1
 		
 	global.paused = !global.paused

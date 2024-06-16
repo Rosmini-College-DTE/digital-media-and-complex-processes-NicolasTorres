@@ -39,7 +39,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7338f")
 
-[node name="Forest-bailey-underwater" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="."]
 position = Vector2(574.782, 318.34)
 rotation = -1.5708
 scale = Vector2(2.78635, 1184.67)

@@ -1,111 +1,151 @@
 extends CharacterBody2D
 
-var health = 100
-var SPEED = 150.0
-const JUMP_VELOCITY = -300.0
+@onready var anim_sprite = $AnimatedSprite2D
+@onready var dialogue_detector : Area2D = $Direction/ActionableFinder
+@onready var pause_menu = $PauseMenu
+@onready var deal_damage_zone = $DealDamageZone
+#@onready var HP = $Healthbar
 
-#the jump count
+var weapon_equip: bool
+
+var speed = 150.0
+
+const jump_power = -300.0
 var jump_count = 0
 var max_jumps = 2
 
-var attacking = false
+var attack_type: String
+var current_attack: bool
 
-@onready var anim_sprite = $AnimatedSprite2D
-@onready var AF : Area2D = $Direction/ActionableFinder
-@onready var PM = $PauseMenu
-@onready var HP = $Healthbar
-
-
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = 900
 
 func _ready():
 	global.playerBody = self
+	current_attack = false
 
 func _physics_process(delta):
+	weapon_equip = global.playerWeaponEquip
+	global.playerDamageZone = deal_damage_zone
 	
-	var horizontal_direction = Input.get_axis("move_left", "move_right")
-	if horizontal_direction:
-		velocity.x = horizontal_direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	if horizontal_direction != 0:
-			anim_sprite.flip_h = (horizontal_direction == -1)
-	
-	# Gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	
 	if is_on_floor():
 		jump_count = 0
-	
-	# Jump + double jump
 	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
-		velocity.y = JUMP_VELOCITY
+		velocity.y = jump_power
 		jump_count += 1
+	var direction = Input.get_axis("left", "right")
+	if direction:
+		velocity.x = direction * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
 	
 	if Input.is_action_just_pressed("pause"):
 		pausemenu()
 	
-		
-
-	update_animations(horizontal_direction)
+	if weapon_equip and !current_attack:
+		if Input.is_action_just_pressed("left_mouse") or Input.is_action_just_pressed("right_mouse"):
+			current_attack = true
+			if Input.is_action_just_pressed("left_mouse") and is_on_floor():
+				attack_type = "single"
+			elif Input.is_action_just_pressed("right_mouse") and is_on_floor():
+				attack_type = "double"
+			elif Input.is_action_just_pressed("right_mouse") and !is_on_floor():
+				attack_type = "double"
+			else:
+				attack_type = "air"
+			set_damage(attack_type)
+			handle_attack_animation(attack_type)
+	
 	move_and_slide()
+	handle_movement_animation(direction)
 
+func handle_movement_animation(dir):
+	if !weapon_equip:
+		if is_on_floor():
+			if !velocity.x:
+				anim_sprite.play("idle")
+			if velocity.x:
+				anim_sprite.play("run")
+				toggle_flip_sprite(dir)
+		elif !is_on_floor():
+			if velocity.y > 0:
+				anim_sprite.play("jump")
+			elif velocity.y < 0:
+				anim_sprite.play("fall")
+	elif weapon_equip:
+		if is_on_floor() and !current_attack:
+			if !velocity.x:
+				anim_sprite.play("weapon_idle")
+			if velocity.x:
+				anim_sprite.play("weapon_run")
+				toggle_flip_sprite(dir)
+		elif !is_on_floor() and !current_attack:
+			if velocity.y > 0:
+				anim_sprite.play("weapon_jump")
+				toggle_flip_sprite(dir)
+			elif velocity.y < 0:
+				anim_sprite.play("weapon_fall")
+				toggle_flip_sprite(dir)
+
+func toggle_flip_sprite(dir):
+	if dir == 1:
+		anim_sprite.flip_h = false
+		deal_damage_zone.scale.x = 1
+	if dir == -1:
+		anim_sprite.flip_h = true
+		deal_damage_zone.scale.x = -1
+
+func handle_attack_animation(attack_type):
+	if weapon_equip:
+		if current_attack:
+			var attack_anim = str(attack_type, "_attack")
+			anim_sprite.play(attack_anim)
+			toggle_damage_collisions(attack_type)
+
+func toggle_damage_collisions(attack_type):
+	var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
+	var wait_time: float
+	if attack_type == "air":
+		wait_time = 0.7
+	elif attack_type == "single":
+		wait_time = 0.375
+	elif attack_type == "double":
+		wait_time = 0.5
+	damage_zone_collision.disabled = false
+	await get_tree().create_timer(wait_time).timeout
+	damage_zone_collision.disabled = true
+
+#Pause Menu
 func pausemenu():
 	if global.paused:
-		PM.show()
-		
+		pause_menu.show()
 		Engine.time_scale = 0
 	else:
-		PM.hide()
-		
+		pause_menu.hide()
 		Engine.time_scale = 1
-		
 	global.paused = !global.paused
 
 #Dialogue
 func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("dialoge_acc"):
-		var actionables = AF.get_overlapping_areas()
+	if Input.is_action_just_pressed("interact"):
+		var actionables = dialogue_detector.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()
-			SPEED = 0
+			speed = 0
 	elif DialogueManager.dialogue_ended:
-		SPEED = 150.0
-	
-	
-	if Input.is_action_just_pressed("hit"):
-			anim_sprite.play("attack")
+		speed = 150.0
 
 
+func _on_animated_sprite_2d_animation_finished():
+	current_attack = false
 
-
-
-# Animation changing
-func update_animations(horizontal_direction):
-	if Input.is_action_pressed("hit"):
-			attacking = true
-	else:
-		attacking = false
-		
-	if !attacking:
-		if is_on_floor():
-			if horizontal_direction == 0:
-				anim_sprite.play("idle")
-			else:
-				anim_sprite.play("run")
-		else:
-			if velocity.y < 0:
-				anim_sprite.play("jumping")
-			elif velocity.y > 0:
-				anim_sprite.play("falling")
-			
-	else:
-		anim_sprite.play("attack")
-		
-		
-
-
-
+func set_damage(attack_type):
+	var current_damage_to_deal: int
+	if attack_type == "single":
+		current_damage_to_deal = 10
+	elif attack_type == "double":
+		current_damage_to_deal = 20
+	elif attack_type == "air":
+		current_damage_to_deal = 30
+	global.playerDamageAmount = current_damage_to_deal
