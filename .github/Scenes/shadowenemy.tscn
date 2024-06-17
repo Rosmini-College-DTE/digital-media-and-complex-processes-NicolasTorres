@@ -367,10 +367,10 @@ script = ExtResource("1_gr56r")
 position = Vector2(-1, -27)
 scale = Vector2(1.64583, 1.64583)
 sprite_frames = SubResource("SpriteFrames_66imq")
-animation = &"smoke"
+animation = &"idle"
 autoplay = "idle"
-frame = 10
-frame_progress = 1.0
+frame = 1
+frame_progress = 0.140914
 
 [node name="shadowcollision" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -16)
