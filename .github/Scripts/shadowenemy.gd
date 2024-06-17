@@ -27,6 +27,9 @@ func _ready():
 	is_shadow_chase = false
 
 func _process(delta):
+	global.shadowDamageAmount = damage_to_deal
+	global.shadowDamageZone = $ShadowDealDamageArea
+	
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		velocity.x = 0
@@ -44,7 +47,7 @@ func move(delta):
 	if !dead:
 		if !is_shadow_chase:
 			velocity += dir * speed * delta
-		elif is_shadow_chase and !taking_damage:
+		elif is_shadow_chase and !taking_damage and global.playerAlive:
 			speed = 40
 			var dir_to_player = position.direction_to(player.position) * speed
 			velocity.x = dir_to_player.x
@@ -66,7 +69,7 @@ func handle_animation():
 			anim_sprite.flip_h = false
 	elif !dead and taking_damage and !is_dealing_damage:
 		anim_sprite.play("hurt")
-		await get_tree().create_timer(.715).timeout
+		await get_tree().create_timer(.25).timeout
 		taking_damage = false
 	elif dead and is_roaming:
 		is_roaming = false
@@ -91,6 +94,14 @@ func choose(array):
 	array.shuffle()
 	return array.front()
 
+func _on_detection_area_area_entered(area):
+	if global.playerAlive:
+		is_shadow_chase = true
+	elif !global.playerAlive:
+		is_shadow_chase = false
+func _on_detection_area_area_exited(area):
+	is_shadow_chase = false
+
 func _on_hitbox_area_entered(area):
 	var damage = global.playerDamageAmount
 	if area == global.playerDamageZone:
@@ -107,8 +118,3 @@ func _on_shadow_damage_area_area_entered(area):
 		is_dealing_damage = true
 		await get_tree().create_timer(1.0).timeout
 		is_dealing_damage = false
-
-func _on_detection_area_area_entered(area):
-	is_shadow_chase = true
-func _on_detection_area_area_exited(area):
-	is_shadow_chase = false

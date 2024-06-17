@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bup13d5q5odrf"]
+[gd_scene load_steps=87 format=3 uid="uid://bup13d5q5odrf"]
 
 [ext_resource type="Texture2D" uid="uid://c6bbi0vfn31og" path="res://Assets/Characters II Enemies/DarkSamuraiAssets/DarkSamurai (64x64).png" id="1_5a3lu"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_dvwju"]
@@ -421,10 +421,19 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wplva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taiqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wplva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taiqx")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
-"speed": 6.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -612,12 +621,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0a4n"]
-size = Vector2(11, 26)
+size = Vector2(10, 23)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ioqbh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_82vhk"]
 radius = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0x448"]
+radius = 6.0
+height = 26.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bp5lf"]
 radius = 4.0
@@ -629,11 +642,11 @@ script = ExtResource("1_dvwju")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(12, -16)
 sprite_frames = SubResource("SpriteFrames_3ywku")
-animation = &"double_attack"
+animation = &"death"
 autoplay = "idle"
 
 [node name="Body Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(12.5, -14)
+position = Vector2(12, -13.5)
 shape = SubResource("RectangleShape2D_b0a4n")
 
 [node name="Direction" type="Marker2D" parent="."]
@@ -673,6 +686,13 @@ shape = SubResource("CapsuleShape2D_82vhk")
 disabled = true
 debug_color = Color(0.800957, 0.0920835, 6.73831e-07, 0.419608)
 
+[node name="PlayerHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
+position = Vector2(12, -13)
+shape = SubResource("CapsuleShape2D_0x448")
+debug_color = Color(0.955729, 0, 0.541683, 0.42)
+
 [node name="DetectedArea" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 4
@@ -680,6 +700,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectedArea"]
 position = Vector2(13, -13)
 shape = SubResource("CapsuleShape2D_bp5lf")
-debug_color = Color(0.398874, 0.60913, 0, 0.42)
+debug_color = Color(0, 0, 0, 0.42)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

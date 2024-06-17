@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c3mf28634ke0n"]
+[gd_scene load_steps=58 format=3 uid="uid://c3mf28634ke0n"]
 
 [ext_resource type="Script" path="res://Scripts/shadowenemy.gd" id="1_gr56r"]
 [ext_resource type="Texture2D" uid="uid://b1ikkjqo8bl72" path="res://Assets/Characters II Enemies/Enemies Asset/Cursed_Character_Pack_COMPLETE/Sword/slash_2.png" id="1_iqs3u"]
@@ -256,7 +256,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hurt",
-"speed": 7.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -352,13 +352,16 @@ animations = [{
 radius = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cy3lq"]
-radius = 13.0384
+radius = 9.05539
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a4qqk"]
-radius = 14.0
+radius = 12.0416
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_27r3a"]
 radius = 207.77
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ju5lc"]
+radius = 18.0
 
 [node name="ShadowEnemy" type="CharacterBody2D"]
 script = ExtResource("1_gr56r")
@@ -367,10 +370,9 @@ script = ExtResource("1_gr56r")
 position = Vector2(-1, -27)
 scale = Vector2(1.64583, 1.64583)
 sprite_frames = SubResource("SpriteFrames_66imq")
-animation = &"idle"
+animation = &"hurt"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.140914
+frame_progress = 0.353271
 
 [node name="shadowcollision" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -16)
@@ -400,7 +402,14 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(-1, -17)
 shape = SubResource("CircleShape2D_27r3a")
-debug_color = Color(0.462335, 0.59274, 1.92523e-07, 0.42)
+debug_color = Color(0, 0, 0, 0.42)
+
+[node name="ShadowDealDamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowDealDamageArea"]
+position = Vector2(-1, -16)
+shape = SubResource("CircleShape2D_ju5lc")
+debug_color = Color(0.951403, 1.63645e-06, 0.563824, 0.42)
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

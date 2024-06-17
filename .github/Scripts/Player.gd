@@ -19,9 +19,19 @@ var current_attack: bool
 
 var gravity = 900
 
+var health = 100
+var health_max = 100
+var health_min = 0
+var can_take_damage: bool
+var dead: bool
+
+
 func _ready():
 	global.playerBody = self
 	current_attack = false
+	dead = false
+	can_take_damage = true
+	global.playerAlive = true
 
 func _physics_process(delta):
 	weapon_equip = global.playerWeaponEquip
@@ -31,34 +41,75 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	if is_on_floor():
 		jump_count = 0
-	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
-		velocity.y = jump_power
-		jump_count += 1
-	var direction = Input.get_axis("left", "right")
-	if direction:
-		velocity.x = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+	if !dead:
+		if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
+			velocity.y = jump_power
+			jump_count += 1
+		var direction = Input.get_axis("left", "right")
+		if direction:
+				velocity.x = direction * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
 	
-	if Input.is_action_just_pressed("pause"):
-		pausemenu()
+		if Input.is_action_just_pressed("pause"):
+			pausemenu()
 	
-	if weapon_equip and !current_attack:
-		if Input.is_action_just_pressed("left_mouse") or Input.is_action_just_pressed("right_mouse"):
-			current_attack = true
-			if Input.is_action_just_pressed("left_mouse") and is_on_floor():
-				attack_type = "single"
-			elif Input.is_action_just_pressed("right_mouse") and is_on_floor():
-				attack_type = "double"
-			elif Input.is_action_just_pressed("right_mouse") and !is_on_floor():
-				attack_type = "double"
-			else:
-				attack_type = "air"
-			set_damage(attack_type)
-			handle_attack_animation(attack_type)
-	
+		if weapon_equip and !current_attack:
+			if Input.is_action_just_pressed("left_mouse") or Input.is_action_just_pressed("right_mouse"):
+				current_attack = true
+				if Input.is_action_just_pressed("left_mouse") and is_on_floor():
+					attack_type = "single"
+				elif Input.is_action_just_pressed("right_mouse") and is_on_floor():
+					attack_type = "double"
+				elif Input.is_action_just_pressed("right_mouse") and !is_on_floor():
+					attack_type = "double"
+				else:
+					attack_type = "air"
+				set_damage(attack_type)
+				handle_attack_animation(attack_type)
+		handle_movement_animation(direction)
+		check_hitbox()
 	move_and_slide()
-	handle_movement_animation(direction)
+
+func check_hitbox():
+	var hitbox_areas = $PlayerHitbox.get_overlapping_areas()
+	var damage: int
+	if hitbox_areas:
+		var hitbox = hitbox_areas.front()
+		if hitbox.get_parent() is ShadowEnemy:
+			damage = global.shadowDamageAmount
+		#add more as more entities are added
+	if can_take_damage:
+		take_damage(damage)
+
+func take_damage(damage):
+	if damage != 0:
+		if health > 0:
+			health -= damage
+			print("player health: ", health)
+			if health <= 0:
+				health = 0
+				dead = true
+				global.playerAlive = false
+				handle_death_animation()
+			take_damage_cooldown(1.0)
+
+func handle_death_animation():
+	velocity.x = 0
+	$PlayerHitbox/CollisionShape2D.position.y = 5
+	anim_sprite.play("death")
+	await get_tree().create_timer(0.5).timeout
+	$Camera2D.zoom.x = 4
+	$Camera2D.zoom.y = 4
+	await get_tree().create_timer(3.5).timeout
+	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
+	self.queue_free()
+	
+
+func take_damage_cooldown(wait_time):
+	can_take_damage = false
+	await get_tree().create_timer(wait_time).timeout
+	can_take_damage = true
 
 func handle_movement_animation(dir):
 	if !weapon_equip:
