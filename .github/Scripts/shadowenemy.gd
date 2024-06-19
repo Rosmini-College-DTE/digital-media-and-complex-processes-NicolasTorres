@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 class_name ShadowEnemy
 
-var speed = 20
+@onready var deal_damage_zone = $ShadowDealDamageArea
+
+var speed = 30
 var is_shadow_chase: bool
 
 var health = 100
@@ -33,9 +35,6 @@ func _process(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		velocity.x = 0
-	
-	global.shadowDamageAmount = damage_to_deal
-	global.shadowDamageZone = $ShadowDamageArea
 	
 	player = global.playerBody
 	
@@ -72,9 +71,10 @@ func handle_animation():
 		await get_tree().create_timer(.25).timeout
 		taking_damage = false
 	elif dead and is_roaming:
+		var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
 		is_roaming = false
-		var shadow_damage_collision = deal_damage_
 		anim_sprite.play("death")
+		damage_zone_collision.disabled = true
 		await get_tree().create_timer(1.1).timeout
 		anim_sprite.play("smoke")
 		await get_tree().create_timer(.667).timeout
@@ -96,12 +96,14 @@ func choose(array):
 	return array.front()
 
 func _on_detection_area_area_entered(area):
-	if global.playerAlive:
-		is_shadow_chase = true
-	elif !global.playerAlive:
-		is_shadow_chase = false
+	if area == global.playerDetectionHitbox:
+		if global.playerAlive:
+			is_shadow_chase = true
+		elif !global.playerAlive:
+			is_shadow_chase = false
 func _on_detection_area_area_exited(area):
-	is_shadow_chase = false
+	if area == global.playerDetectionHitbox:
+		is_shadow_chase = false
 
 func _on_hitbox_area_entered(area):
 	var damage = global.playerDamageAmount

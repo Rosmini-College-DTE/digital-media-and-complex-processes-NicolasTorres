@@ -370,9 +370,8 @@ script = ExtResource("1_gr56r")
 position = Vector2(-1, -27)
 scale = Vector2(1.64583, 1.64583)
 sprite_frames = SubResource("SpriteFrames_66imq")
-animation = &"hurt"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.353271
 
 [node name="shadowcollision" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -16)
@@ -382,6 +381,8 @@ shape = SubResource("CircleShape2D_k5brw")
 autostart = true
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1, -16)
@@ -389,6 +390,8 @@ shape = SubResource("CircleShape2D_cy3lq")
 debug_color = Color(0.995147, 0, 0.210292, 0.42)
 
 [node name="ShadowDamageArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowDamageArea"]
 position = Vector2(-1, -16)
@@ -405,6 +408,8 @@ shape = SubResource("CircleShape2D_27r3a")
 debug_color = Color(0, 0, 0, 0.42)
 
 [node name="ShadowDealDamageArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShadowDealDamageArea"]
 position = Vector2(-1, -16)

@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var dialogue_detector : Area2D = $Direction/ActionableFinder
 @onready var pause_menu = $PauseMenu
 @onready var deal_damage_zone = $DealDamageZone
+@onready var player_hitbox_area = $PlayerHitbox
+@onready var player_detection_area = $DetectedArea
 #@onready var HP = $Healthbar
 
 var weapon_equip: bool
@@ -27,6 +29,8 @@ var dead: bool
 
 
 func _ready():
+	global.playerHitbox = player_hitbox_area
+	global.playerDetectionHitbox = player_detection_area
 	global.playerBody = self
 	current_attack = false
 	dead = false
@@ -78,7 +82,8 @@ func check_hitbox():
 		var hitbox = hitbox_areas.front()
 		if hitbox.get_parent() is ShadowEnemy:
 			damage = global.shadowDamageAmount
-		#add more as more entities are added
+		if hitbox.get_parent() is Spikes:
+			damage = global.spikeDamageAmount
 	if can_take_damage:
 		take_damage(damage)
 
@@ -102,7 +107,7 @@ func handle_death_animation():
 	$Camera2D.zoom.x = 4
 	$Camera2D.zoom.y = 4
 	await get_tree().create_timer(3.5).timeout
-	get_tree().change_scene_to_file("res://Scenes/StartGame.tscn")
+	get_tree().change_scene_to_file("res://Scenes/DeathMenu.tscn")
 	self.queue_free()
 	
 

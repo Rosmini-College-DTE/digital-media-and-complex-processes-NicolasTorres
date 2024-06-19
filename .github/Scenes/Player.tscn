@@ -678,6 +678,8 @@ offset_bottom = 406.0
 scale = Vector2(0.71, 0.71)
 
 [node name="DealDamageZone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DealDamageZone"]
 position = Vector2(30, -13)
@@ -687,6 +689,8 @@ disabled = true
 debug_color = Color(0.800957, 0.0920835, 6.73831e-07, 0.419608)
 
 [node name="PlayerHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 position = Vector2(12, -13)
