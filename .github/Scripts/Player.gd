@@ -102,7 +102,7 @@ func handle_death_animation():
 	$Camera2D.zoom.x = 4
 	$Camera2D.zoom.y = 4
 	await get_tree().create_timer(3.5).timeout
-	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
+	get_tree().change_scene_to_file("res://Scenes/StartGame.tscn")
 	self.queue_free()
 	
 

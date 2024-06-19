@@ -73,6 +73,7 @@ func handle_animation():
 		taking_damage = false
 	elif dead and is_roaming:
 		is_roaming = false
+		var shadow_damage_collision = deal_damage_
 		anim_sprite.play("death")
 		await get_tree().create_timer(1.1).timeout
 		anim_sprite.play("smoke")

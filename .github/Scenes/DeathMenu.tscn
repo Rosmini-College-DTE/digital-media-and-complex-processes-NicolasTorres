@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1socle1ovgly"]
+
+[ext_resource type="Script" path="res://Scripts/DeathMenu.gd" id="1_pavpt"]
+[ext_resource type="Texture2D" uid="uid://40hryjd43q88" path="res://Assets/Sprites/underwater Death.jpg" id="2_1vxf2"]
+[ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="3_pvrr0"]
+
+[sub_resource type="Theme" id="Theme_dykfu"]
+default_font = ExtResource("3_pvrr0")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_njil6"]
+default_font = ExtResource("3_pvrr0")
+default_font_size = 40
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pavpt")
+
+[node name="UnderwaterDeath" type="Sprite2D" parent="."]
+position = Vector2(578, 328)
+scale = Vector2(0.691439, 0.690909)
+texture = ExtResource("2_1vxf2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 496.25
+offset_top = 172.9
+offset_right = 668.25
+offset_bottom = 356.9
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dykfu")
+theme_override_colors/font_color = Color(0.054902, 0.231373, 0.352941, 1)
+theme_override_colors/font_hover_color = Color(0.0862745, 0.423529, 0.419608, 1)
+text = " Restart"
+flat = true
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_njil6")
+theme_override_colors/font_color = Color(0.054902, 0.231373, 0.352941, 1)
+theme_override_colors/font_hover_color = Color(0.0705882, 0.431373, 0.411765, 1)
+text = "Quit"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
