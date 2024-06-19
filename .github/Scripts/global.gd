@@ -1,7 +1,5 @@
 extends Node
 
-
-
 var gameStarted: bool
 var paused = false
 
