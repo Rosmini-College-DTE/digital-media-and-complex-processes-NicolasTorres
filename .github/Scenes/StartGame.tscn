@@ -7,12 +7,12 @@
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="4_3cgoj"]
 [ext_resource type="Texture2D" uid="uid://jtjbihotulmf" path="res://Assets/Sprites/EasterEgg/flex.jpg" id="4_lbxdx"]
 [ext_resource type="AudioStream" uid="uid://7w4swy1agpjv" path="res://Assets/Sprites/EasterEgg/tuff dog.mp3" id="5_ef3tc"]
-[ext_resource type="PackedScene" uid="uid://djpauuvjpd6a1" path="res://Scenes/healthbar.tscn" id="5_h17op"]
 [ext_resource type="PackedScene" uid="uid://d0ih2b5sw84gb" path="res://Scenes/WizardNPC.tscn" id="7_bm350"]
 [ext_resource type="PackedScene" uid="uid://cdgrb4lbo4r1v" path="res://Scenes/actionable.tscn" id="8_cstbb"]
 [ext_resource type="Resource" uid="uid://m8fm44edm7rl" path="res://Dialogue/Wizard.dialogue" id="9_4hflx"]
 [ext_resource type="PackedScene" uid="uid://c3mf28634ke0n" path="res://Scenes/shadowenemy.tscn" id="12_0fls7"]
 [ext_resource type="PackedScene" uid="uid://cvfb0jwoypfle" path="res://Scenes/spikes.tscn" id="13_nrr2e"]
+[ext_resource type="PackedScene" uid="uid://bsv3rjxqt0cc0" path="res://Scenes/scene_transition_animation.tscn" id="14_dvcx8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n3ub1"]
 texture = ExtResource("1_y10gr")
@@ -1424,17 +1424,6 @@ position = Vector2(1290, -204)
 position = Vector2(26, -9.53674e-07)
 scale = Vector2(0.999999, 0.999999)
 
-[node name="Healthbar" parent="Player" instance=ExtResource("5_h17op")]
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 202.0
-offset_top = -205.0
-offset_right = 386.0
-offset_bottom = -195.0
-
 [node name="Label" type="Label" parent="Player"]
 offset_left = 204.0
 offset_top = -225.0
@@ -1490,3 +1479,8 @@ position = Vector2(746, 692)
 
 [node name="Spikes" parent="." instance=ExtResource("13_nrr2e")]
 position = Vector2(537, -17)
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("14_dvcx8")]
+position = Vector2(-364, -241)
+
+[node name="Timer" type="Timer" parent="SceneTransitionAnimation"]

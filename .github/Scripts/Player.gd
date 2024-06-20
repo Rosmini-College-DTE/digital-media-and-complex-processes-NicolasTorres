@@ -125,9 +125,9 @@ func handle_movement_animation(dir):
 				anim_sprite.play("run")
 				toggle_flip_sprite(dir)
 		elif !is_on_floor():
-			if velocity.y > 0:
+			if velocity.y < 0:
 				anim_sprite.play("jump")
-			elif velocity.y < 0:
+			elif velocity.y > 0:
 				anim_sprite.play("fall")
 	elif weapon_equip:
 		if is_on_floor() and !current_attack:
@@ -137,12 +137,15 @@ func handle_movement_animation(dir):
 				anim_sprite.play("weapon_run")
 				toggle_flip_sprite(dir)
 		elif !is_on_floor() and !current_attack:
-			if velocity.y > 0:
+			if velocity.y < 0:
 				anim_sprite.play("weapon_jump")
 				toggle_flip_sprite(dir)
-			elif velocity.y < 0:
+			elif velocity.y > 0:
 				anim_sprite.play("weapon_fall")
 				toggle_flip_sprite(dir)
+	elif state.agreed:
+		velocity.x = 0
+		anim_sprite.play("teleporting")
 
 func toggle_flip_sprite(dir):
 	if dir == 1:
@@ -199,9 +202,9 @@ func _on_animated_sprite_2d_animation_finished():
 func set_damage(attack_type):
 	var current_damage_to_deal: int
 	if attack_type == "single":
-		current_damage_to_deal = 10
-	elif attack_type == "double":
 		current_damage_to_deal = 20
-	elif attack_type == "air":
+	elif attack_type == "double":
 		current_damage_to_deal = 30
+	elif attack_type == "air":
+		current_damage_to_deal = 50
 	global.playerDamageAmount = current_damage_to_deal

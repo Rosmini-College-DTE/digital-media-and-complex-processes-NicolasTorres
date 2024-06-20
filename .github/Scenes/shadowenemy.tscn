@@ -199,8 +199,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ud7ks")
 }],
-"loop": true,
-"name": &"attack",
+"loop": false,
+"name": &"deal_damage",
 "speed": 9.0
 }, {
 "frames": [{
@@ -370,7 +370,7 @@ script = ExtResource("1_gr56r")
 position = Vector2(-1, -27)
 scale = Vector2(1.64583, 1.64583)
 sprite_frames = SubResource("SpriteFrames_66imq")
-animation = &"attack"
+animation = &"deal_damage"
 autoplay = "idle"
 
 [node name="shadowcollision" type="CollisionShape2D" parent="."]
@@ -418,8 +418,8 @@ debug_color = Color(0.951403, 1.63645e-06, 0.563824, 0.42)
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="area_entered" from="ShadowDamageArea" to="." method="_on_shadow_damage_area_area_entered"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
 [connection signal="area_shape_entered" from="DetectionArea" to="." method="_on_detection_area_area_shape_entered"]
 [connection signal="area_shape_exited" from="DetectionArea" to="." method="_on_detection_area_area_shape_exited"]
+[connection signal="area_entered" from="ShadowDealDamageArea" to="." method="_on_shadow_deal_damage_area_area_entered"]

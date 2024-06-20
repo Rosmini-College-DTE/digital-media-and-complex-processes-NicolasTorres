@@ -14,7 +14,7 @@ var health_min = 0
 var dead: bool = false
 var taking_damage: bool = false
 var damage_to_deal = 20
-var is_dealing_damage: bool = false
+var is_dealing_damage: bool
 
 var dir: Vector2
 const gravity = 900
@@ -80,7 +80,13 @@ func handle_animation():
 		await get_tree().create_timer(.667).timeout
 		handle_death()
 	elif !dead and is_dealing_damage:
-		anim_sprite.play("attack")
+		anim_sprite.play("deal_damage")
+
+func _on_shadow_deal_damage_area_area_entered(area):
+	if area == global.playerHitbox:
+		is_dealing_damage = true
+		await get_tree().create_timer(.556).timeout
+		is_dealing_damage = false
 
 func handle_death():
 	self.queue_free()
@@ -115,9 +121,3 @@ func take_damage(damage):
 	if health <= health_min:
 		health = health_min
 		dead = true
-
-func _on_shadow_damage_area_area_entered(area):
-	if area == global.playerHitbox:
-		is_dealing_damage = true
-		await get_tree().create_timer(1.0).timeout
-		is_dealing_damage = false
