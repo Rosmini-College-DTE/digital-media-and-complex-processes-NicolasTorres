@@ -4,7 +4,7 @@ class_name ShadowEnemy
 
 @onready var deal_damage_zone = $ShadowDealDamageArea
 
-var speed = 30
+var speed = 50
 var is_shadow_chase: bool
 
 var health = 100
@@ -18,7 +18,7 @@ var is_dealing_damage: bool
 
 var dir: Vector2
 const gravity = 900
-var knockback_force = -20
+var knockback_force = -40
 
 var is_roaming: bool
 

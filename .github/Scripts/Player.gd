@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var deal_damage_zone = $DealDamageZone
 @onready var player_hitbox_area = $PlayerHitbox
 @onready var player_detection_area = $DetectedArea
-#@onready var HP = $Healthbar
+
 
 var weapon_equip: bool
 
@@ -143,8 +143,9 @@ func handle_movement_animation(dir):
 			elif velocity.y > 0:
 				anim_sprite.play("weapon_fall")
 				toggle_flip_sprite(dir)
-	elif state.agreed:
+	if state.agreed:
 		velocity.x = 0
+		velocity.y = 0
 		anim_sprite.play("teleporting")
 
 func toggle_flip_sprite(dir):
@@ -191,7 +192,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 		var actionables = dialogue_detector.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()
-			speed = 0
+			velocity.x = 0
+			velocity.y = 0
 	elif DialogueManager.dialogue_ended:
 		speed = 150.0
 

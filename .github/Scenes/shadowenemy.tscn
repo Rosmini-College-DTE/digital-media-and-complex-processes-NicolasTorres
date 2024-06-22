@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://c3mf28634ke0n"]
+[gd_scene load_steps=59 format=3 uid="uid://c3mf28634ke0n"]
 
 [ext_resource type="Script" path="res://Scripts/shadowenemy.gd" id="1_gr56r"]
 [ext_resource type="Texture2D" uid="uid://b1ikkjqo8bl72" path="res://Assets/Characters II Enemies/Enemies Asset/Cursed_Character_Pack_COMPLETE/Sword/slash_2.png" id="1_iqs3u"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ckiqhdwggrsnm" path="res://Assets/Characters II Enemies/Enemies Asset/Cursed_Character_Pack_COMPLETE/Sword/jump.png" id="5_u8jvf"]
 [ext_resource type="Texture2D" uid="uid://bauy66a7pveg8" path="res://Assets/Characters II Enemies/Enemies Asset/Cursed_Character_Pack_COMPLETE/Sword/walk.png" id="6_ri0w3"]
 [ext_resource type="Texture2D" uid="uid://c6wqm6fre8663" path="res://Assets/FXs/Free Smoke Fx Pixel 2/Free Smoke Fx  Pixel 05.png" id="7_skp4t"]
+[ext_resource type="PackedScene" uid="uid://m7tncidkapy4" path="res://Scenes/health_bar.tscn" id="9_jad8i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ynwo2"]
 atlas = ExtResource("1_iqs3u")
@@ -361,7 +362,7 @@ radius = 12.0416
 radius = 207.77
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ju5lc"]
-radius = 18.0
+radius = 17.0
 
 [node name="ShadowEnemy" type="CharacterBody2D"]
 script = ExtResource("1_gr56r")
@@ -387,7 +388,7 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-1, -16)
 shape = SubResource("CircleShape2D_cy3lq")
-debug_color = Color(0.995147, 0, 0.210292, 0.42)
+debug_color = Color(0.623428, 0.35337, 0.996902, 0.42)
 
 [node name="ShadowDamageArea" type="Area2D" parent="."]
 collision_layer = 2
@@ -415,6 +416,12 @@ collision_mask = 2
 position = Vector2(-1, -16)
 shape = SubResource("CircleShape2D_ju5lc")
 debug_color = Color(0.951403, 1.63645e-06, 0.563824, 0.42)
+
+[node name="HealthBar" parent="." instance=ExtResource("9_jad8i")]
+offset_left = -14.0
+offset_top = -36.0
+offset_right = 12.0
+offset_bottom = -30.0
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

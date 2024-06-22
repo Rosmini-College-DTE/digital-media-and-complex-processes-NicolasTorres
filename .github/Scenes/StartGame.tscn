@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://j51ue6ibd2lc"]
+[gd_scene load_steps=23 format=3 uid="uid://j51ue6ibd2lc"]
 
 [ext_resource type="Script" path="res://Scripts/StartGame.gd" id="1_lip5d"]
 [ext_resource type="Texture2D" uid="uid://cva4iv66oms33" path="res://Assets/Sprites/Finish.png" id="1_y10gr"]
@@ -1341,12 +1341,6 @@ font_size = 10
 font = ExtResource("4_3cgoj")
 font_size = 8
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dcera"]
-radius = 17.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_wh61b"]
-font = ExtResource("4_3cgoj")
-
 [sub_resource type="LabelSettings" id="LabelSettings_ydqlq"]
 font = ExtResource("4_3cgoj")
 font_size = 10
@@ -1354,6 +1348,9 @@ font_size = 10
 [sub_resource type="LabelSettings" id="LabelSettings_nflxe"]
 font = ExtResource("4_3cgoj")
 font_size = 10
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcera"]
+radius = 17.0
 
 [node name="Game_start" type="Node2D"]
 script = ExtResource("1_lip5d")
@@ -1378,6 +1375,17 @@ stream = ExtResource("3_lk2lv")
 volume_db = 1.43
 autoplay = true
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-654.525, -32.25)
+scale = Vector2(0.0775144, 0.0822011)
+texture = ExtResource("4_lbxdx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D"]
+stream = ExtResource("5_ef3tc")
+volume_db = -1.95
+autoplay = true
+max_distance = 470.0
+
 [node name="credits" type="Label" parent="."]
 texture_filter = 1
 offset_left = -615.0
@@ -1399,49 +1407,6 @@ text = "*this is an easteregg,
 "
 label_settings = SubResource("LabelSettings_u43p3")
 metadata/_edit_use_anchors_ = true
-
-[node name="Wizard" parent="." instance=ExtResource("7_bm350")]
-position = Vector2(-186, 646)
-
-[node name="Actionable" parent="Wizard" instance=ExtResource("8_cstbb")]
-position = Vector2(11, 21)
-dialogue_resource = ExtResource("9_4hflx")
-
-[node name="Dialogue" type="CollisionShape2D" parent="Wizard/Actionable"]
-position = Vector2(-1, -1)
-shape = SubResource("CircleShape2D_dcera")
-
-[node name="ShadowEnemy" parent="." instance=ExtResource("12_0fls7")]
-position = Vector2(968, 691)
-
-[node name="ShadowEnemy2" parent="." instance=ExtResource("12_0fls7")]
-position = Vector2(525, 691)
-
-[node name="ShadowEnemy3" parent="." instance=ExtResource("12_0fls7")]
-position = Vector2(1290, -204)
-
-[node name="Player" parent="." instance=ExtResource("2_ex8t0")]
-position = Vector2(26, -9.53674e-07)
-scale = Vector2(0.999999, 0.999999)
-
-[node name="Label" type="Label" parent="Player"]
-offset_left = 204.0
-offset_top = -225.0
-offset_right = 244.0
-offset_bottom = -203.0
-text = "HP "
-label_settings = SubResource("LabelSettings_wh61b")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-654.525, -32.25)
-scale = Vector2(0.0775144, 0.0822011)
-texture = ExtResource("4_lbxdx")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sprite2D"]
-stream = ExtResource("5_ef3tc")
-volume_db = -1.95
-autoplay = true
-max_distance = 470.0
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 1097.0
@@ -1468,6 +1433,15 @@ offset_bottom = -44.0
 text = "Press space to jump"
 label_settings = SubResource("LabelSettings_nflxe")
 
+[node name="ShadowEnemy" parent="." instance=ExtResource("12_0fls7")]
+position = Vector2(968, 691)
+
+[node name="ShadowEnemy2" parent="." instance=ExtResource("12_0fls7")]
+position = Vector2(525, 691)
+
+[node name="ShadowEnemy3" parent="." instance=ExtResource("12_0fls7")]
+position = Vector2(1290, -204)
+
 [node name="ShadowEnemy5" parent="." instance=ExtResource("12_0fls7")]
 position = Vector2(116, 680)
 
@@ -1477,8 +1451,23 @@ position = Vector2(320, 682)
 [node name="ShadowEnemy7" parent="." instance=ExtResource("12_0fls7")]
 position = Vector2(746, 692)
 
+[node name="Wizard" parent="." instance=ExtResource("7_bm350")]
+position = Vector2(263, -40)
+
+[node name="Actionable" parent="Wizard" instance=ExtResource("8_cstbb")]
+position = Vector2(11, 21)
+dialogue_resource = ExtResource("9_4hflx")
+
+[node name="Dialogue" type="CollisionShape2D" parent="Wizard/Actionable"]
+position = Vector2(-1, -1)
+shape = SubResource("CircleShape2D_dcera")
+
 [node name="Spikes" parent="." instance=ExtResource("13_nrr2e")]
 position = Vector2(537, -17)
+
+[node name="Player" parent="." instance=ExtResource("2_ex8t0")]
+position = Vector2(26, -9.53674e-07)
+scale = Vector2(0.999999, 0.999999)
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("14_dvcx8")]
 position = Vector2(-364, -241)
