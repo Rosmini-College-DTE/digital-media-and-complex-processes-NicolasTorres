@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y7fhw6l15iva"
-path="res://.godot/imported/forest-bailey-underwater.jpg-50d98651989c2d1b548515da6f459e2e.ctex"
+uid="uid://c6upuaggge45f"
+path="res://.godot/imported/castlewall.jpg-df8b2d8cc3648d7a94d7ad32f7f93743.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/forest-bailey-underwater.jpg"
-dest_files=["res://.godot/imported/forest-bailey-underwater.jpg-50d98651989c2d1b548515da6f459e2e.ctex"]
+source_file="res://Assets/Sprites/castlewall.jpg"
+dest_files=["res://.godot/imported/castlewall.jpg-df8b2d8cc3648d7a94d7ad32f7f93743.ctex"]
 
 [params]
 

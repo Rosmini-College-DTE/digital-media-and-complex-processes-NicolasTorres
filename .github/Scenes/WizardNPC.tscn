@@ -30,7 +30,7 @@ func handle_animation():
 	if state.agreed:
 		anim_sprite.play(\"teleport\")
 		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file(\"res://Scenes/firstlevel.tscn\")
+		get_tree().change_scene_to_file(\"res://Scenes/Depths/depths.tscn\")
 	
 "
 

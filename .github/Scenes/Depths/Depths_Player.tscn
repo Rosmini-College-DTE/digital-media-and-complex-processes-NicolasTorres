@@ -1,10 +1,10 @@
 [gd_scene load_steps=113 format=3 uid="uid://b14os4xu7bu55"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_dvwju"]
+[ext_resource type="Script" path="res://Depths/Scripts/Depths_Player.gd" id="1_l0y1s"]
 [ext_resource type="PackedScene" uid="uid://m7tncidkapy4" path="res://Scenes/health_bar.tscn" id="2_7ff6w"]
 [ext_resource type="PackedScene" uid="uid://dcnspdwxxbt8j" path="res://Scenes/pausemenu.tscn" id="3_1wbyx"]
 [ext_resource type="Texture2D" uid="uid://dvgm1tn4e4skd" path="res://Assets/FXs/Magic Spell Effects 9/Magic Spell/willuse.png" id="3_q0801"]
-[ext_resource type="Texture2D" uid="uid://7vxnaawiwsi2" path="res://Depths/Assets/Entities/Artwork/Dark Samurai.png" id="3_was66"]
+[ext_resource type="Texture2D" uid="uid://7vxnaawiwsi2" path="res://Depths/Assets/Entities/!Artwork/Dark Samurai.png" id="3_was66"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnc7n"]
 atlas = ExtResource("3_was66")
@@ -803,7 +803,7 @@ radius = 4.0
 height = 8.0
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_dvwju")
+script = ExtResource("1_l0y1s")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_7ff6w")]
 offset_left = 3.0
@@ -840,6 +840,9 @@ debug_color = Color(0.517271, 0.531961, 0.603165, 0.42)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(12, -16)
 zoom = Vector2(1.435, 1.435)
+limit_left = -330
+limit_right = 100000000
+limit_bottom = 570
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_1wbyx")]
 visible = false

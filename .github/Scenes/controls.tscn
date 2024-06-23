@@ -12,7 +12,7 @@ gradient = SubResource("Gradient_igkeq")
 
 [sub_resource type="LabelSettings" id="LabelSettings_kib60"]
 font = ExtResource("1_yx8sd")
-font_size = 40
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_bwc71"]
 font = ExtResource("1_yx8sd")
@@ -20,11 +20,11 @@ font_size = 50
 
 [sub_resource type="LabelSettings" id="LabelSettings_wog5w"]
 font = ExtResource("1_yx8sd")
-font_size = 40
+font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_crcdw"]
 font = ExtResource("1_yx8sd")
-font_size = 17
+font_size = 24
 
 [sub_resource type="Theme" id="Theme_5bw8i"]
 default_font = ExtResource("1_yx8sd")
@@ -52,20 +52,22 @@ texture = ExtResource("2_e63dx")
 
 [node name="Keybinds" type="Label" parent="."]
 layout_mode = 0
-offset_left = 200.0
-offset_top = 105.0
-offset_right = 600.0
-offset_bottom = 566.0
+offset_left = 192.0
+offset_top = 101.0
+offset_right = 485.0
+offset_bottom = 494.0
 text = "KEYBINDS
 --------
 Left: A
 Right: D
 Jump: Space
-Attack: M1
-Interact: M2
+Attack Single: M1
+Attack Double: M2
+Interact: E
 Next (dialogue): M1
 "
 label_settings = SubResource("LabelSettings_kib60")
+horizontal_alignment = 1
 
 [node name="Controls_text" type="Label" parent="."]
 layout_mode = 0
@@ -79,32 +81,36 @@ horizontal_alignment = 1
 
 [node name="Instructions" type="Label" parent="."]
 layout_mode = 0
-offset_left = 699.0
+offset_left = 726.0
 offset_top = 104.0
-offset_right = 944.0
-offset_bottom = 275.0
+offset_right = 906.0
+offset_bottom = 189.0
 text = "HOW TO PLAY
 -----------"
 label_settings = SubResource("LabelSettings_wog5w")
 
 [node name="extras2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 608.0
-offset_top = 229.0
-offset_right = 1090.0
-offset_bottom = 307.0
-text = "Follow the quest given at the end of the starting 
-area. Descend the depths while killing the enemies 
-that may attack you. Retrieve the lost soul fragment
-by defeating the entity guarding it."
+offset_left = 599.0
+offset_top = 190.0
+offset_right = 1058.0
+offset_bottom = 403.0
+text = "Follow the quest given at the end of 
+the starting area. Descend the depths 
+while killing the enemies that may 
+attack you. Retrieve the lost soul 
+fragment by defeating the entity 
+guarding it."
 label_settings = SubResource("LabelSettings_crcdw")
+horizontal_alignment = 1
+text_direction = 1
 
 [node name="extras" type="Label" parent="."]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 585.0
-offset_right = 273.0
-offset_bottom = 636.0
+offset_left = 11.0
+offset_top = 572.0
+offset_right = 378.0
+offset_bottom = 641.0
 text = "*m1 is the left mouse button
 *m2 is the right mouse button"
 label_settings = SubResource("LabelSettings_crcdw")

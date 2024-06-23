@@ -18,3 +18,6 @@ var shadowDamageAmount: int
 
 var spikeDamageZone: Area2D
 var spikeDamageAmount: int
+
+var voidDamageZone: Area2D
+var voidDamageAmount: int

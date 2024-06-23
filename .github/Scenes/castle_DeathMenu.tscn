@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1socle1ovgly"]
+[gd_scene load_steps=7 format=3 uid="uid://dy2wstgyadcjj"]
 
-[ext_resource type="Script" path="res://Scripts/DeathMenu.gd" id="1_pavpt"]
-[ext_resource type="Texture2D" uid="uid://40hryjd43q88" path="res://Assets/Sprites/underwater Death.jpg" id="2_1vxf2"]
+[ext_resource type="Script" path="res://Scripts/castle_DeathMenu.gd" id="1_wpfnj"]
+[ext_resource type="Texture2D" uid="uid://y38qj4meu7av" path="res://Assets/Sprites/Brick wall.jpeg" id="2_6lgnl"]
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="3_pvrr0"]
 
 [sub_resource type="Theme" id="Theme_dykfu"]
@@ -15,7 +15,6 @@ default_font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_oq7iy"]
 font = ExtResource("3_pvrr0")
 font_size = 86
-font_color = Color(0.054902, 0.231373, 0.352941, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -24,12 +23,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pavpt")
+script = ExtResource("1_wpfnj")
 
 [node name="UnderwaterDeath" type="Sprite2D" parent="."]
-position = Vector2(578, 328)
-scale = Vector2(0.691439, 0.690909)
-texture = ExtResource("2_1vxf2")
+texture_filter = 1
+position = Vector2(577.5, 322.5)
+scale = Vector2(1.94167, 1.66835)
+texture = ExtResource("2_6lgnl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -41,16 +41,14 @@ offset_bottom = 303.0
 [node name="Restart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_dykfu")
-theme_override_colors/font_color = Color(0.054902, 0.231373, 0.352941, 1)
-theme_override_colors/font_hover_color = Color(0.0862745, 0.423529, 0.419608, 1)
+theme_override_colors/font_hover_color = Color(0.302016, 0.310452, 0.333786, 1)
 text = " Restart"
 flat = true
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_njil6")
-theme_override_colors/font_color = Color(0.054902, 0.231373, 0.352941, 1)
-theme_override_colors/font_hover_color = Color(0.0705882, 0.431373, 0.411765, 1)
+theme_override_colors/font_hover_color = Color(0.301961, 0.309804, 0.333333, 1)
 text = "Quit"
 flat = true
 

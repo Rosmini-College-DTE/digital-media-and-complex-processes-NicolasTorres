@@ -84,6 +84,8 @@ func check_hitbox():
 			damage = global.shadowDamageAmount
 		if hitbox.get_parent() is Spikes:
 			damage = global.spikeDamageAmount
+		if hitbox.get_parent() is KillZone:
+			damage = global.voidDamageAmount
 	if can_take_damage:
 		take_damage(damage)
 
@@ -108,7 +110,7 @@ func handle_death_animation():
 		$Camera2D.zoom.x = 4
 		$Camera2D.zoom.y = 4
 		await get_tree().create_timer(3.5).timeout
-		get_tree().change_scene_to_file("res://Scenes/castle_DeathMenu.tscn")
+		get_tree().change_scene_to_file("res://Scenes/DeathMenu.tscn")
 		self.queue_free()
 	
 
@@ -212,3 +214,4 @@ func set_damage(attack_type):
 	elif attack_type == "air":
 		current_damage_to_deal = 50
 	global.playerDamageAmount = current_damage_to_deal
+
