@@ -19,7 +19,7 @@ var max_jumps = 2
 var attack_type: String
 var current_attack: bool
 
-var gravity = 900
+var gravity = 600
 
 var health = 100
 var health_max = 100
@@ -86,6 +86,8 @@ func check_hitbox():
 			damage = global.spikeDamageAmount
 		if hitbox.get_parent() is KillZone:
 			damage = global.voidDamageAmount
+		if hitbox.get_parent() is Jellyfish:
+			damage = global.jellyDamageAmount
 	if can_take_damage:
 		take_damage(damage)
 

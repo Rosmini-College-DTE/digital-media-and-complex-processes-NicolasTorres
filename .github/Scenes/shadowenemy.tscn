@@ -235,7 +235,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wr15y")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -255,7 +255,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ohief")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
 "speed": 16.0
 }, {
@@ -289,7 +289,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pr2x7")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump",
 "speed": 8.0
 }, {
@@ -371,7 +371,7 @@ script = ExtResource("1_gr56r")
 position = Vector2(-1, -27)
 scale = Vector2(1.64583, 1.64583)
 sprite_frames = SubResource("SpriteFrames_66imq")
-animation = &"deal_damage"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="shadowcollision" type="CollisionShape2D" parent="."]

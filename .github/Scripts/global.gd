@@ -21,3 +21,6 @@ var spikeDamageAmount: int
 
 var voidDamageZone: Area2D
 var voidDamageAmount: int
+
+var jellyDamageZone: Area2D
+var jellyDamageAmount: int

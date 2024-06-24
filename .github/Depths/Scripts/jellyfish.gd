@@ -1,23 +1,23 @@
 extends CharacterBody2D
 
-class_name ShadowEnemy
+class_name Jellyfish
 
-@onready var deal_damage_zone = $ShadowDealDamageArea
+@onready var deal_damage_zone = $JellyDealDamageArea
 
-var speed = 40
-var is_shadow_chase: bool
+var speed = 20
+var is_jelly_chase: bool
 
-var health = 100
-var health_max = 100
+var health = 200
+var health_max = 200
 var health_min = 0
 
 var dead: bool = false
 var taking_damage: bool = false
-var damage_to_deal = 20
+var damage_to_deal = 10
 var is_dealing_damage: bool
 
 var dir: Vector2
-const gravity = 900
+const gravity = 600
 var knockback_force = -40
 
 var is_roaming: bool
@@ -26,11 +26,11 @@ var player: CharacterBody2D
 var player_in_area = false
 
 func _ready():
-	is_shadow_chase = false
+	is_jelly_chase = false
 
 func _process(delta):
-	global.shadowDamageAmount = damage_to_deal
-	global.shadowDamageZone = $ShadowDealDamageArea
+	global.jellyDamageAmount = damage_to_deal
+	global.jellyDamageZone = $JellyDealDamageArea
 	
 	if !is_on_floor():
 		velocity.y += gravity * delta
@@ -44,10 +44,10 @@ func _process(delta):
 
 func move(delta):
 	if !dead:
-		if !is_shadow_chase:
+		if !is_jelly_chase:
 			velocity += dir * speed * delta
-		elif is_shadow_chase and !taking_damage and global.playerAlive:
-			speed = 80
+		elif is_jelly_chase and !taking_damage and global.playerAlive:
+			speed = 40
 			var dir_to_player = position.direction_to(player.position) * speed
 			velocity.x = dir_to_player.x
 			dir.x = abs(velocity.x) / velocity.x
@@ -75,14 +75,14 @@ func handle_animation():
 		is_roaming = false
 		anim_sprite.play("death")
 		damage_zone_collision.disabled = true
-		await get_tree().create_timer(1.1).timeout
+		await get_tree().create_timer(.6).timeout
 		anim_sprite.play("smoke")
-		await get_tree().create_timer(.667).timeout
+		await get_tree().create_timer(.6).timeout
 		handle_death()
 	elif !dead and is_dealing_damage:
 		anim_sprite.play("deal_damage")
 
-func _on_shadow_deal_damage_area_area_entered(area):
+func _on_jelly_deal_damage_area_area_entered(area):
 	if area == global.playerHitbox:
 		is_dealing_damage = true
 		await get_tree().create_timer(.556).timeout
@@ -93,7 +93,7 @@ func handle_death():
 
 func _on_timer_timeout():
 	$DirectionTimer.wait_time = choose([1.5,2.0,2.5])
-	if !is_shadow_chase:
+	if !is_jelly_chase:
 		dir = choose([Vector2.RIGHT, Vector2.LEFT])
 		velocity.x = 0
 
@@ -104,12 +104,12 @@ func choose(array):
 func _on_detection_area_area_entered(area):
 	if area == global.playerDetectionHitbox:
 		if global.playerAlive:
-			is_shadow_chase = true
+			is_jelly_chase = true
 		elif !global.playerAlive:
-			is_shadow_chase = false
+			is_jelly_chase = false
 func _on_detection_area_area_exited(area):
 	if area == global.playerDetectionHitbox:
-		is_shadow_chase = false
+		is_jelly_chase = false
 
 func _on_hitbox_area_entered(area):
 	var damage = global.playerDamageAmount

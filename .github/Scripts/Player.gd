@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 var weapon_equip: bool
 
-var speed = 200
+var speed = 160
 
 var jump_power = -300.0
 var jump_count = 0
@@ -196,7 +196,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			speed = 0
 			jump_power = 0
 	else:
-		speed = 200
+		speed = 160
 		jump_power = -300
 
 
