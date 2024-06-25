@@ -843,6 +843,7 @@ zoom = Vector2(1.435, 1.435)
 limit_left = -330
 limit_right = 100000000
 limit_bottom = 570
+position_smoothing_speed = 6.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_1wbyx")]
 visible = false
