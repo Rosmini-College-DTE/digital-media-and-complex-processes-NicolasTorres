@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b14os4xu7bu55" path="res://Scenes/Depths/Depths_Player.tscn" id="4_ijvwd"]
 [ext_resource type="AudioStream" uid="uid://x4ocxjpgqx7j" path="res://Depths/Assets/Entities/!Artwork/Underwater tiles/Sound/Awkward Meeting.mp3" id="6_rkrla"]
 [ext_resource type="PackedScene" uid="uid://bitl134bsamtb" path="res://Scenes/Depths/void.tscn" id="8_epegt"]
-[ext_resource type="PackedScene" uid="uid://1ns4fqx5brnu" path="res://Scenes/Depths/jellyfish.tscn" id="9_2xn7v"]
+[ext_resource type="PackedScene" uid="uid://1ns4fqx5brnu" path="res://Scenes/Depths/worm.tscn" id="9_2xn7v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cv35v"]
 texture = ExtResource("1_moimq")
