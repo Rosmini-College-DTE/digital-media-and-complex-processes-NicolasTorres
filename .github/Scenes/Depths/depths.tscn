@@ -296,9 +296,9 @@ position = Vector2(3114, -460)
 [node name="Healing" type="Node" parent="."]
 
 [node name="Heals" parent="Healing" instance=ExtResource("11_qq3qw")]
-position = Vector2(2156, -651)
+position = Vector2(2162, -635)
 
 [node name="Mushrooms" type="Node" parent="."]
 
 [node name="Mushroom" parent="Mushrooms" instance=ExtResource("12_qvurv")]
-position = Vector2(2726, -332)
+position = Vector2(2806, -376)
