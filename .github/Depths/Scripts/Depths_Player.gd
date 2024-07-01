@@ -27,6 +27,9 @@ var health_min = 0
 var can_take_damage: bool
 var dead: bool
 
+var attack_single: int
+var attack_double: int
+var attack_air: int
 
 func _ready():
 	global.playerHitbox = player_hitbox_area
@@ -80,6 +83,8 @@ func check_hitbox():
 	var damage: int
 	if hitbox_areas:
 		var hitbox = hitbox_areas.front()
+		if hitbox.get_parent() is Heals:
+			health = 100
 		if hitbox.get_parent() is ShadowEnemy:
 			damage = global.shadowDamageAmount
 		if hitbox.get_parent() is Spikes:
@@ -88,6 +93,10 @@ func check_hitbox():
 			damage = global.voidDamageAmount
 		if hitbox.get_parent() is Jellyfish:
 			damage = global.jellyDamageAmount
+		if hitbox.get_parent() is Water_worm:
+			damage = global.wormDamageAmount
+		if hitbox.get_parent() is Mushroom:
+			damage = global.mushroomDamageAmount
 	if can_take_damage:
 		take_damage(damage)
 
@@ -208,12 +217,18 @@ func _on_animated_sprite_2d_animation_finished():
 	current_attack = false
 
 func set_damage(attack_type):
-	var current_damage_to_deal: int
 	if attack_type == "single":
-		current_damage_to_deal = 20
+		attack_single = 20
+		global.current_damage_to_deal = attack_single
 	elif attack_type == "double":
-		current_damage_to_deal = 30
+		attack_double = 30
+		global.current_damage_to_deal = attack_double
 	elif attack_type == "air":
-		current_damage_to_deal = 50
-	global.playerDamageAmount = current_damage_to_deal
+		attack_air = 50
+		global.current_damage_to_deal = attack_air
+	global.playerDamageAmount = global.current_damage_to_deal
 
+func _on_deal_damage_zone_area_entered(area):
+	global.playerDamageAmount += 1
+	print("You feel your blade sharpening...", global.playerDamageAmount)
+	

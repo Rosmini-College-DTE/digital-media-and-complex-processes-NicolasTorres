@@ -1,19 +1,20 @@
 extends CharacterBody2D
 
-class_name Jellyfish
 
-@onready var deal_damage_zone = $JellyDealDamageArea
+class_name Mushroom
 
-var speed = 50
-var is_jelly_chase: bool
+@onready var deal_damage_zone = $MushroomDealDamageArea
 
-var health = 120
-var health_max = 120
+var speed = 120
+var is_mushroom_chase: bool
+
+var health = 150
+var health_max = 150
 var health_min = 0
 
 var dead: bool = false
 var taking_damage: bool = false
-var damage_to_deal = 10
+var damage_to_deal = 20
 var is_dealing_damage: bool
 
 var dir: Vector2
@@ -26,11 +27,11 @@ var player: CharacterBody2D
 var player_in_area = false
 
 func _ready():
-	is_jelly_chase = false
+	is_mushroom_chase = false
 
 func _process(delta):
-	global.jellyDamageAmount = damage_to_deal
-	global.jellyDamageZone = $JellyDealDamageArea
+	global.mushroomDamageAmount = damage_to_deal
+	global.mushroomDamageZone = $MushroomDealDamageArea
 	
 	if !is_on_floor():
 		velocity.y += gravity * delta
@@ -44,10 +45,10 @@ func _process(delta):
 
 func move(delta):
 	if !dead:
-		if !is_jelly_chase:
+		if !is_mushroom_chase:
 			velocity += dir * speed * delta
-		elif is_jelly_chase and !taking_damage and global.playerAlive:
-			speed = 50
+		elif is_mushroom_chase and !taking_damage and global.playerAlive:
+			speed = 120
 			var dir_to_player = position.direction_to(player.position) * speed
 			velocity.x = dir_to_player.x
 			dir.x = abs(velocity.x) / velocity.x
@@ -68,24 +69,24 @@ func handle_animation():
 			anim_sprite.flip_h = false
 	elif !dead and taking_damage and !is_dealing_damage:
 		anim_sprite.play("hurt")
-		await get_tree().create_timer(.25).timeout
+		await get_tree().create_timer(.4).timeout
 		taking_damage = false
 	elif dead and is_roaming:
 		var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
 		is_roaming = false
 		anim_sprite.play("death")
 		damage_zone_collision.disabled = true
-		await get_tree().create_timer(.6).timeout
+		await get_tree().create_timer(.57).timeout
 		anim_sprite.play("smoke")
 		await get_tree().create_timer(.6).timeout
 		handle_death()
 	elif !dead and is_dealing_damage:
 		anim_sprite.play("deal_damage")
 
-func _on_jelly_deal_damage_area_area_entered(area):
+func _on_mushroom_deal_damage_area_area_entered(area):
 	if area == global.playerHitbox:
 		is_dealing_damage = true
-		await get_tree().create_timer(.556).timeout
+		await get_tree().create_timer(.833).timeout
 		is_dealing_damage = false
 
 func handle_death():
@@ -93,7 +94,7 @@ func handle_death():
 
 func _on_timer_timeout():
 	$DirectionTimer.wait_time = choose([1.5,2.0,2.5])
-	if !is_jelly_chase:
+	if !is_mushroom_chase:
 		dir = choose([Vector2.RIGHT, Vector2.LEFT])
 		velocity.x = 0
 
@@ -104,12 +105,12 @@ func choose(array):
 func _on_detection_area_area_entered(area):
 	if area == global.playerDetectionHitbox:
 		if global.playerAlive:
-			is_jelly_chase = true
+			is_mushroom_chase = true
 		elif !global.playerAlive:
-			is_jelly_chase = false
+			is_mushroom_chase = false
 func _on_detection_area_area_exited(area):
 	if area == global.playerDetectionHitbox:
-		is_jelly_chase = false
+		is_mushroom_chase = false
 
 func _on_hitbox_area_entered(area):
 	var damage = global.playerDamageAmount

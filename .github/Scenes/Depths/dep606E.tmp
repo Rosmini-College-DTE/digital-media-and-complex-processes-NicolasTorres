@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3plxfttlhr52"]
+[gd_scene load_steps=18 format=3 uid="uid://c3plxfttlhr52"]
 
 [ext_resource type="PackedScene" uid="uid://hqwegpcnqprd" path="res://Scenes/Depths/parallax.tscn" id="1_egy3r"]
 [ext_resource type="Script" path="res://Depths/Scripts/depths.gd" id="1_h7x65"]
@@ -10,8 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://bitl134bsamtb" path="res://Scenes/Depths/void.tscn" id="8_epegt"]
 [ext_resource type="PackedScene" uid="uid://1ns4fqx5brnu" path="res://Scenes/Depths/jellyfish.tscn" id="9_81y03"]
 [ext_resource type="PackedScene" uid="uid://b7se5qx41axdi" path="res://Scenes/Depths/water_worm.tscn" id="10_f3ns6"]
-[ext_resource type="PackedScene" uid="uid://j18wsdikk65u" path="res://Scenes/Depths/heals.tscn" id="11_qq3qw"]
-[ext_resource type="PackedScene" uid="uid://bkxjxr7varajm" path="res://Scenes/Depths/mushroom.tscn" id="12_qvurv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cv35v"]
 texture = ExtResource("1_moimq")
@@ -177,7 +175,7 @@ script = ExtResource("1_h7x65")
 [node name="Props" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rvoxp")
 format = 2
-layer_0/tile_data = PackedInt32Array(-458758, 720896, 17, -1376264, 196608, 5, -196598, 2097152, 19, -262126, 2490368, 19, -196588, 1769472, 19, -1245051, 2424832, 2, -1048447, 2490368, 19, -982909, 2097152, 19, -982910, 1769472, 19, -982903, 2097152, 19, -982906, 1769472, 19, -1048458, 2490368, 19, -982921, 2097152, 19, -982925, 1769472, 19, -1048452, 1769472, 19, -917382, 1769472, 19, -917362, 1769472, 19, -786287, 2490368, 19, -917393, 2490368, 19, -851859, 2490368, 19, -196578, 2490368, 19, -131039, 2097152, 19, -262148, 2097152, 19, -196613, 1769472, 19, -262150, 1769472, 19, -65540, 1769472, 19, -131076, 1769472, 19, -458742, 3080192, 4, -524268, 2424832, 2, -2293520, 3080192, 4)
+layer_0/tile_data = PackedInt32Array(-458758, 720896, 17, -1376264, 196608, 5, -196598, 2097152, 19, -262126, 2490368, 19, -196588, 1769472, 19, -1245051, 2424832, 2, -1048447, 2490368, 19, -982909, 2097152, 19, -982910, 1769472, 19, -982903, 2097152, 19, -982906, 1769472, 19, -1048458, 2490368, 19, -982921, 2097152, 19, -982925, 1769472, 19, -1048452, 1769472, 19, -917382, 1769472, 19, -917362, 1769472, 19, -786287, 2490368, 19, -917393, 2490368, 19, -851859, 2490368, 19, -196578, 2490368, 19, -131039, 2097152, 19, -262148, 2097152, 19, -196613, 1769472, 19, -262150, 1769472, 19, -65540, 1769472, 19, -131076, 1769472, 19, -458742, 3080192, 4, -524268, 2424832, 2)
 
 [node name="Tiles2" type="TileMap" parent="."]
 position = Vector2(0, 9)
@@ -284,21 +282,5 @@ position = Vector2(1953, -214)
 
 [node name="Worms" type="Node" parent="."]
 
-[node name="Water_worm2" parent="Worms" instance=ExtResource("10_f3ns6")]
-position = Vector2(3341, -472)
-
-[node name="Water_worm3" parent="Worms" instance=ExtResource("10_f3ns6")]
-position = Vector2(3559, -460)
-
-[node name="Water_worm" parent="Worms" instance=ExtResource("10_f3ns6")]
-position = Vector2(3114, -460)
-
-[node name="Healing" type="Node" parent="."]
-
-[node name="Heals" parent="Healing" instance=ExtResource("11_qq3qw")]
-position = Vector2(2156, -651)
-
-[node name="Mushrooms" type="Node" parent="."]
-
-[node name="Mushroom" parent="Mushrooms" instance=ExtResource("12_qvurv")]
-position = Vector2(2726, -332)
+[node name="Water_worm" parent="." instance=ExtResource("10_f3ns6")]
+position = Vector2(415, -39)

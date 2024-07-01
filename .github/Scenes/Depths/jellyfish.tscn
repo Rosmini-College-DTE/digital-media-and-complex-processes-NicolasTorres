@@ -302,8 +302,10 @@ script = ExtResource("1_8pmj7")
 position = Vector2(-1, -27)
 scale = Vector2(1.64583, 1.64583)
 sprite_frames = SubResource("SpriteFrames_66imq")
-animation = &"idle"
+animation = &"deal_damage"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="jellycollision" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -16)
