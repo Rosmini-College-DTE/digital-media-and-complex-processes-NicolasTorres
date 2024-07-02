@@ -803,6 +803,7 @@ radius = 4.0
 height = 8.0
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(-12, 0)
 script = ExtResource("1_l0y1s")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_7ff6w")]
@@ -810,6 +811,7 @@ offset_left = 3.0
 offset_top = -31.0
 offset_right = 23.0
 offset_bottom = -29.0
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(12, -16)
@@ -842,7 +844,7 @@ position = Vector2(12, -16)
 zoom = Vector2(1.435, 1.435)
 limit_left = -330
 limit_right = 100000000
-limit_bottom = 570
+limit_bottom = 440
 position_smoothing_speed = 6.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_1wbyx")]
@@ -858,7 +860,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DealDamageZone"]
-position = Vector2(30, -13)
+position = Vector2(40, -13)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_82vhk")
 disabled = true

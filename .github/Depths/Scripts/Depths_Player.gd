@@ -97,6 +97,8 @@ func check_hitbox():
 			damage = global.wormDamageAmount
 		if hitbox.get_parent() is Mushroom:
 			damage = global.mushroomDamageAmount
+		if hitbox.get_parent() is Skeleton:
+			damage = global.skeletonDamageAmount
 	if can_take_damage:
 		take_damage(damage)
 
@@ -165,10 +167,10 @@ func handle_movement_animation(dir):
 func toggle_flip_sprite(dir):
 	if dir == 1:
 		anim_sprite.flip_h = false
-		deal_damage_zone.scale.x = 1
+		deal_damage_zone.position.x = 1
 	if dir == -1:
 		anim_sprite.flip_h = true
-		deal_damage_zone.scale.x = -1
+		deal_damage_zone.position.x = -60
 
 func handle_attack_animation(attack_type):
 	if weapon_equip:

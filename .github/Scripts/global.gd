@@ -33,3 +33,6 @@ var wormDamageAmount: int
 
 var mushroomDamageZone: Area2D
 var mushroomDamageAmount: int
+
+var skeletonDamageZone: Area2D
+var skeletonDamageAmount: int

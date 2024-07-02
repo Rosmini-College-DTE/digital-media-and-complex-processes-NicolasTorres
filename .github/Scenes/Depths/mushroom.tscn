@@ -383,6 +383,8 @@ radius = 207.77
 radius = 26.0
 
 [node name="Mushroom" type="CharacterBody2D"]
+collision_layer = 2049
+collision_mask = 2049
 script = ExtResource("1_ol61c")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]

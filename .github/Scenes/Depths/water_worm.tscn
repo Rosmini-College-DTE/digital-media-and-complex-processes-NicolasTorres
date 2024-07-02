@@ -459,6 +459,8 @@ radius = 207.77
 radius = 25.02
 
 [node name="Water_worm" type="CharacterBody2D"]
+collision_layer = 2049
+collision_mask = 2049
 script = ExtResource("1_h4cn0")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
