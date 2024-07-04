@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 class_name Skeleton
 
 @onready var deal_damage_zone = $SkeletonDealDamageArea
