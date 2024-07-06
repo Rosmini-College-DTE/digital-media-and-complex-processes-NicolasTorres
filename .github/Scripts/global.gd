@@ -36,3 +36,6 @@ var mushroomDamageAmount: int
 
 var skeletonDamageZone: Area2D
 var skeletonDamageAmount: int
+
+var bossDamageZone: Area2D
+var bossDamageAmount: int

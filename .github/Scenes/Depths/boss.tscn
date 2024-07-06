@@ -334,7 +334,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"deal_damage",
-"speed": 12.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -366,7 +366,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"deal_damage2",
-"speed": 11.0
+"speed": 14.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -540,21 +540,21 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ns8aq"]
-radius = 19.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ngm7i"]
-radius = 32.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4hp8"]
+height = 46.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iumub"]
-radius = 31.0161
+radius = 31.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rqiw2"]
 radius = 207.77
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8dap"]
+size = Vector2(25, 53)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_55plc"]
-radius = 16.0
-height = 72.0
+radius = 19.0
+height = 66.0
 
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_v1psh")
@@ -564,65 +564,54 @@ texture_filter = 1
 position = Vector2(-2, -56)
 scale = Vector2(0.96483, 0.96483)
 sprite_frames = SubResource("SpriteFrames_ka8iw")
-animation = &"idle"
+animation = &"hurt"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.754329
 offset = Vector2(3.645, 18.65)
 
 [node name="bosscollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -19)
-shape = SubResource("CircleShape2D_ns8aq")
+position = Vector2(3, -23)
+shape = SubResource("CapsuleShape2D_c4hp8")
 
 [node name="DirectionTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Hitbox" type="Area2D" parent="."]
-visible = false
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-visible = false
-position = Vector2(2, -31)
-shape = SubResource("CircleShape2D_ngm7i")
-debug_color = Color(0.623428, 0.35337, 0.996902, 0.42)
-
 [node name="BossDamageArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossDamageArea"]
-visible = false
-position = Vector2(2, -32)
+position = Vector2(4, -32)
 shape = SubResource("CircleShape2D_iumub")
 debug_color = Color(0.860551, 0.36167, 1.92523e-07, 0.42)
 
 [node name="DetectionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-visible = false
 position = Vector2(-1, -17)
 shape = SubResource("CircleShape2D_rqiw2")
 debug_color = Color(0, 0, 0, 0.42)
 
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(2.5, -26.5)
+shape = SubResource("RectangleShape2D_j8dap")
+debug_color = Color(0.623428, 0.35337, 0.996902, 0.42)
+
 [node name="BossDealDamageArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossDealDamageArea"]
-visible = false
-position = Vector2(0, -35)
+position = Vector2(2, -32)
 shape = SubResource("CapsuleShape2D_55plc")
 debug_color = Color(0.951403, 1.63645e-06, 0.563824, 0.42)
 
 [node name="HealthBar" parent="." instance=ExtResource("8_4so26")]
-visible = false
 offset_left = -14.0
 offset_top = -85.0
 offset_right = 23.0
@@ -630,7 +619,7 @@ offset_bottom = -78.0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="BossDealDamageArea" to="." method="_on_boss_deal_damage_area_area_entered"]

@@ -4,6 +4,8 @@ class_name Boss
 
 @onready var deal_damage_zone = $BossDealDamageArea
 
+var attack_type: int
+
 var speed = 50
 var is_boss_chase: bool
 
@@ -68,24 +70,30 @@ func handle_animation():
 			anim_sprite.flip_h = false
 	elif !dead and taking_damage and !is_dealing_damage:
 		anim_sprite.play("hurt")
-		await get_tree().create_timer(.25).timeout
+		await get_tree().create_timer(.625).timeout
 		taking_damage = false
 	elif dead and is_roaming:
 		var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
 		is_roaming = false
 		anim_sprite.play("death")
 		damage_zone_collision.disabled = true
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(1.25).timeout
 		anim_sprite.play("smoke")
 		await get_tree().create_timer(.6).timeout
 		handle_death()
 	elif !dead and is_dealing_damage:
-		anim_sprite.play("deal_damage")
+		attack_type = choose([1,2])
+		if attack_type == 1:
+			anim_sprite.play("deal_damage")
+			await get_tree().create_timer(0.64285).timeout
+		if !attack_type == 2:
+			anim_sprite.play("deal_damage2")
+			await get_tree().create_timer(0.64285).timeout
 
 func _on_boss_deal_damage_area_area_entered(area):
 	if area == global.playerHitbox:
 		is_dealing_damage = true
-		await get_tree().create_timer(1.25).timeout
+		await get_tree().create_timer(0.64285).timeout
 		is_dealing_damage = false
 
 func handle_death():

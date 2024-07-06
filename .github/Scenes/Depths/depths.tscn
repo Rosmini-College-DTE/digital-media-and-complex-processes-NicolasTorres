@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c3plxfttlhr52"]
+[gd_scene load_steps=23 format=3 uid="uid://c3plxfttlhr52"]
 
 [ext_resource type="PackedScene" uid="uid://hqwegpcnqprd" path="res://Scenes/Depths/parallax.tscn" id="1_egy3r"]
 [ext_resource type="Script" path="res://Depths/Scripts/depths.gd" id="1_h7x65"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://j18wsdikk65u" path="res://Scenes/Depths/heals.tscn" id="11_qq3qw"]
 [ext_resource type="PackedScene" uid="uid://bkxjxr7varajm" path="res://Scenes/Depths/mushroom.tscn" id="12_qvurv"]
 [ext_resource type="PackedScene" uid="uid://bcj1gv05cnc34" path="res://Scenes/Depths/skeleton.tscn" id="13_di6dg"]
+[ext_resource type="PackedScene" uid="uid://04j18jngsp6t" path="res://Scenes/Depths/boss.tscn" id="14_savbb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cv35v"]
 texture = ExtResource("1_moimq")
@@ -364,3 +365,6 @@ position = Vector2(5460, -548)
 
 [node name="Skeleton2" parent="Skeletons" instance=ExtResource("13_di6dg")]
 position = Vector2(5879, -538)
+
+[node name="Boss" parent="." instance=ExtResource("14_savbb")]
+position = Vector2(318, -86)

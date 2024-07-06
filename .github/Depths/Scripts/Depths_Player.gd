@@ -99,6 +99,8 @@ func check_hitbox():
 			damage = global.mushroomDamageAmount
 		if hitbox.get_parent() is Skeleton:
 			damage = global.skeletonDamageAmount
+		if hitbox.get_parent() is Boss:
+			damage = global.bossDamageAmount
 	if can_take_damage:
 		take_damage(damage)
 
