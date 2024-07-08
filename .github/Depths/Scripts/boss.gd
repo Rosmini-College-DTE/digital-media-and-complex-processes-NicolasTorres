@@ -3,20 +3,26 @@ extends CharacterBody2D
 class_name Boss
 
 @onready var deal_damage_zone = $BossDealDamageArea
+@onready var deal_heavy_damage_zone = $BossDealHeavyDamageArea
+@onready var deal_light_damage_zone = $BossDealLightDamageArea
 
 var attack_type: int
 
 var speed = 50
 var is_boss_chase: bool
 
-var health = 180
-var health_max = 180
+var health = 1000
+var health_max = 1000
 var health_min = 0
 
 var dead: bool = false
 var taking_damage: bool = false
-var damage_to_deal = 25
+var damage_to_deal = 20
+var light_damage = 30
+var heavy_damage = 40
 var is_dealing_damage: bool
+var is_dealing_heavy_damage: bool
+var is_dealing_light_damage: bool
 
 var dir: Vector2
 const gravity = 600
@@ -31,7 +37,6 @@ func _ready():
 	is_boss_chase = false
 
 func _process(delta):
-	global.bossDamageAmount = damage_to_deal
 	global.bossDamageZone = $BossDealDamageArea
 	
 	if !is_on_floor():
@@ -62,39 +67,83 @@ func move(delta):
 
 func handle_animation():
 	var anim_sprite = $animation
+	var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
+	var damage_heavy_zone_collision = deal_heavy_damage_zone.get_node("CollisionShape2D")
+	var damage_light_zone_collision = deal_light_damage_zone.get_node("CollisionShape2D")
 	if !dead and !taking_damage and !is_dealing_damage:
 		anim_sprite.play("walking")
 		if dir.x == -1:
 			anim_sprite.flip_h = true
+			deal_heavy_damage_zone.position.x = -173
+			deal_light_damage_zone.position.x = -62
 		elif dir.x == 1:
 			anim_sprite.flip_h = false
+			deal_heavy_damage_zone.position.x = 1
+			deal_light_damage_zone.position.x = 1
 	elif !dead and taking_damage and !is_dealing_damage:
 		anim_sprite.play("hurt")
 		await get_tree().create_timer(.625).timeout
 		taking_damage = false
 	elif dead and is_roaming:
-		var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
 		is_roaming = false
 		anim_sprite.play("death")
 		damage_zone_collision.disabled = true
+		damage_heavy_zone_collision.disabled = true
+		damage_light_zone_collision.disabled = true
 		await get_tree().create_timer(1.25).timeout
 		anim_sprite.play("smoke")
 		await get_tree().create_timer(.6).timeout
 		handle_death()
 	elif !dead and is_dealing_damage:
-		attack_type = choose([1,2])
-		if attack_type == 1:
-			anim_sprite.play("deal_damage")
-			await get_tree().create_timer(0.64285).timeout
-		if !attack_type == 2:
+		if !dead and is_dealing_heavy_damage:
 			anim_sprite.play("deal_damage2")
-			await get_tree().create_timer(0.64285).timeout
+		if !dead and is_dealing_light_damage:
+			anim_sprite.play("deal_damage")
+
 
 func _on_boss_deal_damage_area_area_entered(area):
 	if area == global.playerHitbox:
+		global.bossDamageAmount = damage_to_deal
 		is_dealing_damage = true
-		await get_tree().create_timer(0.64285).timeout
+		await get_tree().create_timer(.65).timeout
 		is_dealing_damage = false
+
+func _on_boss_deal_heavy_damage_area_area_entered(area):
+	if area == global.playerHitbox:
+		global.bossDamageAmount = heavy_damage
+		is_dealing_damage = true
+		is_dealing_heavy_damage = true
+		await get_tree().create_timer(.643).timeout
+		is_dealing_heavy_damage = false
+		is_dealing_damage = false
+		cooldown_heavy()
+
+func cooldown_heavy():
+	var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
+	var damage_heavy_zone_collision = deal_heavy_damage_zone.get_node("CollisionShape2D")
+	var damage_light_zone_collision = deal_light_damage_zone.get_node("CollisionShape2D")
+	damage_heavy_zone_collision.disabled = true
+	await get_tree().create_timer(10).timeout
+	damage_heavy_zone_collision.disabled = false
+
+func _on_boss_deal_light_damage_area_area_entered(area):
+	if area == global.playerHitbox:
+
+		global.bossDamageAmount = light_damage
+		is_dealing_light_damage = true
+		is_dealing_damage = true
+		await get_tree().create_timer(.584).timeout
+		is_dealing_light_damage = false
+		is_dealing_damage = false
+		cooldown_light()
+
+func cooldown_light():
+	var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
+	var damage_heavy_zone_collision = deal_heavy_damage_zone.get_node("CollisionShape2D")
+	var damage_light_zone_collision = deal_light_damage_zone.get_node("CollisionShape2D")
+	damage_light_zone_collision.disabled = true
+	await get_tree().create_timer(3).timeout
+	damage_light_zone_collision.disabled = false
 
 func handle_death():
 	self.queue_free()

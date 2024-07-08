@@ -1,4 +1,4 @@
-[gd_scene load_steps=125 format=3 uid="uid://04j18jngsp6t"]
+[gd_scene load_steps=129 format=3 uid="uid://04j18jngsp6t"]
 
 [ext_resource type="Texture2D" uid="uid://sltju3octymv" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/1atk/1atk_1.png" id="1_shpjj"]
 [ext_resource type="Script" path="res://Depths/Scripts/boss.gd" id="1_v1psh"]
@@ -55,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://hx70knkdm6ra" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/fly/fly_3.png" id="50_5nulv"]
 [ext_resource type="Texture2D" uid="uid://dgqsctsmctxmb" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/fly/fly_4.png" id="51_05d80"]
 [ext_resource type="Texture2D" uid="uid://cvh7abr3yq0y0" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_1.png" id="53_ywp3j"]
+[ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="55_bnt1o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r61wc"]
 atlas = ExtResource("1_shpjj")
@@ -334,7 +335,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"deal_damage",
-"speed": 11.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -556,6 +557,18 @@ size = Vector2(25, 53)
 radius = 19.0
 height = 66.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rew75"]
+size = Vector2(18.7473, 7.33959)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbqck"]
+size = Vector2(31, 6)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0i1jx"]
+font = ExtResource("55_bnt1o")
+font_size = 14
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_v1psh")
 
@@ -564,7 +577,7 @@ texture_filter = 1
 position = Vector2(-2, -56)
 scale = Vector2(0.96483, 0.96483)
 sprite_frames = SubResource("SpriteFrames_ka8iw")
-animation = &"hurt"
+animation = &"deal_damage"
 autoplay = "idle"
 offset = Vector2(3.645, 18.65)
 
@@ -611,15 +624,46 @@ position = Vector2(2, -32)
 shape = SubResource("CapsuleShape2D_55plc")
 debug_color = Color(0.951403, 1.63645e-06, 0.563824, 0.42)
 
+[node name="BossDealHeavyDamageArea" type="Area2D" parent="."]
+position = Vector2(1, -56)
+scale = Vector2(0.96483, 0.96483)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossDealHeavyDamageArea"]
+position = Vector2(87.206, 54.4559)
+shape = SubResource("RectangleShape2D_rew75")
+
+[node name="BossDealLightDamageArea" type="Area2D" parent="."]
+position = Vector2(1, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossDealLightDamageArea"]
+position = Vector2(35, -3)
+shape = SubResource("RectangleShape2D_fbqck")
+debug_color = Color(0, 0.550578, 0.921982, 0.42)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -75.0
+offset_top = 13.0
+offset_right = 75.0
+offset_bottom = 62.0
+text = "The Guardian
+of the fragment"
+label_settings = SubResource("LabelSettings_0i1jx")
+horizontal_alignment = 1
+
 [node name="HealthBar" parent="." instance=ExtResource("8_4so26")]
-offset_left = -14.0
-offset_top = -85.0
-offset_right = 23.0
-offset_bottom = -78.0
-metadata/_edit_use_anchors_ = true
+offset_left = -222.0
+offset_top = 56.0
+offset_right = 235.0
+offset_bottom = 67.0
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
 [connection signal="area_exited" from="DetectionArea" to="." method="_on_detection_area_area_exited"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="BossDealDamageArea" to="." method="_on_boss_deal_damage_area_area_entered"]
+[connection signal="area_entered" from="BossDealHeavyDamageArea" to="." method="_on_boss_deal_heavy_damage_area_area_entered"]
+[connection signal="area_entered" from="BossDealLightDamageArea" to="." method="_on_boss_deal_light_damage_area_area_entered"]
