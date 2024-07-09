@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://b14os4xu7bu55"]
+[gd_scene load_steps=114 format=3 uid="uid://b14os4xu7bu55"]
 
 [ext_resource type="Script" path="res://Depths/Scripts/Depths_Player.gd" id="1_l0y1s"]
 [ext_resource type="PackedScene" uid="uid://m7tncidkapy4" path="res://Scenes/health_bar.tscn" id="2_7ff6w"]
@@ -802,6 +802,9 @@ height = 26.0
 radius = 4.0
 height = 8.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_us07p"]
+polygon = PackedVector2Array(14, -30, 22, -26, 17, -26, 19, -16, 19, -6, 19, 0, 5, 0, 7, -26, 5, -26, 13, -30)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-12, 0)
 collision_layer = 16385
@@ -885,6 +888,9 @@ collision_mask = 4
 position = Vector2(13, -13)
 shape = SubResource("CapsuleShape2D_bp5lf")
 debug_color = Color(0, 0, 0, 0.42)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_us07p")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="DealDamageZone" to="." method="_on_deal_damage_zone_area_entered"]
