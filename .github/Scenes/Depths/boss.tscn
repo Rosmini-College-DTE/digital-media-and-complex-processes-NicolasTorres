@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://04j18jngsp6t"]
+[gd_scene load_steps=130 format=3 uid="uid://04j18jngsp6t"]
 
 [ext_resource type="Texture2D" uid="uid://sltju3octymv" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/1atk/1atk_1.png" id="1_shpjj"]
 [ext_resource type="Script" path="res://Depths/Scripts/boss.gd" id="1_v1psh"]
@@ -569,6 +569,9 @@ font_size = 14
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bpv3q"]
+polygon = PackedVector2Array(-96.5341, -58.6017, -80.9873, -58.6017, -70.6228, -57.5653, -65.4405, -50.3101, -61.2947, -35.7998, -59.2218, -22.3259, -62.3312, -10.9249, -66.477, -2.6333, -71.6592, 3.58542, -88.2425, 4.62187, -103.789, 4.62187, -115.19, -3.66975, -118.3, -14.0343, -118.3, -27.5081, -111.044, -49.2736, -98.607, -57.5653)
+
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_v1psh")
 
@@ -577,11 +580,14 @@ texture_filter = 1
 position = Vector2(-2, -56)
 scale = Vector2(0.96483, 0.96483)
 sprite_frames = SubResource("SpriteFrames_ka8iw")
-animation = &"deal_damage"
+animation = &"deal_damage2"
 autoplay = "idle"
+frame = 8
+frame_progress = 1.0
 offset = Vector2(3.645, 18.65)
 
 [node name="bosscollision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(3, -23)
 shape = SubResource("CapsuleShape2D_c4hp8")
 
@@ -589,6 +595,7 @@ shape = SubResource("CapsuleShape2D_c4hp8")
 autostart = true
 
 [node name="BossDamageArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -598,6 +605,7 @@ shape = SubResource("CircleShape2D_iumub")
 debug_color = Color(0.860551, 0.36167, 1.92523e-07, 0.42)
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 
@@ -607,6 +615,7 @@ shape = SubResource("CircleShape2D_rqiw2")
 debug_color = Color(0, 0, 0, 0.42)
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -616,6 +625,7 @@ shape = SubResource("RectangleShape2D_j8dap")
 debug_color = Color(0.623428, 0.35337, 0.996902, 0.42)
 
 [node name="BossDealDamageArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -625,6 +635,7 @@ shape = SubResource("CapsuleShape2D_55plc")
 debug_color = Color(0.951403, 1.63645e-06, 0.563824, 0.42)
 
 [node name="BossDealHeavyDamageArea" type="Area2D" parent="."]
+visible = false
 position = Vector2(1, -56)
 scale = Vector2(0.96483, 0.96483)
 collision_layer = 2
@@ -635,6 +646,7 @@ position = Vector2(87.206, 54.4559)
 shape = SubResource("RectangleShape2D_rew75")
 
 [node name="BossDealLightDamageArea" type="Area2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 collision_layer = 2
 collision_mask = 2
@@ -659,6 +671,11 @@ offset_left = -222.0
 offset_top = 56.0
 offset_right = 235.0
 offset_bottom = 67.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(85.139, -3.45932)
+scale = Vector2(0.96483, 0.96483)
+occluder = SubResource("OccluderPolygon2D_bpv3q")
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

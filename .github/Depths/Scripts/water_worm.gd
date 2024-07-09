@@ -7,8 +7,8 @@ class_name Water_worm
 var speed = 30
 var is_worm_chase: bool
 
-var health = 250
-var health_max = 250
+var health = 200
+var health_max = 200
 var health_min = 0
 
 var dead: bool = false
@@ -73,8 +73,8 @@ func handle_animation():
 	elif dead and is_roaming:
 		var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
 		is_roaming = false
-		anim_sprite.play("death")
 		damage_zone_collision.disabled = true
+		anim_sprite.play("death")
 		await get_tree().create_timer(1).timeout
 		anim_sprite.play("smoke")
 		await get_tree().create_timer(.6).timeout

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://b7se5qx41axdi"]
+[gd_scene load_steps=73 format=3 uid="uid://b7se5qx41axdi"]
 
 [ext_resource type="Texture2D" uid="uid://dut66vcuqtshv" path="res://Depths/Assets/Entities/!Artwork/Enemies/Water Worm/Worm/Attack.png" id="1_armfu"]
 [ext_resource type="Script" path="res://Depths/Scripts/water_worm.gd" id="1_h4cn0"]
@@ -458,6 +458,9 @@ radius = 207.77
 [sub_resource type="CircleShape2D" id="CircleShape2D_68x7d"]
 radius = 25.02
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ilffg"]
+polygon = PackedVector2Array(10, -51, 26, -41, 24, -28, 14, -21, 21, -4, -6, -2, -24, -1, -35, -9, -43, -1, -52, -5, -51, -10, -47, -9, -38, -15, -29, -17, -24, -14, -19, -12, -12, -16, -11, -28, -10, -38, 2, -51)
+
 [node name="Water_worm" type="CharacterBody2D"]
 collision_layer = 2049
 collision_mask = 2049
@@ -519,6 +522,9 @@ offset_top = -85.0
 offset_right = 23.0
 offset_bottom = -78.0
 metadata/_edit_use_anchors_ = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ilffg")
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

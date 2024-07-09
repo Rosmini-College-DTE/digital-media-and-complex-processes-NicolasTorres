@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c3plxfttlhr52"]
+[gd_scene load_steps=27 format=3 uid="uid://c3plxfttlhr52"]
 
 [ext_resource type="PackedScene" uid="uid://hqwegpcnqprd" path="res://Scenes/Depths/parallax.tscn" id="1_egy3r"]
 [ext_resource type="Script" path="res://Depths/Scripts/depths.gd" id="1_h7x65"]
@@ -176,6 +176,12 @@ size = Vector2(12, 277)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bnod"]
 size = Vector2(345.5, 11.75)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ofvon"]
+polygon = PackedVector2Array(-121, -120, -103, -150, -78, -160, -59, -159, -54, -147, -49, -137, -49, -122, -46, -117, -49, -106, -61, -92, -68, -83, -68, -76, -60, -54, -48, -47, -42, -45, -26, -58, -15, -75, -6, -83, 5, -104, 4, -131, -5, -160, -15, -182, -22, -198, -39, -211, -57, -218, -74, -219, -97, -216, -122, -205, -132, -194, -132, -183, -136, -176, -135, -160, -137, -145, -136, -135, -131, -124, -130, -117, -124, -114)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ji4u4"]
+polygon = PackedVector2Array(3721, -630, 3721, -604, 3724, -599, 3724, -591, 3721, -588, 3721, -538, 3725, -537, 3726, -526, 3726, -495, 3726, -483, 3734, -482, 3742, -479, 3747, -478, 3747, -526, 3747, -542, 3748, -558, 3749, -577, 3753, -587, 3758, -591, 3768, -593, 3776, -592, 3784, -591, 3793, -589, 3794, -576, 3795, -573, 3795, -540, 3797, -538, 3798, -520, 3801, -516, 3801, -514, 3799, -512, 3798, -510, 3798, -503, 3800, -503, 3798, -500, 3798, -464, 3810, -471, 3816, -474, 3827, -475, 3828, -477, 3828, -483, 3827, -497, 3827, -524, 3826, -542, 3827, -559, 3851, -574, 3865, -575, 3871, -566, 3873, -558, 3873, -553, 3872, -548, 3872, -521, 3873, -518, 3874, -516, 3874, -492, 3876, -490, 3875, -488, 3874, -488, 3874, -480, 3876, -478, 3879, -478, 3884, -477, 3889, -474, 3889, -483, 3889, -490, 3888, -497, 3888, -507, 3888, -527, 3888, -531, 3889, -540, 3889, -546, 3890, -551, 3891, -558, 3893, -562, 3900, -572, 3907, -574, 3913, -575, 3920, -574, 3926, -571, 3929, -566, 3929, -557, 3929, -548, 3930, -545, 3930, -541, 3932, -540, 3932, -538, 3930, -538, 3930, -528, 3931, -526, 3931, -522, 3934, -522, 3934, -492, 3935, -492, 3935, -489, 3935, -488, 3934, -488, 3934, -479, 3941, -480, 3947, -480, 3951, -479, 3954, -476, 3957, -477, 3960, -477, 3960, -490, 3959, -490, 3958, -491, 3959, -492, 3960, -494, 3960, -512, 3960, -520, 3963, -521, 3964, -523, 3964, -531, 3964, -536, 3962, -536, 3964, -538, 3964, -549, 3964, -573, 3965, -574, 3965, -607, 3960, -610, 3959, -613, 3956, -615, 3949, -616, 3946, -615, 3943, -618, 3942, -621, 3940, -622, 3939, -623, 3931, -623, 3926, -623, 3920, -624, 3916, -625, 3914, -627, 3910, -628, 3907, -630, 3904, -629, 3901, -628, 3899, -627, 3898, -627, 3892, -628, 3889, -628, 3885, -628, 3879, -627, 3873, -626, 3872, -626, 3867, -628, 3865, -630, 3862, -631, 3860, -632, 3855, -633, 3852, -633, 3849, -634, 3846, -634, 3843, -635, 3842, -637, 3840, -639, 3839, -639, 3837, -638, 3835, -638, 3833, -638, 3830, -637, 3828, -636, 3826, -636, 3824, -636, 3823, -636, 3822, -638, 3820, -638, 3818, -638, 3818, -637, 3817, -637, 3815, -638, 3813, -638, 3813, -640, 3811, -641, 3807, -641, 3804, -642, 3800, -642, 3797, -641, 3794, -640, 3790, -638, 3788, -637, 3783, -635, 3781, -635, 3778, -635, 3775, -634, 3772, -633, 3769, -633, 3767, -633, 3765, -631, 3764, -629, 3761, -629, 3759, -629, 3755, -630, 3752, -631, 3747, -632, 3744, -633, 3741, -633, 3737, -632, 3736, -632, 3734, -632, 3732, -632, 3730, -633, 3728, -634, 3727, -634, 3726, -632, 3725, -631)
+
 [sub_resource type="Gradient" id="Gradient_k00jp"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
@@ -184,8 +190,8 @@ gradient = SubResource("Gradient_k00jp")
 width = 159
 height = 499
 fill = 1
-fill_from = Vector2(0.523061, 0.491453)
-fill_to = Vector2(0.456002, 0.0042735)
+fill_from = Vector2(0.496237, 0.491453)
+fill_to = Vector2(0.496237, 0)
 
 [node name="Depths" type="Node2D"]
 script = ExtResource("1_h7x65")
@@ -361,7 +367,7 @@ position = Vector2(1953, -214)
 position = Vector2(3406, -486)
 
 [node name="Water_worm3" parent="Worms" instance=ExtResource("10_f3ns6")]
-position = Vector2(3706, -479)
+position = Vector2(3660, -489)
 
 [node name="Water_worm" parent="Worms" instance=ExtResource("10_f3ns6")]
 position = Vector2(3114, -460)
@@ -398,7 +404,21 @@ position = Vector2(5460, -548)
 position = Vector2(5879, -538)
 
 [node name="Boss" parent="." instance=ExtResource("14_savbb")]
-position = Vector2(5694, -1444)
+position = Vector2(5703, -1447)
+collision_layer = 2049
+collision_mask = 2049
+
+[node name="Shadows" type="Node" parent="."]
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Shadows"]
+occluder = SubResource("OccluderPolygon2D_ofvon")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Shadows"]
+occluder = SubResource("OccluderPolygon2D_ji4u4")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Shadows"]
+position = Vector2(-3680, 448)
+occluder = SubResource("OccluderPolygon2D_ji4u4")
 
 [node name="Lights" type="Node" parent="."]
 
@@ -407,15 +427,93 @@ color = Color(1, 0.823529, 0.478431, 1)
 energy = 0.25
 blend_mode = 1
 
-[node name="PointLight2D2" type="PointLight2D" parent="Lights"]
-position = Vector2(2133, -309.226)
-scale = Vector2(1, 0.582068)
+[node name="PointLight2D13" type="PointLight2D" parent="Lights"]
+position = Vector2(5735, -1863)
+scale = Vector2(17.3962, 3.1122)
 energy = 1.23
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D12" type="PointLight2D" parent="Lights"]
+position = Vector2(6186, -697)
+scale = Vector2(0.987419, 0.675848)
+energy = 1.23
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D11" type="PointLight2D" parent="Lights"]
+position = Vector2(3656, -666)
+scale = Vector2(0.707231, 0.612186)
+energy = 1.6
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D10" type="PointLight2D" parent="Lights"]
+position = Vector2(-61, -143)
+scale = Vector2(1.64623, 0.405185)
+energy = 1.6
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D9" type="PointLight2D" parent="Lights"]
+position = Vector2(108, -134)
+scale = Vector2(0.863163, 0.450633)
+energy = 1.6
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D8" type="PointLight2D" parent="Lights"]
+position = Vector2(187, -118)
+scale = Vector2(0.67709, 0.367717)
+energy = 1.6
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D7" type="PointLight2D" parent="Lights"]
+position = Vector2(244, -118)
+scale = Vector2(0.786164, 0.468687)
+energy = 1.6
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Lights"]
+position = Vector2(5849, -682)
+scale = Vector2(1.27044, 0.62831)
+energy = 1.23
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Lights"]
+position = Vector2(3924, -553)
+scale = Vector2(0.739707, 0.253657)
+energy = 1.23
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lights"]
+position = Vector2(3771.38, -520.659)
+scale = Vector2(0.860062, 0.503644)
+energy = 1.23
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Lights"]
+position = Vector2(3866.81, -553.375)
+scale = Vector2(0.588836, 0.294088)
+energy = 1.23
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_5ea7x")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Lights"]
+position = Vector2(2137, -368)
+scale = Vector2(0.660378, 0.975758)
+energy = 1.23
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_5ea7x")
 
 [node name="PointLight2D" type="PointLight2D" parent="Lights"]
-position = Vector2(326, -187)
-scale = Vector2(0.814466, 0.953908)
+position = Vector2(326, -165.5)
+scale = Vector2(0.814466, 1.04008)
 energy = 1.22
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_5ea7x")

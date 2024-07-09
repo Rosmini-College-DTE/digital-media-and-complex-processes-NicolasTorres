@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bkxjxr7varajm"]
+[gd_scene load_steps=62 format=3 uid="uid://bkxjxr7varajm"]
 
 [ext_resource type="Script" path="res://Depths/Scripts/mushroom.gd" id="1_ol61c"]
 [ext_resource type="Texture2D" uid="uid://cfwquqy0nuygl" path="res://Depths/Assets/Entities/!Artwork/Enemies/Mushroom/Attack.png" id="2_rw1j4"]
@@ -382,6 +382,9 @@ radius = 207.77
 [sub_resource type="CircleShape2D" id="CircleShape2D_ppq03"]
 radius = 26.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_lfqvo"]
+polygon = PackedVector2Array(-19, -53, -13, -58, -6, -60, 8, -60, 14, -57, 18, -53, 18, -48, 14, -45, 9, -44, 9, -38, 17, -27, 17, -17, 13, -4, 13, 0, -15, 0, -18, -22, -15, -31, -7, -43, -10, -45, -16, -46, -19, -49)
+
 [node name="Mushroom" type="CharacterBody2D"]
 collision_layer = 2049
 collision_mask = 2049
@@ -443,6 +446,9 @@ offset_left = -18.0
 offset_top = -76.0
 offset_right = 19.0
 offset_bottom = -69.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_lfqvo")
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
