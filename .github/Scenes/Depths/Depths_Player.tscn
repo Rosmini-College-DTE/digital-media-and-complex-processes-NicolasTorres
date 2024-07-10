@@ -1,10 +1,13 @@
-[gd_scene load_steps=114 format=3 uid="uid://b14os4xu7bu55"]
+[gd_scene load_steps=117 format=3 uid="uid://b14os4xu7bu55"]
 
 [ext_resource type="Script" path="res://Depths/Scripts/Depths_Player.gd" id="1_l0y1s"]
 [ext_resource type="PackedScene" uid="uid://m7tncidkapy4" path="res://Scenes/health_bar.tscn" id="2_7ff6w"]
 [ext_resource type="PackedScene" uid="uid://dcnspdwxxbt8j" path="res://Scenes/pausemenu.tscn" id="3_1wbyx"]
 [ext_resource type="Texture2D" uid="uid://dvgm1tn4e4skd" path="res://Assets/FXs/Magic Spell Effects 9/Magic Spell/willuse.png" id="3_q0801"]
 [ext_resource type="Texture2D" uid="uid://7vxnaawiwsi2" path="res://Depths/Assets/Entities/!Artwork/Dark Samurai.png" id="3_was66"]
+[ext_resource type="AudioStream" uid="uid://c44gkqppoxs0a" path="res://SoundFX/jump.mp3" id="6_0hbb5"]
+[ext_resource type="AudioStream" uid="uid://cu3ein5ogr6c6" path="res://SoundFX/run.mp3" id="6_rw5u4"]
+[ext_resource type="AudioStream" uid="uid://cvstc8a564avy" path="res://SoundFX/hitsword.mp3" id="6_s0mgq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnc7n"]
 atlas = ExtResource("3_was66")
@@ -534,7 +537,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hurt",
-"speed": 7.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -803,7 +806,7 @@ radius = 4.0
 height = 8.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_us07p"]
-polygon = PackedVector2Array(14, -30, 22, -26, 17, -26, 19, -16, 19, -6, 19, 0, 5, 0, 7, -26, 5, -26, 13, -30)
+polygon = PackedVector2Array(15, -27, 22, -23, 18, -22, 17, -15, 19, -6, 19, 0, 5, 0, 3, -8, 6, -15, 11, -22, 5, -23, 11, -27)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-12, 0)
@@ -821,8 +824,10 @@ metadata/_edit_use_anchors_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(12, -16)
 sprite_frames = SubResource("SpriteFrames_3ywku")
-animation = &"weapon_run"
+animation = &"hurt"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="Body Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(12, -13.5)
@@ -891,6 +896,16 @@ debug_color = Color(0, 0, 0, 0.42)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_us07p")
+
+[node name="Run" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rw5u4")
+volume_db = 12.207
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_s0mgq")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_0hbb5")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="DealDamageZone" to="." method="_on_deal_damage_zone_area_entered"]

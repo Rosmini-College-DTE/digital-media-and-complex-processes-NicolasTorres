@@ -43,13 +43,13 @@ func _ready():
 func _physics_process(delta):
 	weapon_equip = global.playerWeaponEquip
 	global.playerDamageZone = deal_damage_zone
-	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	if is_on_floor():
 		jump_count = 0
 	if !dead:
 		if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
+			$Jump.play()
 			velocity.y = jump_power
 			jump_count += 1
 		var direction = Input.get_axis("left", "right")
@@ -57,26 +57,35 @@ func _physics_process(delta):
 				velocity.x = direction * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
-	
+		
 		if Input.is_action_just_pressed("pause"):
 			pausemenu()
-	
+		
 		if weapon_equip and !current_attack:
 			if Input.is_action_just_pressed("left_mouse") or Input.is_action_just_pressed("right_mouse"):
 				current_attack = true
 				if Input.is_action_just_pressed("left_mouse") and is_on_floor():
+					$Hit.play()
 					attack_type = "single"
 				elif Input.is_action_just_pressed("right_mouse") and is_on_floor():
+					$Hit.play()
+					await get_tree().create_timer(.3).timeout
+					$Hit.play()
 					attack_type = "double"
 				elif Input.is_action_just_pressed("right_mouse") and !is_on_floor():
+					$Hit.play()
+					await get_tree().create_timer(.3).timeout
+					$Hit.play()
 					attack_type = "double"
 				else:
+					$Hit.play()
 					attack_type = "air"
 				set_damage(attack_type)
 				handle_attack_animation(attack_type)
 		handle_movement_animation(direction)
 		check_hitbox()
 	move_and_slide()
+
 
 func check_hitbox():
 	var hitbox_areas = $PlayerHitbox.get_overlapping_areas()
@@ -107,6 +116,7 @@ func check_hitbox():
 func take_damage(damage):
 	if damage != 0:
 		if health > 0:
+			anim_sprite.play("hurt")
 			health -= damage
 			print("player health: ", health)
 			if health <= 0:
