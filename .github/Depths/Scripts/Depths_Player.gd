@@ -31,6 +31,8 @@ var attack_single: int
 var attack_double: int
 var attack_air: int
 
+var sfxstate: String
+
 func _ready():
 	global.playerHitbox = player_hitbox_area
 	global.playerDetectionHitbox = player_detection_area
@@ -39,6 +41,7 @@ func _ready():
 	dead = false
 	can_take_damage = true
 	global.playerAlive = true
+	
 
 func _physics_process(delta):
 	weapon_equip = global.playerWeaponEquip
@@ -85,6 +88,20 @@ func _physics_process(delta):
 		handle_movement_animation(direction)
 		check_hitbox()
 	move_and_slide()
+	
+	if is_on_floor() and velocity.x != 0:
+		sfxstate = "running"
+	elif is_on_floor() and velocity.x == 0:
+		sfxstate = "idle"
+	elif not is_on_floor():
+		sfxstate = "air"
+	
+	if sfxstate != "running":
+		$Run.play()
+	elif sfxstate == "idle":
+		pass
+	elif sfxstate == "air":
+		pass
 
 
 func check_hitbox():
@@ -93,7 +110,8 @@ func check_hitbox():
 	if hitbox_areas:
 		var hitbox = hitbox_areas.front()
 		if hitbox.get_parent() is Heals:
-			health = 100
+			health = 200
+			$Heal.play()
 		if hitbox.get_parent() is ShadowEnemy:
 			damage = global.shadowDamageAmount
 		if hitbox.get_parent() is Spikes:
@@ -116,13 +134,14 @@ func check_hitbox():
 func take_damage(damage):
 	if damage != 0:
 		if health > 0:
-			anim_sprite.play("hurt")
 			health -= damage
+			$Damaged.play()
 			print("player health: ", health)
 			if health <= 0:
 				health = 0
 				dead = true
 				global.playerAlive = false
+				$Death.play()
 			take_damage_cooldown(1.0)
 	handle_death_animation()
 
@@ -243,6 +262,6 @@ func set_damage(attack_type):
 	global.playerDamageAmount = global.current_damage_to_deal
 
 func _on_deal_damage_zone_area_entered(area):
-	global.playerDamageAmount += 1
+	global.playerDamageAmount += 3
 	print("You feel your blade sharpening...", global.playerDamageAmount)
 	

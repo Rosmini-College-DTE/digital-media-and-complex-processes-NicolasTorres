@@ -27,6 +27,7 @@ var health_min = 0
 var can_take_damage: bool
 var dead: bool
 
+var sfxstate: String
 
 func _ready():
 	global.playerHitbox = player_hitbox_area
@@ -47,6 +48,7 @@ func _physics_process(delta):
 		jump_count = 0
 	if !dead:
 		if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
+			$Jump.play()
 			velocity.y = jump_power
 			jump_count += 1
 		var direction = Input.get_axis("left", "right")
@@ -62,18 +64,43 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("left_mouse") or Input.is_action_just_pressed("right_mouse"):
 				current_attack = true
 				if Input.is_action_just_pressed("left_mouse") and is_on_floor():
+					$Hit.play()
 					attack_type = "single"
 				elif Input.is_action_just_pressed("right_mouse") and is_on_floor():
+					$Hit.play()
+					await get_tree().create_timer(.3).timeout
+					$Hit.play()
 					attack_type = "double"
 				elif Input.is_action_just_pressed("right_mouse") and !is_on_floor():
+					$Hit.play()
+					await get_tree().create_timer(.3).timeout
+					$Hit.play()
 					attack_type = "double"
 				else:
+					$Hit.play()
 					attack_type = "air"
 				set_damage(attack_type)
 				handle_attack_animation(attack_type)
 		handle_movement_animation(direction)
 		check_hitbox()
 	move_and_slide()
+	
+	if !state.agreed:
+		$Teleport.play()
+	
+	if is_on_floor() and velocity.x != 0:
+		sfxstate = "running"
+	elif is_on_floor() and velocity.x == 0:
+		sfxstate = "idle"
+	elif not is_on_floor():
+		sfxstate = "air"
+	
+	if sfxstate != "running":
+		$Run.play()
+	elif sfxstate == "idle":
+		pass
+	elif sfxstate == "air":
+		pass
 
 func check_hitbox():
 	var hitbox_areas = $PlayerHitbox.get_overlapping_areas()
@@ -91,11 +118,13 @@ func take_damage(damage):
 	if damage != 0:
 		if health > 0:
 			health -= damage
+			$Damaged.play()
 			print("player health: ", health)
 			if health <= 0:
 				health = 0
 				dead = true
 				global.playerAlive = false
+				$Death.play()
 			take_damage_cooldown(1.0)
 	handle_death_animation()
 
