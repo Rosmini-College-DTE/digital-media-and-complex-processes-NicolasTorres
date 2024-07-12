@@ -33,6 +33,7 @@ var attack_air: int
 
 var sfxstate: String
 
+
 func _ready():
 	global.playerHitbox = player_hitbox_area
 	global.playerDetectionHitbox = player_detection_area
@@ -110,8 +111,13 @@ func check_hitbox():
 	if hitbox_areas:
 		var hitbox = hitbox_areas.front()
 		if hitbox.get_parent() is Heals:
-			health = 200
-			$Heal.play()
+			if health < 200:
+				await get_tree().create_timer(0.1).timeout
+				health = 200
+				$Heal.play()
+				global.playerMax = true
+			else:
+				pass
 		if hitbox.get_parent() is ShadowEnemy:
 			damage = global.shadowDamageAmount
 		if hitbox.get_parent() is Spikes:
@@ -137,6 +143,7 @@ func take_damage(damage):
 			health -= damage
 			$Damaged.play()
 			print("player health: ", health)
+			global.playerMax = false
 			if health <= 0:
 				health = 0
 				dead = true
@@ -203,6 +210,7 @@ func toggle_flip_sprite(dir):
 		anim_sprite.flip_h = true
 		deal_damage_zone.position.x = -60
 
+@warning_ignore("shadowed_variable")
 func handle_attack_animation(attack_type):
 	if weapon_equip:
 		if current_attack:
@@ -210,6 +218,7 @@ func handle_attack_animation(attack_type):
 			anim_sprite.play(attack_anim)
 			toggle_damage_collisions(attack_type)
 
+@warning_ignore("shadowed_variable")
 func toggle_damage_collisions(attack_type):
 	var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
 	var wait_time: float
@@ -249,6 +258,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 func _on_animated_sprite_2d_animation_finished():
 	current_attack = false
 
+@warning_ignore("shadowed_variable")
 func set_damage(attack_type):
 	if attack_type == "single":
 		attack_single = 20

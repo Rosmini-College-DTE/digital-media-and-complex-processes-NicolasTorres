@@ -147,6 +147,7 @@ func cooldown_light():
 	damage_light_zone_collision.disabled = false
 
 func handle_death():
+	global.bossAlive = false
 	self.queue_free()
 
 func _on_timer_timeout():

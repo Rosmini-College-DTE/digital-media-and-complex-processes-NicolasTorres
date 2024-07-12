@@ -13,6 +13,7 @@ var playerDamageZone: Area2D
 var playerDamageAmount: int
 var playerHitbox: Area2D
 var playerDetectionHitbox: Area2D
+var playerMax = true
 
 var shadowDamageZone: Area2D
 var shadowDamageAmount: int
@@ -39,3 +40,4 @@ var skeletonDamageAmount: int
 
 var bossDamageZone: Area2D
 var bossDamageAmount: int
+var bossAlive: bool
