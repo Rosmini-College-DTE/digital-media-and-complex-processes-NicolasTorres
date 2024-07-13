@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b603ewtlig0xo"]
+[gd_scene load_steps=20 format=3 uid="uid://b603ewtlig0xo"]
 
 [ext_resource type="Script" path="res://Depths/Scripts/fragment.gd" id="1_gaywe"]
 [ext_resource type="Texture2D" uid="uid://cy44dwhd3o52e" path="res://Assets/FXs/Effect and Bullet 16x16/Water Effect and Bullet 16x16.png" id="2_4fe1n"]
@@ -106,6 +106,17 @@ size = Vector2(2, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ftwa"]
 radius = 12.1655
 
+[sub_resource type="Gradient" id="Gradient_k00jp"]
+colors = PackedColorArray(0, 0.94902, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_16553"]
+gradient = SubResource("Gradient_k00jp")
+width = 159
+height = 499
+fill = 1
+fill_from = Vector2(0.496237, 0.491453)
+fill_to = Vector2(0.496237, 0)
+
 [node name="Fragment" type="CharacterBody2D"]
 script = ExtResource("1_gaywe")
 
@@ -113,10 +124,9 @@ script = ExtResource("1_gaywe")
 position = Vector2(0, -32.1458)
 scale = Vector2(3.90625, 4.01823)
 sprite_frames = SubResource("SpriteFrames_xpehw")
-animation = &"pickup"
+animation = &"idle"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.982958
+frame_progress = 0.419778
 
 [node name="hitbox?" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -131,5 +141,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
 position = Vector2(0, -21)
 shape = SubResource("CircleShape2D_0ftwa")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, -22)
+scale = Vector2(1.71069, 0.271042)
+energy = 1.01
+texture = SubResource("GradientTexture2D_16553")
 
 [connection signal="area_entered" from="Pickup" to="." method="_on_pickup_area_entered"]

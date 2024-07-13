@@ -192,11 +192,11 @@ size = Vector2(12, 277)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7bnod"]
 size = Vector2(382.749, 11.75)
 
-[sub_resource type="Gradient" id="Gradient_k00jp"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_khc4w"]
+colors = PackedColorArray(0, 0.94902, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5ea7x"]
-gradient = SubResource("Gradient_k00jp")
+gradient = SubResource("Gradient_khc4w")
 width = 159
 height = 499
 fill = 1
