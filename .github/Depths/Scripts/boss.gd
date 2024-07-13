@@ -11,8 +11,8 @@ var attack_type: int
 var speed = 50
 var is_boss_chase: bool
 
-var health = 1000
-var health_max = 1000
+var health = 1200
+var health_max = 1200
 var health_min = 0
 
 var dead: bool = false
@@ -36,8 +36,10 @@ var player_in_area = false
 func _ready():
 	is_boss_chase = false
 
+
 func _process(delta):
 	global.bossDamageZone = $BossDealDamageArea
+	global.bossDead = dead
 	
 	if !is_on_floor():
 		velocity.y += gravity * delta
@@ -93,7 +95,7 @@ func handle_animation():
 		damage_light_zone_collision.disabled = true
 		await get_tree().create_timer(1.25).timeout
 		anim_sprite.play("smoke")
-		await get_tree().create_timer(.6).timeout
+		await get_tree().create_timer(.7).timeout
 		handle_death()
 	elif !dead and is_dealing_damage:
 		if !dead and is_dealing_heavy_damage:
@@ -147,7 +149,7 @@ func cooldown_light():
 	damage_light_zone_collision.disabled = false
 
 func handle_death():
-	global.bossAlive = false
+	dead = true
 	self.queue_free()
 
 func _on_timer_timeout():

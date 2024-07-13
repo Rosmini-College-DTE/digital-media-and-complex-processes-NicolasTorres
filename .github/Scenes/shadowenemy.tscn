@@ -419,9 +419,9 @@ debug_color = Color(0.951403, 1.63645e-06, 0.563824, 0.42)
 
 [node name="HealthBar" parent="." instance=ExtResource("9_jad8i")]
 offset_left = -14.0
-offset_top = -36.0
+offset_top = -43.0
 offset_right = 12.0
-offset_bottom = -30.0
+offset_bottom = -37.0
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://04j18jngsp6t"]
+[gd_scene load_steps=152 format=3 uid="uid://04j18jngsp6t"]
 
 [ext_resource type="Texture2D" uid="uid://sltju3octymv" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/1atk/1atk_1.png" id="1_shpjj"]
 [ext_resource type="Script" path="res://Depths/Scripts/boss.gd" id="1_v1psh"]
@@ -57,6 +57,16 @@
 [ext_resource type="Texture2D" uid="uid://cvh7abr3yq0y0" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_1.png" id="53_ywp3j"]
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="55_bnt1o"]
 [ext_resource type="Texture2D" uid="uid://dq5r1tuulkmlt" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_2.png" id="55_v6sy1"]
+[ext_resource type="Texture2D" uid="uid://c3rnbr2ebjxwq" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_3.png" id="56_8yppl"]
+[ext_resource type="Texture2D" uid="uid://c4mojer6707pn" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_4.png" id="57_ficgp"]
+[ext_resource type="Texture2D" uid="uid://xwx8gk0r6tr8" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_5.png" id="58_3sloa"]
+[ext_resource type="Texture2D" uid="uid://dm888d3s0iems" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_6.png" id="59_nyp7t"]
+[ext_resource type="Texture2D" uid="uid://c6dqprqcfm83e" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_7.png" id="60_d8arw"]
+[ext_resource type="Texture2D" uid="uid://bfjyw7gws06qa" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_8.png" id="61_fesij"]
+[ext_resource type="Texture2D" uid="uid://b4tm76x5qwoey" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_9.png" id="62_n1rna"]
+[ext_resource type="Texture2D" uid="uid://by1gsppmbd0yg" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_10.png" id="63_ixx3e"]
+[ext_resource type="Texture2D" uid="uid://dc86js8gh5rjm" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_11.png" id="64_q3kxb"]
+[ext_resource type="Texture2D" uid="uid://bekjw8qkr2evp" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_12.png" id="65_h01kd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r61wc"]
 atlas = ExtResource("1_shpjj")
@@ -314,6 +324,46 @@ region = Rect2(0, 0, 192, 112)
 atlas = ExtResource("55_v6sy1")
 region = Rect2(0, 0, 192, 112)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1r5u"]
+atlas = ExtResource("56_8yppl")
+region = Rect2(0, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h624i"]
+atlas = ExtResource("57_ficgp")
+region = Rect2(0, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scgq2"]
+atlas = ExtResource("58_3sloa")
+region = Rect2(0, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8506"]
+atlas = ExtResource("59_nyp7t")
+region = Rect2(0, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n18tg"]
+atlas = ExtResource("60_d8arw")
+region = Rect2(0, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqyqw"]
+atlas = ExtResource("61_fesij")
+region = Rect2(0, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhwqs"]
+atlas = ExtResource("62_n1rna")
+region = Rect2(0, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av2ij"]
+atlas = ExtResource("63_ixx3e")
+region = Rect2(0, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7lby"]
+atlas = ExtResource("64_q3kxb")
+region = Rect2(0, 0, 192, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6veid"]
+atlas = ExtResource("65_h01kd")
+region = Rect2(0, 0, 192, 112)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ka8iw"]
 animations = [{
 "frames": [{
@@ -543,6 +593,36 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7y08g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1r5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h624i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scgq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8506")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n18tg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqyqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhwqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av2ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7lby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6veid")
 }],
 "loop": true,
 "name": &"walking",
@@ -556,7 +636,7 @@ height = 46.0
 radius = 31.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rqiw2"]
-radius = 207.77
+radius = 554.758
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8dap"]
 size = Vector2(25, 53)
@@ -590,11 +670,11 @@ scale = Vector2(0.96483, 0.96483)
 sprite_frames = SubResource("SpriteFrames_ka8iw")
 animation = &"walking"
 autoplay = "idle"
-frame_progress = 0.934114
+frame = 5
+frame_progress = 0.583451
 offset = Vector2(3.645, 18.65)
 
 [node name="bosscollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(3, -23)
 shape = SubResource("CapsuleShape2D_c4hp8")
 
@@ -602,7 +682,6 @@ shape = SubResource("CapsuleShape2D_c4hp8")
 autostart = true
 
 [node name="BossDamageArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -612,7 +691,6 @@ shape = SubResource("CircleShape2D_iumub")
 debug_color = Color(0.860551, 0.36167, 1.92523e-07, 0.42)
 
 [node name="DetectionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 4
 collision_mask = 4
 
@@ -622,7 +700,6 @@ shape = SubResource("CircleShape2D_rqiw2")
 debug_color = Color(0, 0, 0, 0.42)
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -632,7 +709,6 @@ shape = SubResource("RectangleShape2D_j8dap")
 debug_color = Color(0.623428, 0.35337, 0.996902, 0.42)
 
 [node name="BossDealDamageArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -642,7 +718,6 @@ shape = SubResource("CapsuleShape2D_55plc")
 debug_color = Color(0.951403, 1.63645e-06, 0.563824, 0.42)
 
 [node name="BossDealHeavyDamageArea" type="Area2D" parent="."]
-visible = false
 position = Vector2(1, -56)
 scale = Vector2(0.96483, 0.96483)
 collision_layer = 2
@@ -653,7 +728,6 @@ position = Vector2(87.206, 54.4559)
 shape = SubResource("RectangleShape2D_rew75")
 
 [node name="BossDealLightDamageArea" type="Area2D" parent="."]
-visible = false
 position = Vector2(1, 0)
 collision_layer = 2
 collision_mask = 2

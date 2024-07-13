@@ -40,4 +40,4 @@ var skeletonDamageAmount: int
 
 var bossDamageZone: Area2D
 var bossDamageAmount: int
-var bossAlive: bool
+var bossDead: bool
