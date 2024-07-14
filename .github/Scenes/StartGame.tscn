@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://j51ue6ibd2lc"]
+[gd_scene load_steps=25 format=3 uid="uid://j51ue6ibd2lc"]
 
 [ext_resource type="Script" path="res://Scripts/StartGame.gd" id="1_lip5d"]
 [ext_resource type="Texture2D" uid="uid://cva4iv66oms33" path="res://Assets/Sprites/Finish.png" id="1_y10gr"]
@@ -1352,6 +1352,15 @@ font_size = 10
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcera"]
 radius = 17.0
 
+[sub_resource type="Gradient" id="Gradient_6r5c6"]
+colors = PackedColorArray(0.47451, 0.0352941, 0.490196, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mhve2"]
+gradient = SubResource("Gradient_6r5c6")
+fill = 1
+fill_from = Vector2(0.5, 0.521368)
+fill_to = Vector2(0.504274, 0)
+
 [node name="Game_start" type="Node2D"]
 script = ExtResource("1_lip5d")
 
@@ -1473,10 +1482,27 @@ shape = SubResource("CircleShape2D_dcera")
 position = Vector2(537, -17)
 
 [node name="Player" parent="." instance=ExtResource("2_ex8t0")]
-position = Vector2(26, -9.53674e-07)
+position = Vector2(-139, 675)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("14_dvcx8")]
+visible = false
 position = Vector2(-364, -241)
 
 [node name="Timer" type="Timer" parent="SceneTransitionAnimation"]
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights"]
+position = Vector2(-161, 621)
+scale = Vector2(1.16473, 1.16473)
+color = Color(0.567128, 0.0919995, 0.63404, 1)
+energy = 3.85
+texture = SubResource("GradientTexture2D_mhve2")
+texture_scale = 4.05
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
+position = Vector2(38, -100)
+energy = 0.32
+blend_mode = 1
+shadow_enabled = true

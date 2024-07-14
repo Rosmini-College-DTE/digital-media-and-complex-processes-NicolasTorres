@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://b603ewtlig0xo"]
+[gd_scene load_steps=21 format=3 uid="uid://b603ewtlig0xo"]
 
 [ext_resource type="Script" path="res://Depths/Scripts/fragment.gd" id="1_gaywe"]
 [ext_resource type="Texture2D" uid="uid://cy44dwhd3o52e" path="res://Assets/FXs/Effect and Bullet 16x16/Water Effect and Bullet 16x16.png" id="2_4fe1n"]
+[ext_resource type="AudioStream" uid="uid://b7b2oju0a0fpr" path="res://SoundFX/fragment/fragment.mp3" id="3_mpkqk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eneux"]
 atlas = ExtResource("2_4fe1n")
@@ -124,9 +125,8 @@ script = ExtResource("1_gaywe")
 position = Vector2(0, -32.1458)
 scale = Vector2(3.90625, 4.01823)
 sprite_frames = SubResource("SpriteFrames_xpehw")
-animation = &"idle"
+animation = &"pickup"
 autoplay = "idle"
-frame_progress = 0.419778
 
 [node name="hitbox?" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -142,7 +142,14 @@ collision_mask = 2
 position = Vector2(0, -21)
 shape = SubResource("CircleShape2D_0ftwa")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="Obtain" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1, -22)
+scale = Vector2(1.71069, 0.271042)
+stream = ExtResource("3_mpkqk")
+volume_db = 1.531
+attenuation = 0.732042
+
+[node name="Light" type="PointLight2D" parent="."]
 position = Vector2(1, -22)
 scale = Vector2(1.71069, 0.271042)
 energy = 1.01

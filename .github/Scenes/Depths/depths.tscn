@@ -212,6 +212,8 @@ polygon = PackedVector2Array(3721, -630, 3721, -604, 3724, -599, 3724, -591, 372
 [node name="Depths" type="Node2D"]
 script = ExtResource("1_h7x65")
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="Props" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rvoxp")
 format = 2
@@ -379,8 +381,8 @@ volume_db = 0.355
 autoplay = true
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("1_xiqr1")]
-visible = false
-position = Vector2(-262, -1719)
+position = Vector2(1549, -1840)
+scale = Vector2(5.78, 5.78)
 
 [node name="Timer" type="Timer" parent="SceneTransitionAnimation"]
 

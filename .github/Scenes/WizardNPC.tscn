@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://d0ih2b5sw84gb"]
+[gd_scene load_steps=23 format=3 uid="uid://d0ih2b5sw84gb"]
 
 [ext_resource type="Texture2D" uid="uid://cyvj3uukxb46b" path="res://Assets/Characters II Enemies/Wizard NPC/Sprites/Idle.png" id="1_kw0r5"]
 [ext_resource type="Texture2D" uid="uid://ox1oydsup4jm" path="res://Assets/Characters II Enemies/Wizard NPC/Sprites/Attack2.png" id="2_iy6q3"]
+[ext_resource type="AudioStream" uid="uid://c2kfave3pnyfr" path="res://SoundFX/npc/stick.mp3" id="3_ye6gu"]
 
 [sub_resource type="GDScript" id="GDScript_adafe"]
 script/source = "extends CharacterBody2D
@@ -18,7 +19,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func _process(_float) -> void:
+func _process(delta):
 	if !DialogueManager.dialogue_ended:
 		anim_sprite.play(\"idle\")
 	if DialogueManager.dialogue_ended:
@@ -29,7 +30,9 @@ func handle_animation():
 		anim_sprite.play(\"idle\")
 	if state.agreed:
 		anim_sprite.play(\"teleport\")
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(.625).timeout
+		$Stomp.play()
+		await get_tree().create_timer(.375).timeout
 		get_tree().change_scene_to_file(\"res://Scenes/Depths/depths.tscn\")
 	
 "
@@ -156,7 +159,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"teleport",
-"speed": 4.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0ebd"]
@@ -172,8 +175,12 @@ script = SubResource("GDScript_adafe")
 sprite_frames = SubResource("SpriteFrames_4pwg4")
 animation = &"teleport"
 autoplay = "idle"
-frame = 7
-frame_progress = 1.0
+
+[node name="Stomp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ye6gu")
+volume_db = 24.0
+attenuation = 0.0245183
+max_polyphony = 306
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 19)
