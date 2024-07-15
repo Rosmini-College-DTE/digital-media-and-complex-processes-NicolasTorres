@@ -35,6 +35,7 @@ var player_in_area = false
 
 func _ready():
 	is_boss_chase = false
+	health = 1200
 
 
 func _process(delta):

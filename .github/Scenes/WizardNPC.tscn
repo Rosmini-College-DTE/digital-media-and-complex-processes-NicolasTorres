@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://d0ih2b5sw84gb"]
+[gd_scene load_steps=24 format=3 uid="uid://d0ih2b5sw84gb"]
 
 [ext_resource type="Texture2D" uid="uid://cyvj3uukxb46b" path="res://Assets/Characters II Enemies/Wizard NPC/Sprites/Idle.png" id="1_kw0r5"]
 [ext_resource type="Texture2D" uid="uid://ox1oydsup4jm" path="res://Assets/Characters II Enemies/Wizard NPC/Sprites/Attack2.png" id="2_iy6q3"]
 [ext_resource type="AudioStream" uid="uid://c2kfave3pnyfr" path="res://SoundFX/npc/stick.mp3" id="3_ye6gu"]
+[ext_resource type="AudioStream" uid="uid://b8y8sn4n30j4r" path="res://SoundFX/npc/idle.mp3" id="4_dqxeo"]
 
 [sub_resource type="GDScript" id="GDScript_adafe"]
 script/source = "extends CharacterBody2D
@@ -11,12 +12,9 @@ script/source = "extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
 
-var wait_time = 999999999
-
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
-	
 	move_and_slide()
 
 func _process(delta):
@@ -24,15 +22,15 @@ func _process(delta):
 		anim_sprite.play(\"idle\")
 	if DialogueManager.dialogue_ended:
 		handle_animation()
+	if state.agreed:
+		$Stomp.play()
 
 func handle_animation():
 	if !state.agreed:
 		anim_sprite.play(\"idle\")
 	if state.agreed:
 		anim_sprite.play(\"teleport\")
-		await get_tree().create_timer(.625).timeout
-		$Stomp.play()
-		await get_tree().create_timer(.375).timeout
+		await get_tree().create_timer(1).timeout
 		get_tree().change_scene_to_file(\"res://Scenes/Depths/depths.tscn\")
 	
 "
@@ -178,10 +176,16 @@ autoplay = "idle"
 
 [node name="Stomp" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ye6gu")
-volume_db = 24.0
-attenuation = 0.0245183
-max_polyphony = 306
+volume_db = 12.77
+attenuation = 0.225314
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 19)
 shape = SubResource("RectangleShape2D_v0ebd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dqxeo")
+volume_db = 7.812
+autoplay = true
+stream_paused = true
+max_distance = 640.0

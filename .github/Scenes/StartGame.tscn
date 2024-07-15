@@ -1482,11 +1482,10 @@ shape = SubResource("CircleShape2D_dcera")
 position = Vector2(537, -17)
 
 [node name="Player" parent="." instance=ExtResource("2_ex8t0")]
-position = Vector2(-139, 675)
+position = Vector2(28, -5)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("14_dvcx8")]
-visible = false
 position = Vector2(-364, -241)
 
 [node name="Timer" type="Timer" parent="SceneTransitionAnimation"]

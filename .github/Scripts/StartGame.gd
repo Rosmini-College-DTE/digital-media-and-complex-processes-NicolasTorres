@@ -7,9 +7,12 @@ extends Node2D
 
 func _ready():
 	SceneTransitionAnimation.play("fade_out")
+	await get_tree().create_timer(1).timeout
+	$SceneTransitionAnimation.hide()
 	player_camera.enabled = true
+	
 
 func _process(delta):
 	if state.agreed:
-		await get_tree().create_timer(.1).timeout
+		$SceneTransitionAnimation.show()
 		SceneTransitionAnimation.play("fade_in")
