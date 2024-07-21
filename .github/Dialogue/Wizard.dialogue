@@ -1,0 +1,25 @@
+~ start
+Shadow Wizard: Greetings...
+if state.talk_status == "didnot"
+	Shadow Wizard: I'm guessing you also wish to enter the depths to find the lost soul fragment?
+	Shadow Wizard: Although you did really well defeating those guys over there I have to warn you, once I send you down there you will not be able to come back up to the surface unless you find the fragment.
+	Shadow Wizard: The enemies that reside in the depths are stronger than those guys you just defeated and the entity guarding the fragment is stronger than all of them combined, are you sure you still want to go?
+	- Yes I do
+		Shadow Wizard: If you say so...
+		set state.agreed = true
+		set state.talk_status = "did"
+	- I'll come back later
+		Shadow Wizard: Make your decision carefully.
+elif state.talk_status == "did"
+	Shadow Wizard: Ready to go down now?
+	- Yes I'm ready
+		Shadow Wizard: If you say so...
+		set state.agreed = true
+		set state.talk_status = "did"
+	- No, not yet
+		Shadow Wizard: Take your time, I would do the same.
+else
+	Shadow Wizard: ...
+
+set state.talk_status = "did"
+=> END

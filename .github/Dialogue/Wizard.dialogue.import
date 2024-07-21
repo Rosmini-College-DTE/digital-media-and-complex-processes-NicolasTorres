@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://m8fm44edm7rl"
+path="res://.godot/imported/Wizard.dialogue-82086232f24e8453515e10060799b3aa.tres"
+
+[deps]
+
+source_file="res://Dialogue/Wizard.dialogue"
+dest_files=["res://.godot/imported/Wizard.dialogue-82086232f24e8453515e10060799b3aa.tres"]
+
+[params]
+
+defaults=true

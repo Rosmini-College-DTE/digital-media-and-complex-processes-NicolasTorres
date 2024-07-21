@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://hqwegpcnqprd"]
+
+[ext_resource type="Texture2D" uid="uid://b4mp8qipwjpn" path="res://Depths/Assets/Entities/!Artwork/Underwater tiles/PNG/environment/background.png" id="1_aojly"]
+[ext_resource type="Texture2D" uid="uid://ca47f521wl3fx" path="res://Depths/Assets/Entities/!Artwork/Underwater tiles/PNG/environment/midground.png" id="2_xdpt0"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(1151.97, 1022.99)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/Background"]
+texture_filter = 1
+position = Vector2(576, 511.5)
+scale = Vector2(4, 3.99609)
+texture = ExtResource("1_aojly")
+
+[node name="Midground" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1151.97, 1022.4)
+
+[node name="mid1" type="Sprite2D" parent="ParallaxBackground/Midground"]
+position = Vector2(576, 767)
+scale = Vector2(1.2, 0.997917)
+texture = ExtResource("2_xdpt0")
+
+[node name="mid2" type="Sprite2D" parent="ParallaxBackground/Midground"]
+position = Vector2(576, 256)
+scale = Vector2(1.2, 1)
+texture = ExtResource("2_xdpt0")

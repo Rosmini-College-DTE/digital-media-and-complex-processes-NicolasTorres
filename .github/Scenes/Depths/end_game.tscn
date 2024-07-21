@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://cavxvpuiid1hc"]
+
+[ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="1_qnkvx"]
+[ext_resource type="Script" path="res://Scenes/Depths/end_game.gd" id="1_r2ef4"]
+[ext_resource type="PackedScene" uid="uid://bsv3rjxqt0cc0" path="res://Scenes/scene_transition_animation.tscn" id="3_unsnj"]
+
+[sub_resource type="Gradient" id="Gradient_ae3pf"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_52t83"]
+gradient = SubResource("Gradient_ae3pf")
+
+[sub_resource type="LabelSettings" id="LabelSettings_3plve"]
+font = ExtResource("1_qnkvx")
+font_size = 66
+font_color = Color(0, 0, 0, 1)
+
+[node name="End Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r2ef4")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(592, 322)
+scale = Vector2(5.7168, 802.625)
+texture = SubResource("GradientTexture1D_52t83")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 226.0
+offset_right = 1116.0
+offset_bottom = 409.0
+text = "You have retrieved the 
+lost soul fragment succesfully..."
+label_settings = SubResource("LabelSettings_3plve")
+horizontal_alignment = 1
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("3_unsnj")]
+position = Vector2(583, 329)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 435.0
+offset_top = 538.0
+offset_right = 746.0
+offset_bottom = 643.0
+theme_override_colors/font_color = Color(0.370364, 0.370364, 0.370364, 1)
+theme_override_colors/font_pressed_color = Color(0.678944, 0.678944, 0.678944, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_qnkvx")
+theme_override_font_sizes/font_size = 36
+text = "Back to menu"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

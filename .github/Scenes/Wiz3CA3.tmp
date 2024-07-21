@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0ih2b5sw84gb"]
+
+[ext_resource type="Texture2D" uid="uid://cyvj3uukxb46b" path="res://Assets/Characters II Enemies/Wizard NPC/Sprites/Idle.png" id="1_kw0r5"]
+[ext_resource type="Script" path="res://Scripts/WizardNPC.gd" id="1_tivxb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6aiqv"]
+atlas = ExtResource("1_kw0r5")
+region = Rect2(0, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkxta"]
+atlas = ExtResource("1_kw0r5")
+region = Rect2(250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i8fq"]
+atlas = ExtResource("1_kw0r5")
+region = Rect2(500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibwna"]
+atlas = ExtResource("1_kw0r5")
+region = Rect2(750, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh5j7"]
+atlas = ExtResource("1_kw0r5")
+region = Rect2(1000, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ny2yb"]
+atlas = ExtResource("1_kw0r5")
+region = Rect2(1250, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk5lb"]
+atlas = ExtResource("1_kw0r5")
+region = Rect2(1500, 0, 250, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a1nh"]
+atlas = ExtResource("1_kw0r5")
+region = Rect2(1750, 0, 250, 250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4pwg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6aiqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkxta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i8fq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibwna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh5j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ny2yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk5lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a1nh")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0ebd"]
+size = Vector2(20, 44)
+
+[node name="Wizard" type="CharacterBody2D"]
+script = ExtResource("1_tivxb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4pwg4")
+animation = &"Idle"
+frame = 7
+frame_progress = 0.949735
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 19)
+shape = SubResource("RectangleShape2D_v0ebd")
