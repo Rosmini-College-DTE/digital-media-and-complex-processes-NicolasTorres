@@ -1,5 +1,9 @@
 extends Control
 
+func _process(delta):
+	global.bossDead = true
+	state.obtained = false
+
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://Scenes/StartGame.tscn")
 

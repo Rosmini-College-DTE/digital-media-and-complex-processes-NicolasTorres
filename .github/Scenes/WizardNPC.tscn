@@ -187,5 +187,4 @@ shape = SubResource("RectangleShape2D_v0ebd")
 stream = ExtResource("4_dqxeo")
 volume_db = 7.812
 autoplay = true
-stream_paused = true
 max_distance = 640.0
