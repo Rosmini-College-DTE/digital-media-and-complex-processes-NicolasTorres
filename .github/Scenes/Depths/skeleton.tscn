@@ -293,21 +293,22 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d474v"]
-radius = 19.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i8m4v"]
+height = 66.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_f2uyb"]
-radius = 32.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v7pfo"]
+radius = 14.0
+height = 76.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lja77"]
-radius = 31.0161
+radius = 34.0588
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ust4n"]
 radius = 207.77
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_volda"]
-radius = 16.0
-height = 72.0
+radius = 20.0
+height = 80.0
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_htij4"]
 polygon = PackedVector2Array(29, -54, 48, -71, 48, -66, 32, -49, 26, -46, 13, -50, 17, -36, 23, -29, 21, -10, 25, -1, 17, 0, 12, -1, 16, -28, 8, -36, 7, -29, 6, -27, 1, -26, -5, -12, -11, -4, -5, -1, -9, 0, -17, -1, -14, -8, -11, -14, -6, -21, -5, -27, -6, -36, -6, -45, -2, -51, -3, -61, -9, -57, -7, -50, -11, -45, -13, -38, -16, -34, -21, -34, -23, -38, -25, -46, -26, -56, -27, -63, -21, -72, -15, -72, -11, -62, -6, -67, -3, -69, 2, -71, 6, -69, 10, -71, 11, -75, 11, -81, 15, -84, 21, -83, 21, -71, 19, -64, 17, -60, 17, -57, 18, -54, 25, -53)
@@ -327,34 +328,31 @@ frame_progress = 0.970957
 offset = Vector2(4.04, 0)
 
 [node name="skeletoncollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -19)
-shape = SubResource("CircleShape2D_d474v")
+position = Vector2(0, -34)
+shape = SubResource("CapsuleShape2D_i8m4v")
 
 [node name="DirectionTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(2, -31)
-shape = SubResource("CircleShape2D_f2uyb")
+position = Vector2(2, -38)
+shape = SubResource("CapsuleShape2D_v7pfo")
 debug_color = Color(0.623428, 0.35337, 0.996902, 0.42)
 
 [node name="SkeletonDamageArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SkeletonDamageArea"]
-position = Vector2(2, -32)
+position = Vector2(2, -35)
 shape = SubResource("CircleShape2D_lja77")
 debug_color = Color(0.860551, 0.36167, 1.92523e-07, 0.42)
 
 [node name="DetectionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 4
 collision_mask = 4
 
@@ -364,12 +362,11 @@ shape = SubResource("CircleShape2D_ust4n")
 debug_color = Color(0, 0, 0, 0.42)
 
 [node name="SkeletonDealDamageArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SkeletonDealDamageArea"]
-position = Vector2(0, -35)
+position = Vector2(1, -40)
 shape = SubResource("CapsuleShape2D_volda")
 debug_color = Color(0.951403, 1.63645e-06, 0.563824, 0.42)
 

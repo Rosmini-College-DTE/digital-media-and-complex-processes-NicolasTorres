@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1at20vp6u3yf"
+path="res://.godot/imported/boss song.mp3-d83d45ad4a3b151e4f4e8c82146901b6.mp3str"
+
+[deps]
+
+source_file="res://Depths/Assets/Entities/!Artwork/Underwater tiles/Sound/boss song.mp3"
+dest_files=["res://.godot/imported/boss song.mp3-d83d45ad4a3b151e4f4e8c82146901b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

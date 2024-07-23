@@ -7,8 +7,8 @@ class_name ShadowEnemy
 var speed = 40
 var is_shadow_chase: bool
 
-var health = 100
-var health_max = 100
+var health = 60
+var health_max = 60
 var health_min = 0
 
 var dead: bool = false

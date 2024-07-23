@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cavxvpuiid1hc"]
+[gd_scene load_steps=8 format=3 uid="uid://cavxvpuiid1hc"]
 
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="1_qnkvx"]
 [ext_resource type="Script" path="res://Scenes/Depths/end_game.gd" id="1_r2ef4"]
 [ext_resource type="PackedScene" uid="uid://bsv3rjxqt0cc0" path="res://Scenes/scene_transition_animation.tscn" id="3_unsnj"]
+[ext_resource type="AudioStream" uid="uid://dm7kt0iskdqu2" path="res://Scenes/Depths/end song.mp3" id="4_fr3vo"]
 
 [sub_resource type="Gradient" id="Gradient_ae3pf"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -58,5 +59,10 @@ theme_override_fonts/font = ExtResource("1_qnkvx")
 theme_override_font_sizes/font_size = 36
 text = "Back to menu"
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fr3vo")
+volume_db = -6.348
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

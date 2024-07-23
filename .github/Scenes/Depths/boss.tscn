@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://04j18jngsp6t"]
+[gd_scene load_steps=153 format=3 uid="uid://04j18jngsp6t"]
 
 [ext_resource type="Texture2D" uid="uid://sltju3octymv" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/1atk/1atk_1.png" id="1_shpjj"]
 [ext_resource type="Script" path="res://Depths/Scripts/boss.gd" id="1_v1psh"]
@@ -67,6 +67,7 @@
 [ext_resource type="Texture2D" uid="uid://by1gsppmbd0yg" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_10.png" id="63_ixx3e"]
 [ext_resource type="Texture2D" uid="uid://dc86js8gh5rjm" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_11.png" id="64_q3kxb"]
 [ext_resource type="Texture2D" uid="uid://bekjw8qkr2evp" path="res://Depths/Assets/Entities/!Artwork/Enemies/Cthulu/walk/walk_12.png" id="65_h01kd"]
+[ext_resource type="AudioStream" uid="uid://1at20vp6u3yf" path="res://Depths/Assets/Entities/!Artwork/Underwater tiles/Sound/boss song.mp3" id="68_ny434"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r61wc"]
 atlas = ExtResource("1_shpjj")
@@ -757,6 +758,11 @@ offset_bottom = 67.0
 position = Vector2(85.139, -3.45932)
 scale = Vector2(0.96483, 0.96483)
 occluder = SubResource("OccluderPolygon2D_bpv3q")
+
+[node name="Theme song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("68_ny434")
+autoplay = true
+attenuation = 1.18921
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]
