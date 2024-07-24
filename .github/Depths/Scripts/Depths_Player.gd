@@ -42,11 +42,12 @@ func _ready():
 	dead = false
 	can_take_damage = true
 	global.playerAlive = true
-	
+	weapon_equip = true
 
 func _physics_process(delta):
-	weapon_equip = global.playerWeaponEquip
+	global.playerWeaponEquip = weapon_equip
 	global.playerDamageZone = deal_damage_zone
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	if is_on_floor():

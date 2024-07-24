@@ -222,7 +222,6 @@ func _unhandled_input(_event: InputEvent) -> void:
 		var actionables = dialogue_detector.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()
-			weapon_equip = false
 			speed = 0
 			jump_power = 0
 	else:

@@ -1350,7 +1350,7 @@ font = ExtResource("4_3cgoj")
 font_size = 10
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcera"]
-radius = 17.0
+radius = 40.0
 
 [sub_resource type="Gradient" id="Gradient_6r5c6"]
 colors = PackedColorArray(0.47451, 0.0352941, 0.490196, 1, 0, 0, 0, 1)
@@ -1424,14 +1424,6 @@ offset_bottom = -250.0
 text = "M1/M2 to attack"
 label_settings = SubResource("LabelSettings_ydqlq")
 
-[node name="Label4" type="Label" parent="."]
-offset_left = -205.0
-offset_top = 571.0
-offset_right = -139.0
-offset_bottom = 585.0
-text = "E to interact"
-label_settings = SubResource("LabelSettings_nflxe")
-
 [node name="Label3" type="Label" parent="."]
 offset_left = 518.0
 offset_top = -130.0
@@ -1475,17 +1467,18 @@ position = Vector2(11, 21)
 dialogue_resource = ExtResource("9_4hflx")
 
 [node name="Dialogue" type="CollisionShape2D" parent="Wizard/Actionable"]
-position = Vector2(-1, -1)
+position = Vector2(20, -7)
 shape = SubResource("CircleShape2D_dcera")
 
 [node name="Spikes" parent="." instance=ExtResource("13_nrr2e")]
 position = Vector2(537, -17)
 
 [node name="Player" parent="." instance=ExtResource("2_ex8t0")]
-position = Vector2(28, -5)
+position = Vector2(-83.55, 624.52)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("14_dvcx8")]
+visible = false
 position = Vector2(-364, -241)
 
 [node name="Timer" type="Timer" parent="SceneTransitionAnimation"]
