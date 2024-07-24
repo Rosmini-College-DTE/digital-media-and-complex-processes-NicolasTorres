@@ -818,10 +818,10 @@ collision_mask = 18433
 script = ExtResource("1_l0y1s")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_7ff6w")]
-offset_left = 3.0
-offset_top = -31.0
-offset_right = 23.0
-offset_bottom = -29.0
+offset_left = 0.36
+offset_top = -33.855
+offset_right = 25.075
+offset_bottom = -29.275
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
