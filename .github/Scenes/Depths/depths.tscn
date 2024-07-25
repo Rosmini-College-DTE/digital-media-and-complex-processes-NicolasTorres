@@ -397,9 +397,9 @@ position = Vector2(-7223, 893)
 shape = SubResource("RectangleShape2D_0vq8h")
 debug_color = Color(1.8771e-06, 0.627539, 0.50093, 0.42)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rkrla")
-volume_db = 0.355
+volume_db = -10.874
 autoplay = true
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("1_xiqr1")]

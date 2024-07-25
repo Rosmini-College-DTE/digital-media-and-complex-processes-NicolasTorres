@@ -802,8 +802,10 @@ offset_bottom = -29.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(12, -16)
 sprite_frames = SubResource("SpriteFrames_3ywku")
-animation = &"teleporting"
+animation = &"idle"
 autoplay = "idle"
+frame = 6
+frame_progress = 0.695722
 
 [node name="Body Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(12, -13.5)
@@ -869,30 +871,33 @@ debug_color = Color(0, 0, 0, 0.42)
 [node name="Teleport" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(12, -16)
 stream = ExtResource("6_povil")
+volume_db = -1.953
 
 [node name="Run" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_0mbpf")
-volume_db = 12.207
+volume_db = 4.883
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_jjrnu")
+volume_db = -8.788
 
 [node name="Heal" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_0858o")
+volume_db = 1.465
 
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_hnmbo")
-volume_db = 5.934
+volume_db = 2.516
 attenuation = 0.574349
 
 [node name="Damaged" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_3x5i6")
-volume_db = 5.445
+volume_db = -1.879
 pitch_scale = 0.8
 attenuation = 0.840899
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_ilit5")
-volume_db = -9.278
+volume_db = -16.113
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

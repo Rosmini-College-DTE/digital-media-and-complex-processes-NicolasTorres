@@ -7,7 +7,7 @@ func _ready():
 	$Label.visible = false
 
 func action() -> void:
-	DialogueManager.show_example_dialogue_balloon(dialogue_resource, dialogue_start)
+	DialogueManager.show_dialogue_balloon(dialogue_resource, dialogue_start)
 
 func _on_body_exited(body):
 	if body.name == "Player":

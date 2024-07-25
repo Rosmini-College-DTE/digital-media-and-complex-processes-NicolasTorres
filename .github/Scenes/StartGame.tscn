@@ -1379,9 +1379,9 @@ tile_set = SubResource("TileSet_m5m85")
 format = 2
 layer_0/tile_data = PackedInt32Array(-196639, 524288, 7, -31, 524288, 7, -65567, 524288, 7, -131103, 524288, 7, -327681, 131072, 1, -262145, 131072, 1, -327683, 65536, 1, -327682, 65536, 1, -262146, 65536, 1, -262147, 65536, 1, -196611, 65536, 1, -196610, 65536, 1, -131074, 65536, 1, -131075, 65536, 1, -65539, 65536, 1, -65538, 65536, 1, -2, 65536, 1, -3, 65536, 1)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_lk2lv")
-volume_db = 1.43
+volume_db = -11.569
 autoplay = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -1474,11 +1474,10 @@ shape = SubResource("CircleShape2D_dcera")
 position = Vector2(537, -17)
 
 [node name="Player" parent="." instance=ExtResource("2_ex8t0")]
-position = Vector2(-83.55, 624.52)
+position = Vector2(28, -2)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("14_dvcx8")]
-visible = false
 position = Vector2(-364, -241)
 
 [node name="Timer" type="Timer" parent="SceneTransitionAnimation"]

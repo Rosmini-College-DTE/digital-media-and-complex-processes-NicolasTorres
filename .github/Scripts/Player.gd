@@ -173,7 +173,8 @@ func handle_movement_animation(dir):
 			elif velocity.y > 0:
 				anim_sprite.play("weapon_fall")
 				toggle_flip_sprite(dir)
-	if state.agreed:
+	
+	if DialogueManager.dialogue_ended and state.agreed:
 		velocity.x = 0
 		velocity.y = 0
 		anim_sprite.play("teleporting")

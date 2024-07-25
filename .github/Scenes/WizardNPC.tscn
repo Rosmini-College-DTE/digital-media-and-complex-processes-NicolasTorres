@@ -171,7 +171,7 @@ script = SubResource("GDScript_adafe")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4pwg4")
-animation = &"teleport"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Stomp" type="AudioStreamPlayer2D" parent="."]
@@ -185,6 +185,6 @@ shape = SubResource("RectangleShape2D_v0ebd")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_dqxeo")
-volume_db = 7.812
+volume_db = -2.441
 autoplay = true
 max_distance = 640.0

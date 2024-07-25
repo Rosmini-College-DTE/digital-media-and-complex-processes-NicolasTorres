@@ -154,7 +154,7 @@ func handle_death():
 	self.queue_free()
 
 func _on_timer_timeout():
-	$DirectionTimer.wait_time = choose([1.5,2.0,2.5])
+	$DirectionTimer.wait_time = choose([0,0,0])
 	if !is_boss_chase:
 		dir = choose([Vector2.RIGHT, Vector2.LEFT])
 		velocity.x = 0

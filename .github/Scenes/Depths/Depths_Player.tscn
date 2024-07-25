@@ -902,28 +902,30 @@ occluder = SubResource("OccluderPolygon2D_us07p")
 
 [node name="Run" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_rw5u4")
-volume_db = 12.207
+volume_db = 4.883
 
 [node name="Hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_s0mgq")
+volume_db = -8.788
 
 [node name="Heal" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ee7kr")
+volume_db = 1.465
 
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_fa1a8")
-volume_db = 5.934
+volume_db = 2.516
 attenuation = 0.574349
 
 [node name="Damaged" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_82xcd")
-volume_db = 5.934
+volume_db = -1.879
 pitch_scale = 0.8
 attenuation = 0.840899
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_0hbb5")
-volume_db = -9.277
+volume_db = -16.113
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="area_entered" from="DealDamageZone" to="." method="_on_deal_damage_zone_area_entered"]
