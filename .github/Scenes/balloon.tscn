@@ -72,6 +72,31 @@ default_font = ExtResource("2_huruf")
 [sub_resource type="Theme" id="Theme_ouipt"]
 default_font = ExtResource("2_huruf")
 
+[sub_resource type="Animation" id="Animation_761vh"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1077, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(601, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_nrtyh"]
 resource_name = "indicate"
 loop_mode = 1
@@ -96,31 +121,6 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(601, -0.25, 0, 0.25, 0, 592, -0.25, 0, 0.25, 0, 601, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5, 1)
-}
-
-[sub_resource type="Animation" id="Animation_761vh"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1077, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(601, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nvt7g"]
@@ -233,10 +233,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1077.0
-offset_top = 601.0
-offset_right = 1115.0
-offset_bottom = 633.0
+offset_left = -75.0
+offset_top = -47.0
+offset_right = -37.0
+offset_bottom = -15.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("5_b4qlb")
@@ -250,7 +250,7 @@ autoplay = "indicate"
 
 [node name="TalkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_y7rpu")
-volume_db = -18.589
+volume_db = -35.651
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
