@@ -399,7 +399,7 @@ debug_color = Color(1.8771e-06, 0.627539, 0.50093, 0.42)
 
 [node name="Theme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_rkrla")
-volume_db = -10.874
+volume_db = -18.198
 autoplay = true
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("1_xiqr1")]

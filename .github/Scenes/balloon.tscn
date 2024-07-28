@@ -44,7 +44,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uy0d5"]
-bg_color = Color(0.0862745, 0.0823529, 0.129412, 1)
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -171,7 +171,7 @@ layout_mode = 2
 theme_override_constants/separation = 30
 
 [node name="Portrait" type="TextureRect" parent="Balloon/Panel/Dialogue/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Balloon/Panel/Dialogue/HBoxContainer"]
@@ -250,7 +250,7 @@ autoplay = "indicate"
 
 [node name="TalkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_y7rpu")
-volume_db = -35.651
+volume_db = -26.374
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/Panel/Dialogue/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]

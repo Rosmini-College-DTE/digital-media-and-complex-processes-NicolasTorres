@@ -4,7 +4,7 @@ if state.talk_status == "didnot"
 	Shadow Wizard: I'm guessing you also wish to enter the depths to find the lost soul fragment?
 	Shadow Wizard: Although you did really well defeating those guys over there, I have to warn you. Once I send you down there you will not be able to come back up to the surface unless you find the fragment.
 	Shadow Wizard: The enemies that reside in the depths are stronger than those guys you just defeated. And the entity guarding the fragment is stronger than all of them combined,
-	Shadow Wizard: Are you sure you still willing to go?
+	Shadow Wizard: Are you still willing to go?
 	- Yes I am
 		Shadow Wizard: If you say so...
 		set state.agreed = true

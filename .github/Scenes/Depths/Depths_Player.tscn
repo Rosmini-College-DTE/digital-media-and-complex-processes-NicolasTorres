@@ -819,18 +819,18 @@ script = ExtResource("1_l0y1s")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_7ff6w")]
 offset_left = 0.36
-offset_top = -33.855
+offset_top = -36.0
 offset_right = 25.075
-offset_bottom = -29.275
+offset_bottom = -31.42
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(12, -16)
 sprite_frames = SubResource("SpriteFrames_3ywku")
-animation = &"hurt"
+animation = &"run"
 autoplay = "idle"
-frame = 4
-frame_progress = 1.0
+frame = 6
+frame_progress = 0.804761
 
 [node name="Body Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(12, -13.5)
@@ -910,7 +910,7 @@ volume_db = -8.788
 
 [node name="Heal" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_ee7kr")
-volume_db = 1.465
+volume_db = -16.269
 
 [node name="Death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_fa1a8")

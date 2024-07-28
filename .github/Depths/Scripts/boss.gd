@@ -85,7 +85,7 @@ func handle_animation():
 			deal_light_damage_zone.position.x = 1
 	elif !dead and taking_damage and !is_dealing_damage:
 		anim_sprite.play("hurt")
-		await get_tree().create_timer(.625).timeout
+		await get_tree().create_timer(.600).timeout
 		taking_damage = false
 	elif dead and is_roaming:
 		is_roaming = false

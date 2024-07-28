@@ -669,10 +669,8 @@ texture_filter = 1
 position = Vector2(-2, -56)
 scale = Vector2(0.96483, 0.96483)
 sprite_frames = SubResource("SpriteFrames_ka8iw")
-animation = &"walking"
+animation = &"deal_damage"
 autoplay = "idle"
-frame = 5
-frame_progress = 0.583451
 offset = Vector2(3.645, 18.65)
 
 [node name="bosscollision" type="CollisionShape2D" parent="."]
@@ -761,7 +759,7 @@ occluder = SubResource("OccluderPolygon2D_bpv3q")
 
 [node name="Theme song" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("68_ny434")
-volume_db = -8.945
+volume_db = -9.921
 autoplay = true
 max_distance = 500.0
 attenuation = 0.196147
