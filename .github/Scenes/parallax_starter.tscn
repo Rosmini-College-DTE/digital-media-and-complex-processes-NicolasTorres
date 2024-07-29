@@ -1,13 +1,111 @@
-[gd_scene format=3 uid="uid://cn2u1ysmltcfr"]
+[gd_scene load_steps=2 format=3 uid="uid://cn2u1ysmltcfr"]
+
+[ext_resource type="Texture2D" uid="uid://rywjkmrcymf7" path="res://Assets/Sprites/Wall.jpg" id="1_xdij6"]
 
 [node name="ParallaxStarter" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Pillars" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Walls9" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(231.16, 0)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1152, 648)
 
-[node name="bg" type="Sprite2D" parent="ParallaxBackground/Pillars"]
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/Walls9"]
+texture_filter = 1
+position = Vector2(720.308, 483.844)
+scale = Vector2(0.711111, 0.711111)
+texture = ExtResource("1_xdij6")
+centered = false
 
-[node name="Wall" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Walls8" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(115.58, 0)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1152, 648)
 
-[node name="mid" type="Sprite2D" parent="ParallaxBackground/Wall"]
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/Walls8"]
+texture_filter = 1
+position = Vector2(398.389, 504.429)
+scale = Vector2(0.711111, 0.711111)
+texture = ExtResource("1_xdij6")
+centered = false
+
+[node name="Walls7" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(57.79, 0)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/Walls7"]
+texture_filter = 1
+position = Vector2(1.19358, 504.514)
+scale = Vector2(0.711111, 0.711111)
+texture = ExtResource("1_xdij6")
+centered = false
+
+[node name="Walls6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/Walls6"]
+texture_filter = 1
+position = Vector2(939, 3)
+scale = Vector2(0.711111, 0.711111)
+texture = ExtResource("1_xdij6")
+centered = false
+
+[node name="Walls5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/Walls5"]
+texture_filter = 1
+position = Vector2(485, 3)
+scale = Vector2(0.711111, 0.711111)
+texture = ExtResource("1_xdij6")
+centered = false
+
+[node name="Walls4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(57.79, 0)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/Walls4"]
+texture_filter = 1
+position = Vector2(1, 3)
+scale = Vector2(0.711111, 0.711111)
+texture = ExtResource("1_xdij6")
+centered = false
+
+[node name="Walls3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/Walls3"]
+texture_filter = 1
+position = Vector2(514, 259)
+scale = Vector2(0.711111, 0.711111)
+texture = ExtResource("1_xdij6")
+centered = false
+
+[node name="Walls2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/Walls2"]
+texture_filter = 1
+position = Vector2(967.853, 259.02)
+scale = Vector2(0.711111, 0.711111)
+texture = ExtResource("1_xdij6")
+centered = false
+
+[node name="Walls" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(28.895, 0)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(1152, 648)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/Walls"]
+texture_filter = 1
+position = Vector2(30.105, 259)
+scale = Vector2(0.711111, 0.711111)
+texture = ExtResource("1_xdij6")
+centered = false
