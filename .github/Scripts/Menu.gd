@@ -3,6 +3,7 @@ extends Control
 func _process(delta):
 	global.bossDead = true
 	state.obtained = false
+	state.talk_status == "didnot"
 
 func _on_start_pressed():
 	get_tree().change_scene_to_file("res://Scenes/StartGame.tscn")
