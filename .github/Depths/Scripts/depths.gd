@@ -21,6 +21,7 @@ func _process(delta):
 		Labelanim.stop()
 	
 	if state.obtained == true:
+		$Light/PointLight2D.hide()
 		$SceneTransitionAnimation.show()
 		SceneTransitionAnimation.play("fade_white_in")
 		await get_tree().create_timer(2).timeout

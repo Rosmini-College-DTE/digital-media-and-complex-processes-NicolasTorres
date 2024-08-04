@@ -100,7 +100,8 @@ the starting area. Descend the depths
 while killing the enemies that may 
 attack you. Retrieve the lost soul 
 fragment by defeating the entity 
-guarding it."
+guarding it. Seek the pillars to
+regain health."
 label_settings = SubResource("LabelSettings_crcdw")
 horizontal_alignment = 1
 text_direction = 1
