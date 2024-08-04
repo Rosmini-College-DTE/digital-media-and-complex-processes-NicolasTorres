@@ -2,10 +2,12 @@ extends Control
 
 @onready var SceneTransitionAnimation = $SceneTransitionAnimation/AnimationPlayer
 @onready var scrollanimation = $AnimationPlayer
+@onready var verseanim = $Label2/AnimationPlayer
 
 func _ready():
 	SceneTransitionAnimation.play("fade_white_out")
 	scrollanimation.play("scroll")
+	verseanim.play("verse")
 	$ColorRect.hide()
 	await get_tree().create_timer(36.05).timeout
 	$ColorRect.show()

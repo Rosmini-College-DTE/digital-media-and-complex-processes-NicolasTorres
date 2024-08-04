@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cavxvpuiid1hc"]
+[gd_scene load_steps=16 format=3 uid="uid://cavxvpuiid1hc"]
 
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="1_qnkvx"]
 [ext_resource type="Script" path="res://Scenes/Depths/end_game.gd" id="1_r2ef4"]
@@ -76,6 +76,46 @@ font = ExtResource("1_qnkvx")
 font_size = 66
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_kgu8q"]
+font = ExtResource("1_qnkvx")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_7yxrf"]
+resource_name = "verse"
+length = 90.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 79.9, 90)
+}
+
+[sub_resource type="Animation" id="Animation_0ljvm"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yju52"]
+_data = {
+"RESET": SubResource("Animation_0ljvm"),
+"verse": SubResource("Animation_7yxrf")
+}
+
 [sub_resource type="Theme" id="Theme_do7tx"]
 
 [node name="End Game" type="Control"]
@@ -138,7 +178,7 @@ use and edit, according to their
 respective licences. Additional 
 Editing was done to the
 assets (ex. changing colour
-palettes or adding extra
+palettes and adding extra
 shading)
 
 Coding  -  Nicolas Torres
@@ -174,8 +214,23 @@ Thanks for playing!"
 label_settings = SubResource("LabelSettings_3plve")
 horizontal_alignment = 1
 
+[node name="Label2" type="Label" parent="."]
+offset_left = -24.0
+offset_top = 253.0
+offset_right = 1209.0
+offset_bottom = 382.0
+text = "Hebrews 11:6 - And without faith it is impossible to please him,
+ for whoever would draw near to God must believe that he exists
+ and that he rewards those who seek him."
+label_settings = SubResource("LabelSettings_kgu8q")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label2"]
+libraries = {
+"": SubResource("AnimationLibrary_yju52")
+}
+
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("3_unsnj")]
-visible = false
 position = Vector2(511, 359)
 
 [node name="ColorRect" type="ColorRect" parent="."]
