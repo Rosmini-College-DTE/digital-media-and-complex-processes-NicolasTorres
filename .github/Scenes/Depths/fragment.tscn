@@ -152,7 +152,7 @@ attenuation = 0.732042
 [node name="Light" type="PointLight2D" parent="."]
 position = Vector2(1, -22)
 scale = Vector2(1.71069, 0.271042)
-energy = 1.01
+energy = 0.18
 texture = SubResource("GradientTexture2D_16553")
 
 [connection signal="area_entered" from="Pickup" to="." method="_on_pickup_area_entered"]

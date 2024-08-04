@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var SceneTransitionAnimation = $SceneTransitionAnimation/AnimationPlayer
 @onready var player_camera = $Player/Camera2D
+@onready var Labelanim = $Player/label_anim
 
 func _ready():
 	global.bossDead = false
@@ -12,6 +13,13 @@ func _ready():
 	player_camera.enabled = true
 
 func _process(delta):
+	if global.bossDead == true:
+		$Lights/PointLight2D13.hide()
+		$Light/PointLight2D.show()
+		Labelanim.play("Fadeout")
+		await get_tree().create_timer(5).timeout
+		Labelanim.stop()
+	
 	if state.obtained == true:
 		$SceneTransitionAnimation.show()
 		SceneTransitionAnimation.play("fade_white_in")
