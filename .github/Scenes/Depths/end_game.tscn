@@ -214,7 +214,7 @@ TJ Tecson
 Reegan Walker
 Matthew Mcintosh
 Aquil Alejo
- 
+Nemo Hernandez 
 
 
 --------------------------
@@ -243,7 +243,6 @@ libraries = {
 }
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("3_unsnj")]
-visible = false
 position = Vector2(463, -1535)
 
 [node name="ColorRect" type="ColorRect" parent="."]
