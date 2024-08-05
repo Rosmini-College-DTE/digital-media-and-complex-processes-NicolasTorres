@@ -51,7 +51,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 7, 60),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(30, 226), Vector2(30, 226), Vector2(30, -5682)]
+"values": [Vector2(30, 226), Vector2(30, 226), Vector2(30, -6607)]
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -62,7 +62,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(60, 80)
+"times": PackedFloat32Array(60, 64)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ivj7c"]
@@ -81,21 +81,6 @@ font = ExtResource("1_qnkvx")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_7yxrf"]
-resource_name = "verse"
-length = 90.0
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:label_settings:font_color:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 79.9, 90)
-}
-
 [sub_resource type="Animation" id="Animation_0ljvm"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -108,6 +93,22 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_7yxrf"]
+resource_name = "verse"
+length = 90.0
+step = 1.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:label_settings:font_color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 64, 77)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yju52"]
@@ -145,7 +146,7 @@ layout_mode = 0
 offset_left = 30.0
 offset_top = 226.0
 offset_right = 1116.0
-offset_bottom = 6268.0
+offset_bottom = 7198.0
 text = "You have retrieved the 
 lost soul fragment succesfully...
 
@@ -176,7 +177,7 @@ Ansimuz - Underwater Tiles
 All Imported Assets are free to
 use and edit, according to their
 respective licences. Additional 
-Editing was done to the
+editing was done to the
 assets (ex. changing colour
 palettes and adding extra
 shading)
@@ -203,7 +204,17 @@ Redisigning        Torres
 Rough     -    Nicolas
 Sketching         Torres 
 
+Special Thanks to the early
+game testers:
 
+Dani Matthew
+Jonas Brent Liwanag
+Gian Luigi Paloso
+TJ Tecson
+Reegan Walker
+Matthew Mcintosh
+Aquil Alejo
+ 
 
 
 --------------------------
@@ -215,6 +226,7 @@ label_settings = SubResource("LabelSettings_3plve")
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = -24.0
 offset_top = 253.0
 offset_right = 1209.0
@@ -231,7 +243,8 @@ libraries = {
 }
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("3_unsnj")]
-position = Vector2(511, 359)
+visible = false
+position = Vector2(463, -1535)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
