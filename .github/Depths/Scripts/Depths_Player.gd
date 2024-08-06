@@ -43,10 +43,15 @@ func _ready():
 	can_take_damage = true
 	global.playerAlive = true
 	weapon_equip = true
+	speed = 200
 
 func _physics_process(delta):
 	global.playerWeaponEquip = weapon_equip
 	global.playerDamageZone = deal_damage_zone
+	
+	if state.obtained == true:
+		speed = 0
+		jump_power = 0
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta

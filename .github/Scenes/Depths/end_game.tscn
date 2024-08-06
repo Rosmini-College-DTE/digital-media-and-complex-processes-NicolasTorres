@@ -51,7 +51,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 7, 60),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(30, 226), Vector2(30, 226), Vector2(30, -6607)]
+"values": [Vector2(30, 226), Vector2(30, 226), Vector2(30, -6673)]
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -222,7 +222,7 @@ Nemo Hernandez
 
 
 
-Thank you  for playing!"
+Thank you for playing!"
 label_settings = SubResource("LabelSettings_3plve")
 horizontal_alignment = 1
 
@@ -244,6 +244,7 @@ libraries = {
 }
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("3_unsnj")]
+visible = false
 position = Vector2(463, -1535)
 
 [node name="ColorRect" type="ColorRect" parent="."]

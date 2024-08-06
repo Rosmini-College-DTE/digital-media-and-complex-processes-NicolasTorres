@@ -526,11 +526,13 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="Player"]
-offset_left = -88.0
-offset_top = -77.0
-offset_right = 131.0
-offset_bottom = -54.0
-text = "Let the light guide your path"
+offset_left = -72.0
+offset_top = -114.0
+offset_right = 116.0
+offset_bottom = -42.0
+text = "Keep pushing forward...
+Follow the light on
+the left..."
 label_settings = SubResource("LabelSettings_xt7d1")
 
 [node name="Light" type="Node" parent="."]
