@@ -228,9 +228,9 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = -24.0
+offset_left = -49.0
 offset_top = 253.0
-offset_right = 1209.0
+offset_right = 1184.0
 offset_bottom = 382.0
 text = "Hebrews 11:6 - And without faith it is impossible to please him,
  for whoever would draw near to God must believe that he exists
