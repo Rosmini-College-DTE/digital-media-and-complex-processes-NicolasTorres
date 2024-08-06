@@ -759,10 +759,11 @@ occluder = SubResource("OccluderPolygon2D_bpv3q")
 
 [node name="Theme song" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("68_ny434")
-volume_db = -9.921
+volume_db = -9.822
 autoplay = true
 max_distance = 500.0
 attenuation = 0.196147
+bus = &"Music"
 
 [connection signal="timeout" from="DirectionTimer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="DetectionArea" to="." method="_on_detection_area_area_entered"]

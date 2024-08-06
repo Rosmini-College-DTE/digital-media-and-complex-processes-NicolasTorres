@@ -1,5 +1,12 @@
 extends Control
 
+@onready var launch = $Launch/AnimationPlayer
+
+func _ready():
+	launch.play("startup")
+	await get_tree().create_timer(17).timeout
+	$Launch.hide()
+
 func _process(delta):
 	global.bossDead = true
 	state.obtained = false

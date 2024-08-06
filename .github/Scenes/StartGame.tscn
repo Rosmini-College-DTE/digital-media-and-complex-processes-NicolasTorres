@@ -1144,6 +1144,7 @@ layer_1/tile_data = PackedInt32Array(0, 65537, 0, 1, 65537, 0, 2, 65537, 0, 3, 6
 stream = ExtResource("3_lk2lv")
 volume_db = -11.569
 autoplay = true
+bus = &"Music"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-654.525, -32.25)
@@ -1240,11 +1241,6 @@ position = Vector2(537, -17)
 position = Vector2(28, -2)
 scale = Vector2(0.999999, 0.999999)
 
-[node name="SceneTransitionAnimation" parent="." instance=ExtResource("14_dvcx8")]
-position = Vector2(-364, -241)
-
-[node name="Timer" type="Timer" parent="SceneTransitionAnimation"]
-
 [node name="Lights" type="Node" parent="."]
 
 [node name="light" type="PointLight2D" parent="Lights"]
@@ -1286,3 +1282,8 @@ libraries = {
 }
 autoplay = "light"
 speed_scale = 4.0
+
+[node name="SceneTransitionAnimation" parent="." instance=ExtResource("14_dvcx8")]
+position = Vector2(-364, -241)
+
+[node name="Timer" type="Timer" parent="SceneTransitionAnimation"]

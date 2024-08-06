@@ -6,7 +6,7 @@ extends Control
 @onready var controlbutton = $menubuttons/Controls
 @onready var quitbutton = $menubuttons/Quit
 @onready var pause_menu = $"."
-
+@onready var volumes = $Volume
 
 
 func _on_continue_pressed():
@@ -32,6 +32,7 @@ func _on_back_pressed():
 	continuebutton.show()
 	controlbutton.show()
 	quitbutton.show()
+	volumes.show()
 
 func controlopener():
 	openedcontrols.show()
@@ -39,4 +40,5 @@ func controlopener():
 	continuebutton.hide()
 	controlbutton.hide()
 	quitbutton.hide()
+	volumes.hide()
 	

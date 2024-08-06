@@ -178,6 +178,7 @@ autoplay = "idle"
 stream = ExtResource("3_ye6gu")
 volume_db = 12.77
 attenuation = 0.225314
+bus = &"SFX"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 19)
@@ -188,3 +189,4 @@ stream = ExtResource("4_dqxeo")
 volume_db = -2.441
 autoplay = true
 max_distance = 640.0
+bus = &"SFX"

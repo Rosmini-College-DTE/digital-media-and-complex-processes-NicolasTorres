@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcnspdwxxbt8j"]
+[gd_scene load_steps=17 format=3 uid="uid://dcnspdwxxbt8j"]
 
 [ext_resource type="Script" path="res://Scripts/pausemenu.gd" id="1_fqmkq"]
 [ext_resource type="Texture2D" uid="uid://csh0l1f8u327t" path="res://Assets/Sprites/grdaiente.png" id="1_qrdla"]
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="2_14362"]
+[ext_resource type="PackedScene" uid="uid://6kj61617dxaq" path="res://Scenes/volume_slider.tscn" id="4_6mioa"]
 
 [sub_resource type="Theme" id="Theme_nlvmj"]
 default_font = ExtResource("2_14362")
@@ -25,6 +26,47 @@ font_color = Color(0.568627, 0.384314, 1, 1)
 [sub_resource type="Theme" id="Theme_lyvyj"]
 default_font = ExtResource("2_14362")
 default_font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_p12je"]
+font = ExtResource("2_14362")
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppxkp"]
+bg_color = Color(0.278777, 0.0878315, 0.340524, 1)
+border_width_left = 3
+border_width_top = 6
+border_width_right = 4
+border_color = Color(0.77895, 0.235968, 0.992942, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_br5x7"]
+bg_color = Color(0.212933, 0.000382134, 0.337459, 1)
+border_width_left = 3
+border_width_top = 6
+border_width_right = 4
+border_color = Color(0.505882, 0.0117647, 0.941176, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oocfc"]
+bg_color = Color(0.168627, 0.0431373, 0.372549, 0.376471)
+border_width_left = 3
+border_width_top = 6
+border_width_right = 4
+border_color = Color(0.721569, 0.364706, 1, 0.360784)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_nl83b"]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ppxkp")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_br5x7")
+HSlider/styles/slider = SubResource("StyleBoxFlat_oocfc")
+
+[sub_resource type="LabelSettings" id="LabelSettings_h6vtl"]
+font = ExtResource("2_14362")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_1xhii"]
+font = ExtResource("2_14362")
+font_size = 20
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -126,6 +168,49 @@ theme_override_colors/font_color = Color(0.723083, 0.36526, 0.999512, 1)
 theme_override_colors/font_hover_color = Color(0.152941, 0.0627451, 0.223529, 1)
 text = "<Back"
 flat = true
+
+[node name="Volume" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 478.0
+offset_right = 234.0
+offset_bottom = 630.0
+
+[node name="Master" type="Label" parent="Volume"]
+layout_mode = 2
+text = "Master Volume
+"
+label_settings = SubResource("LabelSettings_p12je")
+horizontal_alignment = 1
+
+[node name="master" parent="Volume" instance=ExtResource("4_6mioa")]
+layout_mode = 2
+theme = SubResource("Theme_nl83b")
+bus_name = "Master"
+
+[node name="Music" type="Label" parent="Volume"]
+layout_mode = 2
+text = "Music Volume
+"
+label_settings = SubResource("LabelSettings_h6vtl")
+horizontal_alignment = 1
+
+[node name="music" parent="Volume" instance=ExtResource("4_6mioa")]
+layout_mode = 2
+theme = SubResource("Theme_nl83b")
+bus_name = "Music"
+
+[node name="SFX" type="Label" parent="Volume"]
+layout_mode = 2
+text = "SFX Volume
+"
+label_settings = SubResource("LabelSettings_1xhii")
+horizontal_alignment = 1
+
+[node name="sfx" parent="Volume" instance=ExtResource("4_6mioa")]
+layout_mode = 2
+theme = SubResource("Theme_nl83b")
+bus_name = "SFX"
 
 [connection signal="pressed" from="menubuttons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="menubuttons/Controls" to="." method="_on_controls_pressed"]

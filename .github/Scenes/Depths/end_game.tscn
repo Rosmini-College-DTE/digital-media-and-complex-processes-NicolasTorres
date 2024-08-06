@@ -146,7 +146,7 @@ layout_mode = 0
 offset_left = 30.0
 offset_top = 226.0
 offset_right = 1116.0
-offset_bottom = 7198.0
+offset_bottom = 7291.0
 text = "You have retrieved the 
 lost soul fragment succesfully...
 
@@ -182,8 +182,7 @@ assets (ex. changing colour
 palettes and adding extra
 shading)
 
-Coding  -  Nicolas Torres
-
+Developer  -  Nicolas Torres
 Bug fixing  -  Nicolas Torres
 
 Project   -   Nicolas
@@ -200,11 +199,13 @@ Character    -      Nicolas
 Editing             Torres
 Tile        -     Nicolas
 Redisigning        Torres
+Icon Creator  -  Nicolas Torres
 
 Rough     -    Nicolas
 Sketching         Torres 
 
-Special Thanks to the early
+
+Special thanks to the early
 game testers:
 
 Dani Matthew
@@ -221,7 +222,7 @@ Nemo Hernandez
 
 
 
-Thanks for playing!"
+Thank you  for playing!"
 label_settings = SubResource("LabelSettings_3plve")
 horizontal_alignment = 1
 
@@ -271,5 +272,6 @@ flat = true
 stream = ExtResource("4_fr3vo")
 volume_db = -23.98
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]

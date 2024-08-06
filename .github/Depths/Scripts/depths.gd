@@ -18,7 +18,7 @@ func _process(delta):
 		$Light/PointLight2D.show()
 		Labelanim.play("Fadeout")
 		await get_tree().create_timer(5).timeout
-		Labelanim.stop()
+		$Player/Label.hide()
 	
 	if state.obtained == true:
 		$Light/PointLight2D.hide()

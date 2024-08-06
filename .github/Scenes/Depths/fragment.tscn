@@ -148,6 +148,7 @@ scale = Vector2(1.71069, 0.271042)
 stream = ExtResource("3_mpkqk")
 volume_db = -16.046
 attenuation = 0.732042
+bus = &"SFX"
 
 [node name="Light" type="PointLight2D" parent="."]
 position = Vector2(1, -22)
