@@ -232,9 +232,8 @@ offset_left = -49.0
 offset_top = 253.0
 offset_right = 1184.0
 offset_bottom = 382.0
-text = "Hebrews 11:6 - And without faith it is impossible to please him,
- for whoever would draw near to God must believe that he exists
- and that he rewards those who seek him."
+text = "2 Timothy 4:7 \"I have fought the good fight, 
+I have finished the race, I have kept the faith.\""
 label_settings = SubResource("LabelSettings_kgu8q")
 horizontal_alignment = 1
 
