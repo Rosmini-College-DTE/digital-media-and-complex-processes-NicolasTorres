@@ -10,6 +10,7 @@ extends Control
 
 
 func _on_continue_pressed():
+	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_HIDDEN)
 	if global.paused:
 		pause_menu.show()
 		Engine.time_scale = 0

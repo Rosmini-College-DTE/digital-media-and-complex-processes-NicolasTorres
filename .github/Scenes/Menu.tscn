@@ -802,16 +802,19 @@ offset = Vector2(-65.42, 11.35)
 script = ExtResource("6_k82qv")
 
 [node name="Rectangle" type="Sprite2D" parent="."]
+modulate = Color(0.137255, 0.505882, 0.631373, 1)
 position = Vector2(82, 415)
 scale = Vector2(9.26563, 3.8125)
 texture = ExtResource("7_n5c5g")
 
 [node name="Rectangle2" type="Sprite2D" parent="."]
+modulate = Color(0.137255, 0.505882, 0.631373, 1)
 position = Vector2(82.0625, 509)
 scale = Vector2(9.25781, 3.80928)
 texture = ExtResource("7_n5c5g")
 
 [node name="Rectangle3" type="Sprite2D" parent="."]
+modulate = Color(0.137255, 0.505882, 0.631373, 1)
 position = Vector2(83, 603)
 scale = Vector2(9.25781, 3.80928)
 texture = ExtResource("7_n5c5g")
@@ -838,8 +841,9 @@ offset_bottom = 648.501
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
 theme = SubResource("Theme_j8xp2")
-theme_override_colors/font_color = Color(0.568627, 0.384314, 1, 1)
-theme_override_colors/font_hover_color = Color(0.0705882, 0.172549, 0.392157, 1)
+theme_override_colors/font_color = Color(0.0705882, 0.172549, 0.392157, 1)
+theme_override_colors/font_pressed_color = Color(0.229066, 0.428825, 0.843483, 1)
+theme_override_colors/font_hover_color = Color(0.017757, 0.067927, 0.186853, 1)
 text = "Start"
 flat = true
 vertical_icon_alignment = 2
@@ -847,8 +851,9 @@ vertical_icon_alignment = 2
 [node name="Controls" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_6f5sx")
-theme_override_colors/font_color = Color(0.568627, 0.384314, 1, 1)
-theme_override_colors/font_hover_color = Color(0.0705882, 0.172549, 0.392157, 1)
+theme_override_colors/font_color = Color(0.0705882, 0.172549, 0.392157, 1)
+theme_override_colors/font_pressed_color = Color(0.229066, 0.428825, 0.843483, 1)
+theme_override_colors/font_hover_color = Color(0.017757, 0.067927, 0.186853, 1)
 text = "Controls
 "
 flat = true
@@ -858,8 +863,9 @@ vertical_icon_alignment = 2
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Start")
 theme = SubResource("Theme_x2pas")
-theme_override_colors/font_color = Color(0.568627, 0.384314, 1, 1)
-theme_override_colors/font_hover_color = Color(0.0705882, 0.172549, 0.392157, 1)
+theme_override_colors/font_color = Color(0.0705882, 0.172549, 0.392157, 1)
+theme_override_colors/font_pressed_color = Color(0.229066, 0.428825, 0.843483, 1)
+theme_override_colors/font_hover_color = Color(0.017757, 0.067927, 0.186853, 1)
 text = "Quit
 "
 flat = true

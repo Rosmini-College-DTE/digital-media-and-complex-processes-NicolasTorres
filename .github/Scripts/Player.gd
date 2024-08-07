@@ -210,9 +210,11 @@ func toggle_damage_collisions(attack_type):
 #Pause Menu
 func pausemenu():
 	if global.paused:
+		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		pause_menu.show()
 		Engine.time_scale = 0
 	else:
+		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_HIDDEN)
 		pause_menu.hide()
 		Engine.time_scale = 1
 	global.paused = !global.paused

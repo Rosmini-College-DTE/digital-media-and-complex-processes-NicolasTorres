@@ -6,6 +6,7 @@ func _ready():
 	launch.play("startup")
 	await get_tree().create_timer(17).timeout
 	$Launch.hide()
+	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 
 func _process(delta):
 	global.bossDead = true

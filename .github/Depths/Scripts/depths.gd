@@ -11,6 +11,7 @@ func _ready():
 	await get_tree().create_timer(1).timeout
 	$SceneTransitionAnimation.hide()
 	player_camera.enabled = true
+	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_HIDDEN)
 
 func _process(delta):
 	if global.bossDead == true:
