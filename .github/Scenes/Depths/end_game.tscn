@@ -249,7 +249,7 @@ libraries = {
 }
 
 [node name="SceneTransitionAnimation" parent="." instance=ExtResource("3_unsnj")]
-position = Vector2(606, 328)
+position = Vector2(462, 336)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
