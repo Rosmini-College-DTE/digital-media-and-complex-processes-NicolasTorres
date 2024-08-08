@@ -832,13 +832,14 @@ debug_color = Color(0.517271, 0.531961, 0.603165, 0.42)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(12, -16)
 zoom = Vector2(1.435, 1.435)
+drag_vertical_offset = -0.59
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_1wbyx")]
 visible = false
 offset_left = -398.0
-offset_top = -255.0
+offset_top = -290.0
 offset_right = 560.0
-offset_bottom = 406.0
+offset_bottom = 371.0
 scale = Vector2(0.71, 0.71)
 
 [node name="DealDamageZone" type="Area2D" parent="."]

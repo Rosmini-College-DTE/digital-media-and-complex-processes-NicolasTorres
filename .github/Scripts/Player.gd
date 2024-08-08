@@ -222,9 +222,9 @@ func pausemenu():
 #Dialogue
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
-		DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 		var actionables = dialogue_detector.get_overlapping_areas()
 		if actionables.size() > 0:
+			DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_VISIBLE)
 			actionables[0].action()
 			speed = 0
 			jump_power = 0
