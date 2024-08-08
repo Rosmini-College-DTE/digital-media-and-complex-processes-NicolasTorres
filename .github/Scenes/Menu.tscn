@@ -941,7 +941,7 @@ libraries = {
 
 [node name="Accept" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_s44wi")
-volume_db = -17.613
+volume_db = -26.818
 pitch_scale = 1.26
 bus = &"SFX"
 
