@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://yu7fjacs3a1j"]
+[gd_scene load_steps=24 format=3 uid="uid://yu7fjacs3a1j"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_ehpve"]
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="2_gnfks"]
@@ -11,6 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://by83ek3bay4qf" path="res://Assets/Music/Where We're Going.mp3" id="8_eaq30"]
 [ext_resource type="Texture2D" uid="uid://c5if53txfqx3a" path="res://Icon.png" id="10_ebojl"]
 [ext_resource type="Texture2D" uid="uid://cnfrlcnrc1fhb" path="res://headphones.png" id="11_n1g5h"]
+[ext_resource type="AudioStream" uid="uid://bbssj7xi4j4ih" path="res://Assets/Music/Accept.mp3" id="12_s44wi"]
+[ext_resource type="AudioStream" uid="uid://0ry8wg8n3k88" path="res://Assets/Music/Select.mp3" id="13_8lc6k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fjc6j"]
 font = ExtResource("2_gnfks")
@@ -873,7 +875,7 @@ vertical_icon_alignment = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_eaq30")
-volume_db = -19.175
+volume_db = -27.562
 autoplay = true
 bus = &"Music"
 
@@ -937,6 +939,20 @@ libraries = {
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_s44wi")
+volume_db = -17.613
+pitch_scale = 1.26
+bus = &"SFX"
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_8lc6k")
+volume_db = -26.818
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Controls" to="." method="_on_controls_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

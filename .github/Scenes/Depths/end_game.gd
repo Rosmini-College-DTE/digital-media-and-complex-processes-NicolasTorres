@@ -15,4 +15,9 @@ func _ready():
 	$ColorRect.show()
 
 func _on_button_pressed():
+	$Accept.play()
 	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
+
+
+func _on_button_mouse_entered():
+	$Select.play()

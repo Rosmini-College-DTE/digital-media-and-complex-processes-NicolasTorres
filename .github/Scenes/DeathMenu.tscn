@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1socle1ovgly"]
+[gd_scene load_steps=10 format=3 uid="uid://b1socle1ovgly"]
 
 [ext_resource type="Script" path="res://Scripts/DeathMenu.gd" id="1_pavpt"]
 [ext_resource type="Texture2D" uid="uid://40hryjd43q88" path="res://Assets/Sprites/underwater Death.jpg" id="2_1vxf2"]
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="3_pvrr0"]
+[ext_resource type="AudioStream" uid="uid://c33o6w4q8rc22" path="res://Assets/Music/Death menus (water.mp3" id="4_up737"]
+[ext_resource type="AudioStream" uid="uid://bbssj7xi4j4ih" path="res://Assets/Music/Accept.mp3" id="5_et800"]
+[ext_resource type="AudioStream" uid="uid://0ry8wg8n3k88" path="res://Assets/Music/Select.mp3" id="6_kwr20"]
 
 [sub_resource type="Theme" id="Theme_dykfu"]
 default_font = ExtResource("3_pvrr0")
@@ -67,5 +70,24 @@ grow_horizontal = 2
 text = "You died..."
 label_settings = SubResource("LabelSettings_oq7iy")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_up737")
+volume_db = -22.646
+autoplay = true
+bus = &"Music"
+
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_et800")
+volume_db = -26.818
+pitch_scale = 1.26
+bus = &"SFX"
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_kwr20")
+volume_db = -26.818
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="VBoxContainer/Restart" to="." method="_on_restart_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

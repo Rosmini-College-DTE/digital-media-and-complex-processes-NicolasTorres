@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy2wstgyadcjj"]
+[gd_scene load_steps=10 format=3 uid="uid://dy2wstgyadcjj"]
 
 [ext_resource type="Script" path="res://Scripts/castle_DeathMenu.gd" id="1_wpfnj"]
 [ext_resource type="Texture2D" uid="uid://y38qj4meu7av" path="res://Assets/Sprites/Brick wall.jpeg" id="2_6lgnl"]
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="3_pvrr0"]
+[ext_resource type="AudioStream" uid="uid://hrg040holke8" path="res://Assets/Music/Death menus.mp3" id="4_bi3qv"]
+[ext_resource type="AudioStream" uid="uid://bbssj7xi4j4ih" path="res://Assets/Music/Accept.mp3" id="5_k1rlq"]
+[ext_resource type="AudioStream" uid="uid://0ry8wg8n3k88" path="res://Assets/Music/Select.mp3" id="6_qmku7"]
 
 [sub_resource type="Theme" id="Theme_dykfu"]
 default_font = ExtResource("3_pvrr0")
@@ -25,40 +28,179 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wpfnj")
 
-[node name="UnderwaterDeath4" type="Sprite2D" parent="."]
+[node name="UnderwaterDeath6" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
 texture_filter = 1
-position = Vector2(273.499, 435.003)
-scale = Vector2(1.148, 0.793)
+position = Vector2(958.451, 387)
+scale = Vector2(0.464835, 0.50029)
 texture = ExtResource("2_6lgnl")
 
-[node name="UnderwaterDeath3" type="Sprite2D" parent="."]
+[node name="UnderwaterDeath7" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
 texture_filter = 1
-position = Vector2(853.032, 436.207)
-scale = Vector2(1.148, 0.793)
+position = Vector2(681.451, 387)
+scale = Vector2(0.464835, 0.50029)
 texture = ExtResource("2_6lgnl")
 
-[node name="UnderwaterDeath2" type="Sprite2D" parent="."]
+[node name="UnderwaterDeath8" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
 texture_filter = 1
-position = Vector2(859, 132)
-scale = Vector2(1.148, 0.793)
+position = Vector2(1235, 387)
+scale = Vector2(0.464835, 0.50029)
 texture = ExtResource("2_6lgnl")
 
 [node name="UnderwaterDeath5" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
 texture_filter = 1
-position = Vector2(913, 749)
-scale = Vector2(1.148, 0.793)
+position = Vector2(404, 387)
+scale = Vector2(0.464835, 0.50029)
 texture = ExtResource("2_6lgnl")
 
-[node name="UnderwaterDeath6" type="Sprite2D" parent="."]
+[node name="UnderwaterDeath4" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
 texture_filter = 1
-position = Vector2(272, 746)
-scale = Vector2(1.148, 0.793)
+position = Vector2(127, 387)
+scale = Vector2(0.464835, 0.50029)
 texture = ExtResource("2_6lgnl")
 
-[node name="UnderwaterDeath" type="Sprite2D" parent="."]
+[node name="UnderwaterDeath9" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
 texture_filter = 1
-position = Vector2(179, 134)
-scale = Vector2(1.148, 0.793)
+position = Vector2(958.901, 583.807)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath10" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(681.901, 583.807)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath11" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(1235.45, 583.807)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath12" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(404.451, 583.807)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath13" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(127.451, 583.807)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath14" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(958.451, 387)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath15" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(681.451, 387)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath16" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(1235, 387)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath17" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(404, 387)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath18" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(127, 387)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath19" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(958.451, 189.807)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath20" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(681.451, 189.807)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath21" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(1235, 189.807)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath22" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(404, 189.807)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath23" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(127, 189.807)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath24" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(958.451, -7.19273)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath25" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(681.451, -7.1927)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath26" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(1235, -7.19273)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath27" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(404, -7.19273)
+scale = Vector2(0.464835, 0.50029)
+texture = ExtResource("2_6lgnl")
+
+[node name="UnderwaterDeath28" type="Sprite2D" parent="."]
+modulate = Color(0.196638, 0.233728, 0.28376, 1)
+texture_filter = 1
+position = Vector2(127, -7.1927)
+scale = Vector2(0.464835, 0.50029)
 texture = ExtResource("2_6lgnl")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -71,14 +213,14 @@ offset_bottom = 303.0
 [node name="Restart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_dykfu")
-theme_override_colors/font_hover_color = Color(0.302016, 0.310452, 0.333786, 1)
+theme_override_colors/font_hover_color = Color(0.719039, 0.787481, 0.870928, 1)
 text = " Restart"
 flat = true
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_njil6")
-theme_override_colors/font_hover_color = Color(0.301961, 0.309804, 0.333333, 1)
+theme_override_colors/font_hover_color = Color(0.717647, 0.788235, 0.870588, 1)
 text = "Quit"
 flat = true
 
@@ -95,5 +237,24 @@ grow_horizontal = 2
 text = "You died..."
 label_settings = SubResource("LabelSettings_oq7iy")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bi3qv")
+volume_db = -17.613
+autoplay = true
+bus = &"Music"
+
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_k1rlq")
+volume_db = -26.818
+pitch_scale = 1.26
+bus = &"SFX"
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qmku7")
+volume_db = -26.818
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="VBoxContainer/Restart" to="." method="_on_restart_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

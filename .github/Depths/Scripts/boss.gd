@@ -89,7 +89,6 @@ func handle_animation():
 		taking_damage = false
 	elif dead and is_roaming:
 		is_roaming = false
-		
 		anim_sprite.play("death")
 		damage_zone_collision.disabled = true
 		damage_heavy_zone_collision.disabled = true

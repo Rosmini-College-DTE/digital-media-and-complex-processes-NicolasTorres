@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://cavxvpuiid1hc"]
+[gd_scene load_steps=18 format=3 uid="uid://cavxvpuiid1hc"]
 
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="1_qnkvx"]
 [ext_resource type="Script" path="res://Scenes/Depths/end_game.gd" id="1_r2ef4"]
 [ext_resource type="PackedScene" uid="uid://bsv3rjxqt0cc0" path="res://Scenes/scene_transition_animation.tscn" id="3_unsnj"]
 [ext_resource type="AudioStream" uid="uid://dm7kt0iskdqu2" path="res://Scenes/Depths/end song.mp3" id="4_fr3vo"]
+[ext_resource type="AudioStream" uid="uid://bbssj7xi4j4ih" path="res://Assets/Music/Accept.mp3" id="5_nnotf"]
+[ext_resource type="AudioStream" uid="uid://0ry8wg8n3k88" path="res://Assets/Music/Select.mp3" id="6_qusny"]
 
 [sub_resource type="Gradient" id="Gradient_ae3pf"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -51,7 +53,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 7, 60),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(30, 226), Vector2(30, 226), Vector2(30, -6673)]
+"values": [Vector2(30, 226), Vector2(30, 226), Vector2(30, -6911)]
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -146,7 +148,7 @@ layout_mode = 0
 offset_left = 30.0
 offset_top = 226.0
 offset_right = 1116.0
-offset_bottom = 7291.0
+offset_bottom = 7477.0
 text = "You have retrieved the 
 lost soul fragment succesfully...
 
@@ -201,6 +203,8 @@ Tile        -     Nicolas
 Redisigning        Torres
 Icon Creator  -  Nicolas Torres
 
+Death Menu  -  Nicolas
+Song Covers      Torres
 Rough     -    Nicolas
 Sketching         Torres 
 
@@ -273,4 +277,16 @@ volume_db = -23.98
 autoplay = true
 bus = &"Music"
 
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_nnotf")
+volume_db = -26.818
+pitch_scale = 1.26
+bus = &"SFX"
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qusny")
+volume_db = -26.818
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="ColorRect/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]

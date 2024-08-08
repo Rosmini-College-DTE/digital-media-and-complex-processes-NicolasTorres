@@ -73,8 +73,8 @@ func handle_animation():
 	elif dead and is_roaming:
 		var damage_zone_collision = deal_damage_zone.get_node("CollisionShape2D")
 		is_roaming = false
-		damage_zone_collision.disabled = true
 		anim_sprite.play("death")
+		damage_zone_collision.disabled = true
 		await get_tree().create_timer(1).timeout
 		anim_sprite.play("smoke")
 		await get_tree().create_timer(.6).timeout

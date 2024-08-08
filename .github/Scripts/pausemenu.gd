@@ -10,6 +10,7 @@ extends Control
 
 
 func _on_continue_pressed():
+	$Accept.play()
 	DisplayServer.mouse_set_mode(DisplayServer.MOUSE_MODE_HIDDEN)
 	if global.paused:
 		pause_menu.show()
@@ -23,11 +24,14 @@ func _on_continue_pressed():
 
 func _on_controls_pressed():
 	controlopener()
+	$Accept.play()
 
 func _on_quit_pressed():
 	get_tree().quit()
+	$Accept.play()
 
 func _on_back_pressed():
+	$Accept.play()
 	openedcontrols.hide()
 	backbutton.hide()
 	continuebutton.show()
@@ -43,3 +47,15 @@ func controlopener():
 	quitbutton.hide()
 	volumes.hide()
 	
+
+func _on_continue_mouse_entered():
+	$Select.play()
+
+func _on_controls_mouse_entered():
+	$Select.play()
+
+func _on_quit_mouse_entered():
+	$Select.play()
+
+func _on_back_mouse_entered():
+	$Select.play()

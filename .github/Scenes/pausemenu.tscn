@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dcnspdwxxbt8j"]
+[gd_scene load_steps=19 format=3 uid="uid://dcnspdwxxbt8j"]
 
 [ext_resource type="Script" path="res://Scripts/pausemenu.gd" id="1_fqmkq"]
 [ext_resource type="Texture2D" uid="uid://csh0l1f8u327t" path="res://Assets/Sprites/grdaiente.png" id="1_qrdla"]
 [ext_resource type="FontFile" uid="uid://qeedb2q11q02" path="res://Assets/Sprites/cute-prop/retro-pixel-cute-prop.ttf" id="2_14362"]
 [ext_resource type="PackedScene" uid="uid://6kj61617dxaq" path="res://Scenes/volume_slider.tscn" id="4_6mioa"]
+[ext_resource type="AudioStream" uid="uid://bbssj7xi4j4ih" path="res://Assets/Music/Accept.mp3" id="5_x5ve1"]
+[ext_resource type="AudioStream" uid="uid://0ry8wg8n3k88" path="res://Assets/Music/Select.mp3" id="6_1eywt"]
 
 [sub_resource type="Theme" id="Theme_nlvmj"]
 default_font = ExtResource("2_14362")
@@ -212,7 +214,22 @@ layout_mode = 2
 theme = SubResource("Theme_nl83b")
 bus_name = "SFX"
 
+[node name="Accept" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_x5ve1")
+volume_db = -26.818
+pitch_scale = 1.26
+bus = &"SFX"
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1eywt")
+volume_db = -26.818
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="menubuttons/Continue" to="." method="_on_continue_mouse_entered"]
 [connection signal="pressed" from="menubuttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="mouse_entered" from="menubuttons/Controls" to="." method="_on_controls_mouse_entered"]
 [connection signal="pressed" from="menubuttons/Controls" to="." method="_on_controls_pressed"]
+[connection signal="mouse_entered" from="menubuttons/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="menubuttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="backbutton/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="backbutton/Back" to="." method="_on_back_pressed"]
