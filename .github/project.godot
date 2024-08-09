@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Bullet hell type of platformer"
+config/name="Forgotten Depths"
 run/main_scene="res://Scenes/Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/show_image=false
